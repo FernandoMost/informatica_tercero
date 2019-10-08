@@ -1,0 +1,808 @@
+A)Asignar direcciones
+
+194.24.0.0/18 
+
+Rango-> 194.24.0.0- 194.24.63.0 (el límite superior se obtiene poniendo la parte de host con unos)
+
+---------------------------------
+Coruña -> 2048=2¹¹ -> 11 bits, máscara /21
+Base: 194.24.0.0
+Broadcast: 194.24.7.255
+Máscara: 255.255.248.0
+---------------------------------
+Santiago -> 4096=2¹² -> 12 bits, máscara /20
+Base: 194.24.16.0  
+Broadcast: 194.24.31.255
+Máscara: 255.255.240.0
+---------------------------------
+Vigo -> 1024=2¹⁰ -> 10 bits, máscara /22
+Base: 194.24.8.0
+Broadcast: 194.24.11.255
+Máscara: 255.255.252.0
+
+En este caso se puede empezar a partir de la 32, no estaría mal, pero se utiliza de forma poco
+inteligente el espacio de direcciones. Si alguien despues pide 8000 y algo de direcciones, aunque
+ahora estén disponibles, al empezar por la posicion 32, no se podrian asignar, o al menos no todas
+juntas. Lo ideal es empezar por las posiciones libres.
+
+
+B)Las IPs que quedan libres son:
+
+194.24.12.0 - 194.24.15.255 -> 194.24.12.0/22
+194.24.32.0 - 194.24.63.255 -> 194.24.32.0/19
+
+No se pueden asignar a una unica subred, en primer lugar son dos bloques separados, por otro lado
+no son potencia entera de 2. No es posible encontrar una dirección ni una máscara única. 
+
+
+C) Router   (en este caso la interfaz y la metrica de la tabla del router se inventan)
+	
+	Destino		|	 Interfaz 	|	 Métrica
+   194.24.0.0	|	  int i 	|	i saltos   -> Coruña
+   194.24.16.0	|	  int j 	|	j saltos   -> Santiago
+  194.24.8.0	|	  int k 	|	k saltos   -> Vigo
+    0.0.0.0 	|     int p 	| 	p saltos   -> Por defecto
+
+
+D) 194.24.17.4
+
+Miramos la máscara de la Coruña
+194.24.00010001.4 and 255.255.11111000.0 = 194.24.00010000.0 ->194.24.16.0 
+No coincide con la dirección base
+
+Miramos con la de Santiago
+194.24.00010001.4 and 255.255.11110000.0 = 194.24.00010000.0 ->194.24.16.0 
+Coincide con la dirección base
+
+
+--HAY QUE COMPROBAR CON LA MÁSCARA MÁS GRANDE, PUEDE COINCIDIR CON MÁS DE UNA. 
+--Mirar apartado E)
+
+E) Agragación de rutas
+
+En este ejemplo, si se quieren juntar todas las direcciones en una sola:
+
+se hace un AND de las direcciones:
+
+194.24.00000000.0
+194.24.00001000.0
+194.24.00010000.0
+_________________
+194.24.00000000.0  -> 194.24.0.0/19
+ 
+ ¿Qué ocurre con los bloques de direcciones libres?
+ -sí se mandara a un bloque que no ha sido asignado el datagrama se reenviaría hasta que el tiempo de vida
+ se agotara.
+
+ -Sí ahora se asigna el rango 194.24.12.0 - 194.24.15.255  a la ULL ->  194.24.12.0/22
+
+ 	Destino		|	 Interfaz 	|	 Métrica
+   194.24.0.0	|	  int j 	|	j saltos   -> Zona de Galicia
+   194.24.12.0  |	  int l 	| 	x saltos   -> La laguna
+    0.0.0.0 	|     int p 	| 	p saltos   -> Por defecto
+
+Sí se quiere enviar un datagrama :
+
+194.24.00001101.4 AND 255.255.11100000.0 = 194.24.0.0 coincide con una dirección base.
+
+194.24.00001101.4 AND 255.255.11111100.0 = 194.24.00001100.0 -> 194.24.12. Que coincide con la dirección 
+base de la ULL. Por ello hay que mirar siempre, aunque haya coincidencias, con las máscaras más grandes.
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="theme-color" content="#1565c0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>gradox</title>
+
+    <link rel="icon" href="img/favicon.png">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/agency.css.php" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="httpss://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="httpss://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body id="page-top" class="index">
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="page-scroll" href="#page-top">
+                    <!--<img height=50 src="img/logoCabecera.svg" alt="logo"/>-->
+                    <img height=50 src="img/logo_viejo.svg" alt="logo"/>
+		</a>
+<!--<a href="info/index.html"><button type="button" class="btn btn-default" aria-label="Left Align">
+<span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+</button></a>-->
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  
+<ul class="nav navbar-nav navbar-right">
+	    <li class="hidden">
+		<a href="#page-top"></a>
+	    </li>
+	    <li>
+		<a class="page-scroll" href="#ultimos_arquivos">Últimos arquivos</a>
+	    </li>
+	    <li>
+		<a class="page-scroll" href="#cursos">Cursos</a>
+	    </li>
+	    <!--<li>
+		<a target="_blank" href="libros.php">Libros</a>
+	    </li>-->             
+	    <!--<li>
+		<a class="page-scroll" href="#contact">Contacto</a>
+	    </li>-->
+			<li>
+		<a target="_blank" class="page-scroll" href="subir.php">Subir arquivo</a>
+	    </li>    
+	    <li>
+		<a class="page-scroll" href="?accion=sair">Pechar sesión</a>
+	    </li>
+	</ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</div>
+<!-- /.container-fluid -->
+</nav>
+
+
+<!-- Header -->
+<header>
+<div id="cvh">
+    <form id="bsqd" action="?" method="get" accept-charset="UTF-8">
+	<div class="inner-addon left-addon">
+	    <input autocomplete="off" placeholder="buscar..." autofocus type="text" class="form-control center" id="query" name="q" onkeypress="if (event.keyCode == 13) document.getElementById('bsqd').submit()" />
+    	</div>
+    </form>
+
+</div>
+</header>
+
+<!-- Sección de últimos arquivos -->
+<section id="ultimos_arquivos">
+<div class="container">
+    <div class="row">
+	<div class="col-lg-12 text-center">
+
+
+	    <h2 class="section-heading">
+
+Últimos arquivos</h2><br><br>		
+	</div>
+    </div>
+    <div class="col-lg-12 text-center">
+
+<ul style='list-style-type: none;'><div class='row'><div style='text-align: left;' class='col-md-3'><a href='?a=DesAplicWeb>exames>Examenes2018_181218131410.rar'><li>Arquivo #550<br>Examenes2018_181218131410.rar</a></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>exames</li></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>DesAplicWeb</div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>18/12/2018</div></div><br><div class='row'><div style='text-align: left;' class='col-md-3'><a href='?a=BasesDat1>apuntes>Presentaciones_BDI_161218143651.zip'><li>Arquivo #549<br>Presentaciones_BDI_161218143651.zip</a></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>apuntes</li></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>BasesDat1</div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>16/12/2018</div></div><br><div class='row'><div style='text-align: left;' class='col-md-3'><a href='?a=BasesDat1>apuntes>Teoría SQL_151218193125.pdf'><li>Arquivo #548<br>Teoría SQL_151218193125.pdf</a></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>apuntes</li></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>BasesDat1</div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>15/12/2018</div></div><br><div class='row'><div style='text-align: left;' class='col-md-3'><a href='?a=BasesDat1>apuntes>KAHOOT_141218181726.pdf'><li>Arquivo #547<br>KAHOOT_141218181726.pdf</a></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>apuntes</li></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>BasesDat1</div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>14/12/2018</div></div><br><div class='row'><div style='text-align: left;' class='col-md-3'><a href='?a=BasesDat1>apuntes>Teoría - BDI_141218181613.pdf'><li>Arquivo #546<br>Teoría - BDI_141218181613.pdf</a></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>apuntes</li></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>BasesDat1</div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>14/12/2018</div></div><br><div class='row'><div style='text-align: left;' class='col-md-3'><a href='?a=TeoAutLinForm>exames>test2_2018-2019_161018143821.pdf'><li>Arquivo #545<br>test2_2018-2019_161018143821.pdf</a></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>exames</li></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>TeoAutLinForm</div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>16/10/2018</div></div><br><div class='row'><div style='text-align: left;' class='col-md-3'><a href='?a=TeoAutLinForm>practicas>TEST1-2018:2019_021018143938.pdf'><li>Arquivo #544<br>TEST1-2018:2019_021018143938.pdf</a></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>practicas</li></div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>TeoAutLinForm</div><div style='text-align: right;' class='col-md-3 hidden-sm hidden-xs'>02/10/2018</div></div><br></ul>               
+            </div>
+        </div>
+    </section>
+	
+    <!-- Sección de cursos -->
+    <section id="cursos" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">cursos</h2><br><br>
+                </div>
+            </div>
+            <a class="page-scroll" href="#primeiro"><div class="row text-center">
+                <div class="col-md-3 col-sm-6">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Primeiro</h4><br><br>
+            </div></a>
+			<a class="page-scroll" href="#segundo">
+                <div class="col-md-3 col-sm-6">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+					<h4 class="service-heading">Segundo</h4><br><br>
+            </div></a>
+			<a class="page-scroll" href="#terceiro">
+                <div class="col-md-3 col-sm-6">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Terceiro</h4><br><br>
+            </div></a>
+			<a class="page-scroll" href="#cuarto">
+                <div class="col-md-3 col-sm-6">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Cuarto</h4><br><br>
+            </div></a>
+        </div>
+    </section>
+        
+    <!-- Sección de primeiro -->
+    <section id="primeiro">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">primeiro</h2><br><br>
+                </div>
+            </div>
+            <div class="row">
+            </div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                    <div class="portfolio-caption">
+                                        <a href="?q=Álxebra&c=1" class="portfolio-link" data-toggle="modal">
+                                            <br><h4>Álxebra</h4>
+                                        </a><p class="text-muted">Matemáticas</p>
+                                    </div>
+                                </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                    <div class="portfolio-caption">
+                                        <a href="?q=Cálculo+e+Análise+Numérico&c=1" class="portfolio-link" data-toggle="modal">
+                                            <br><h4>Cálculo e Análise Numérico</h4>
+                                        </a><p class="text-muted">Matemáticas</p>
+                                    </div>
+                                </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                    <div class="portfolio-caption">
+                                        <a href="?q=Estatística&c=1" class="portfolio-link" data-toggle="modal">
+                                            <br><h4>Estatística</h4>
+                                        </a><p class="text-muted">Matemáticas</p>
+                                    </div>
+                                </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                    <div class="portfolio-caption">
+                                        <a href="?q=Fundamentos+de+Computadores&c=1" class="portfolio-link" data-toggle="modal">
+                                            <br><h4>Fundamentos de Computadores</h4>
+                                        </a><p class="text-muted">Enxeñaría de Computadores</p>
+                                    </div>
+                                </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                    <div class="portfolio-caption">
+                                        <a href="?q=Fundamentos+de+Matemáticas&c=1" class="portfolio-link" data-toggle="modal">
+                                            <br><h4>Fundamentos de Matemáticas</h4>
+                                        </a><p class="text-muted">Matemáticas</p>
+                                    </div>
+                                </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                    <div class="portfolio-caption">
+                                        <a href="?q=Fundamentos+Físicos+e+Tecnolóxicos+da+Informática&c=1" class="portfolio-link" data-toggle="modal">
+                                            <br><h4>Fundamentos Físicos e Tecnolóxicos da Informática</h4>
+                                        </a><p class="text-muted">Materias Transversais</p>
+                                    </div>
+                                </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                    <div class="portfolio-caption">
+                                        <a href="?q=Matemáticas+Discretas&c=1" class="portfolio-link" data-toggle="modal">
+                                            <br><h4>Matemáticas Discretas</h4>
+                                        </a><p class="text-muted">Matemáticas</p>
+                                    </div>
+                                </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                    <div class="portfolio-caption">
+                                        <a href="?q=Programación+I&c=1" class="portfolio-link" data-toggle="modal">
+                                            <br><h4>Programación I</h4>
+                                        </a><p class="text-muted">Programación</p>
+                                    </div>
+                                </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                    <div class="portfolio-caption">
+                                        <a href="?q=Programación+II&c=1" class="portfolio-link" data-toggle="modal">
+                                            <br><h4>Programación II</h4>
+                                        </a><p class="text-muted">Programación</p>
+                                    </div>
+                                </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                    <div class="portfolio-caption">
+                                        <a href="?q=Sistemas+Dixitáis&c=1" class="portfolio-link" data-toggle="modal">
+                                            <br><h4>Sistemas Dixitáis</h4>
+                                        </a><p class="text-muted">Enxeñaría de Computadores</p>
+                                    </div>
+                                </div>            </div>
+        </div>
+    </section>
+	
+	<!-- Sección de segundo -->
+    <section id="segundo" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">segundo</h2><br><br>
+                </div>
+            </div>
+            <div class="row">
+            </div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Algoritmos+e+Estructuras+de+Datos&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Algoritmos e Estructuras de Datos</h4>
+                                    </a><p class="text-muted">Programación</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Arquitectura+de+Computadores&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Arquitectura de Computadores</h4>
+                                    </a><p class="text-muted">Enxeñaría de Computadores</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Bases+de+Datos+I&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Bases de Datos I</h4>
+                                    </a><p class="text-muted">Sistemas de Información</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Bases+de+Datos+II&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Bases de Datos II</h4>
+                                    </a><p class="text-muted">Sistemas de Información</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Computación+Gráfica&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Computación Gráfica</h4>
+                                    </a><p class="text-muted">Materias Transversais</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Deseño+de+Software&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Deseño de Software</h4>
+                                    </a><p class="text-muted">Enxeñaría de Software</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Organización+e+Xestión+Empresarial&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Organización e Xestión Empresarial</h4>
+                                    </a><p class="text-muted">Organización e Xestión</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Programación+Orientada+a+Obxectos&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Programación Orientada a Obxectos</h4>
+                                    </a><p class="text-muted">Programación</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Redes&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Redes</h4>
+                                    </a><p class="text-muted">Materias Transversais</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Sistemas+Operativos+I&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Sistemas Operativos I</h4>
+                                    </a><p class="text-muted">Materias Transversais</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Sistemas+Operativos+II&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Sistemas Operativos II</h4>
+                                    </a><p class="text-muted">Materias Transversais</p>
+                                </div>
+                            </div>            </div>
+         </div>
+    </section>
+	
+	<!-- Sección de terceiro -->
+    <section id="terceiro">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">terceiro</h2><br><br>
+                </div>
+            </div>
+            <div class="row">
+            </div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Administración+Avanzada+de+Sistemas+e+Redes&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Administración Avanzada de Sistemas e Redes</h4>
+                                    </a><p class="text-muted">Administración e Xestión de Sistemas e Redes</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Administración+de+Sistemas+e+Redes&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Administración de Sistemas e Redes</h4>
+                                    </a><p class="text-muted">Administración e Xestión de Sistemas e Redes</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Computación+Distribuída&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Computación Distribuída</h4>
+                                    </a><p class="text-muted">Programación</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Desenvolvemento+de+Aplicacións+Web&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Desenvolvemento de Aplicacións Web</h4>
+                                    </a><p class="text-muted">Enxeñaría Web</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Deseño+de+Aplicacións+Web+Avanzadas&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Deseño de Aplicacións Web Avanzadas</h4>
+                                    </a><p class="text-muted">Enxeñaría Web</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Enxeñaría+de+Computadores&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Enxeñaría de Computadores</h4>
+                                    </a><p class="text-muted">Enxeñaría de Computadores</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Enxeñaría+de+Software&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Enxeñaría de Software</h4>
+                                    </a><p class="text-muted">Enxeñaría de Software</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Interacción+Persoa-Ordenador&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Interacción Persoa-Ordenador</h4>
+                                    </a><p class="text-muted">Materias Transversais</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Sistemas+Multimedia&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Sistemas Multimedia</h4>
+                                    </a><p class="text-muted">Materias Transversais</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Tecnoloxía+de+Redes&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Tecnoloxía de Redes</h4>
+                                    </a><p class="text-muted">Materias Transversais</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Teoría+de+Autómatas+e+Linguaxes+Formais&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Teoría de Autómatas e Linguaxes Formais</h4>
+                                    </a><p class="text-muted">Sistemas Intelixentes</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Xestión+de+Recursos+Humanos+e+Comportamento+Organizacional&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Xestión de Recursos Humanos e Comportamento Organizacional</h4>
+                                    </a><p class="text-muted">Organización e Xestión</p>
+                                </div>
+                            </div>            </div>
+         </div>
+    </section>
+
+	<!-- Sección de cuarto -->
+    <section id="cuarto" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">cuarto</h2><br><br>
+                </div>
+            </div>
+            <div class="row">
+            </div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Administración+de+Bases+de+Datos&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Administración de Bases de Datos</h4>
+                                    </a><p class="text-muted">Sistemas de Información</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Arquitecturas+Orientadas+a+Servizos&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Arquitecturas Orientadas a Servizos</h4>
+                                    </a><p class="text-muted">Enxeñaría Web</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Aspectos+Legais+e+Normativos+das+TIC&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Aspectos Legais e Normativos das TIC</h4>
+                                    </a><p class="text-muted">Organización e Xestión</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Calidade+do+Software&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Calidade do Software</h4>
+                                    </a><p class="text-muted">Enxeñaría de Software</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Compiladores+e+Intérpretes&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Compiladores e Intérpretes</h4>
+                                    </a><p class="text-muted">Enxeñaría de Computadores</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Computación+Ubicua&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Computación Ubicua</h4>
+                                    </a><p class="text-muted">Materias Transversais</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Enxeñaría+do+Coñecemento&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Enxeñaría do Coñecemento</h4>
+                                    </a><p class="text-muted">Sistemas Intelixentes</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Investigación+de+Operacións&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Investigación de Operacións</h4>
+                                    </a><p class="text-muted">Sistemas Intelixentes</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Programación+Declarativa&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Programación Declarativa</h4>
+                                    </a><p class="text-muted">Programación</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Programación+de+Sistemas+Multinúcleo+e+Multiproceso&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Programación de Sistemas Multinúcleo e Multiproceso</h4>
+                                    </a><p class="text-muted">Programación</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Recuperación+de+Información+e+Bases+Documentáis&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Recuperación de Información e Bases Documentáis</h4>
+                                    </a><p class="text-muted">Sistemas de Información</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Seguridade&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Seguridade</h4>
+                                    </a><p class="text-muted">Administración e Xestión de Sistemas e Redes</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Sistemas+Paralelos&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Sistemas Paralelos</h4>
+                                    </a><p class="text-muted">Enxeñaría de Computadores</p>
+                                </div>
+                            </div><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Xestión+de+Procesos+de+Negocio&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Xestión de Procesos de Negocio</h4>
+                                    </a><p class="text-muted">Enxeñaría Web</p>
+                                </div>
+                            </div></div><div class="row"><div class="col-md-6 col-sm-12 portfolio-item">
+                                <div class="portfolio-caption">
+                                    <a href="?q=Xestión+de+Proxectos+Informáticos&c=1" class="portfolio-link" data-toggle="modal">
+                                        <br><h4>Xestión de Proxectos Informáticos</h4>
+                                    </a><p class="text-muted">Organización e Xestión</p>
+                                </div>
+                            </div>            </div>
+         </div>
+    </section>
+    <!-- About Section
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Sobre o proxecto</h2><br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Xaneiro de 2013</h4>
+                                    <h4 class="subheading">rede social</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">O proxecto nace a principios de 2013 como unha rede social baseada na plataforma libre Elgg. O seu obxectivo principal é ofrecer unha vía de comunicación e a posibilidade de compartir distintos arquivos entre universitarios. Desestímase a continuación do proxecto.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Setembro de 2013</h4>
+                                    <h4 class="subheading">repositorio</h4>
+
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Debido á falta dunha plataforma para almacenar material dixital de forma ordeada do Grao en Enxeñaría Informática, lánzase unha plataforma de código propio. Comeza a funcionar a principios do curso universitario de 2013. É posible consultar arquivos, bibliografías e compartir documentos nun sinxelo repositorio.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Xuño de 2014</h4>
+                                    <h4 class="subheading">nova traxectoria</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">A idea orixinal de proxecto retómase ao entrar nun programa para emprendedores novos. Diríxese a toda a comunidade universitaria. Dous aspectos diferenciadores con respecto a outros servizos similares son: a sinxeleza de uso e a disposición ao usuarios de espazos de traballo virtuais, orientados á colaboración. O novo proxecto entra en pausa co inicio do curso académico de 2014.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Setembro de 2014</h4>
+                                    <h4 class="subheading">remodelación do repositorio</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Reescríbese o repositorio dende cero. Inclúense novas características e varias melloras como o buscador e a adaptación a dispositivos móbiles.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>Unha<br>nova<br>startup</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>-->
+    
+<!--
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">contacto</h2><br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Nome" id="name" required data-validation-required-message="Por favor, introduza o seu nome.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Correo electrónico" id="email" required data-validation-required-message="Por favor, introduza o seu enderezo electrónico.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Teléfono" id="phone">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Mensaxe" id="message" required data-validation-required-message="Por favor, introduza unha mensaxe."></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl">Enviar mensaxe</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+-->
+<section id="contact">
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">gradox.org</span>
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li>v16.01.16 legacy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="popup" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div href="javascript:void(0)" onclick="window.location='/repo';" class="close-modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h4><i>"15"</i></h4>
+							                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form action="?" method="get" name="f1" accept-charset="UTF-8"> 
+        <input id="ruta" type="hidden" name="a" value=""> 
+    </form>
+
+    <script>
+        function descargar(ruta){
+            document.getElementById("ruta").value = ruta;
+            document.f1.submit();
+        }
+    </script>
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- jQuery Version 3.3.1 -->
+    <script src="js/jquery-3.3.1.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/agency.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46298258-1', 'gradox.es');
+          ga('send', 'pageview');
+    </script>
+
+</body>
+
+</html>
