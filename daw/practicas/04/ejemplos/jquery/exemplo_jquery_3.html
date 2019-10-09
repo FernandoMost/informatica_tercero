@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset='utf-8'>
+<html>
+<head>
+<style type='text/css'>
+	.cuadrado {
+		background: #0ff;
+		height: 100px;
+		width: 100px;
+		position: absolute;
+	}
+</style>
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script>
+	$(document).ready(function() {
+		$('p').click(function() {
+			$('div').animate({left:'250px'})
+		});
+	});
+</script>
+<title>Exemplo 3 de JQuery</title>
+</head>
+<body>
+<p>Pulsa para desprazar</p>
+<div class='cuadrado'></div>
+</body>
+</html>

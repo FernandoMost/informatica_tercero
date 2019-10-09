@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $(".href").text($("#w3s").attr("href"));
+    });
+});
+</script>
+</head>
+<body>
+
+<p><a href="https://usc.es" id="w3s">W3Schools.com</a></p>
+
+<button>Show href Value</button>
+
+<p class="href"></p>
+
+</body>
+</html>

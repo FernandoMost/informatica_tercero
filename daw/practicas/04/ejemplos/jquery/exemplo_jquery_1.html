@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset='utf-8'>
+<html>
+<head>
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'>
+<!-- <script src='jquery.min.js'> -->
+</script>
+<style type='text/css'>
+	.highlight {
+		font-style: italic;
+		background-color: #0f0;
+	}
+</style>
+<script>
+	$(document).ready(function() {
+		$('p').click(function() {
+			$(this).hide();
+		});
+		$('h2').addClass('highlight');
+	});
+</script>
+<title>Exemplo de JQuery</title>
+</head>
+<body>
+<h2>Escola Técnica Superior de Enxeñaría</h2>
+<p>Pulsa para eliminar</p>
+</body>
+</html>
