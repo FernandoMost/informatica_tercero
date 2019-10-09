@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+    $("#start").click(function(){
+        $("div").animate({left: '100px'}, 5000);
+        $("div").animate({fontSize: '3em'}, 5000);
+    });
+  
+    $("#stop").click(function(){
+        $("div").stop();
+    });
+
+    $("#stop2").click(function(){
+        $("div").stop(true);
+    });
+
+    $("#stop3").click(function(){
+        $("div").stop(true, true);
+    }); 
+});
+</script> 
+</head>
+<body>
+
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+<button id="stop2">Stop all</button>
+<button id="stop3">Stop but finish</button>
+
+<p>The "Start" button starts the animation.</p>
+<p>The "Stop" button stops the current active animation, but allows the queued animations to be performed afterwards.</p>
+<p>The "Stop all" button stops the current active animation and clears the 
+animation queue; so all animations on the element is stopped.</p>
+<p>The "Stop but finish" rushes through the current active animation, then it stops.</p> 
+
+<div style="background:#98bf21;height:100px;width:200px;position:absolute;">HELLO</div>
+
+</body>
+</html>
