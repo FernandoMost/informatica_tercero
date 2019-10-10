@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <title>Title</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        /* header/barra navegacion */
+
+        nav, nav a{
+            background-color: #00c18b;
+            color: #e3e3e3 !important;
+            font-size: x-large;
+            font-weight: bolder;
+        }
+
+        /* GALERÍA */
+
+        #galeria, .carousel-inner, .carousel-item {height: 500px;}
+        #galeria img {width: 100%; object-fit: cover;}
+
+        /* circulos */
+
+        .circulos-portada {
+            background-color: #c7c7c7;
+            text-align: center;
+            padding: 30px;
+            margin: auto auto;
+        }
+
+        .circulos-portada img { object-fit: cover; }
+
+        /* parte inferior */
+
+        .col-lg-6 {
+            height: 700px;
+            padding: 0;
+        }
+
+        .card-header {
+            font-size: 25px;
+            text-align: center;
+            font-weight: bolder;
+            text-transform: uppercase;
+        }
+
+        /* foros */
+
+        .media {
+            height: 150px;
+            width: 92.5%;
+            margin: 15px auto;
+            padding: 12px;
+            background-color: #c4c4c4;
+            overflow-y: auto;
+        }
+
+        .media img {
+            height: 100px;
+            width: 100px;
+            object-fit: cover;
+        }
+
+        .media-body h5 {
+            font-size: large;
+            font-weight: bolder;
+            margin: 0;
+        }
+
+        .media-body p {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        /* redes sociales */
+
+        .redes-sociales img {
+            display: block;
+            height: 75px;
+            width: 75px;
+            margin: 17px auto;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<body>
+    <nav class="site-header sticky-top py-1" style="height: 150px">
+        <div class="container d-flex flex-column flex-md-row justify-content-between" style="height: 100%; bottom: 0">
+            <a href="#" class="pull-left">
+                <img src="imagenes/Lowside_BK0887-2000x1333.jpg" style="height: 100px">
+            </a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
+        </div>
+    </nav>
+
+    <div id="galeria" class="carousel slide" data-ride="carousel" data-interval="false">
+        <ol class="carousel-indicators">
+            <li data-target="#galeria" data-slide-to="0" class="active"></li>
+            <li data-target="#galeria" data-slide-to="1"></li>
+            <li data-target="#galeria" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="first-slide" src="imagenes/Lowside_BK0887-2000x1333.jpg" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h1>Example headline.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button" style="background-color: #00c18b; border: 0">Sign up today</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="second-slide" src="imagenes/Lowside_BK0887-2000x1333.jpg" alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Another example headline.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button" style="background-color: #00c18b; border: 0">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="third-slide" src="imagenes/Lowside_BK0887-2000x1333.jpg" alt="Third slide">
+                <div class="container">
+                    <div class="carousel-caption text-right">
+                        <h1>One more for good measure.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button" style="background-color: #00c18b; border: 0">Browse gallery</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#galeria" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#galeria" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="row circulos-portada">
+        <div class="col-lg-4">
+            <img class="rounded-circle" src="imagenes/Lowside_BK0887-2000x1333.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>Heading</h2>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+            <img class="rounded-circle" src="imagenes/Lowside_BK0887-2000x1333.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>Heading</h2>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+            <img class="rounded-circle" src="imagenes/Lowside_BK0887-2000x1333.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>Heading</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="height: 700px">
+        <div class="row">
+            <div class="col-lg-6" style="background-color: #717171">
+                <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 50%">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11695.177282477043!2d-8.5459632!3d42.8771852!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfa1de4da3a0d8e98!2sNewroz%20D%C3%B6ner%20Kebap!5e0!3m2!1ses!2ses!4v1570655560206!5m2!1ses!2ses"
+                            style="height: 100%; width: 100%; border: 0" allowfullscreen></iframe>
+                </div>
+
+                <div class="container-fluid" style="height: 35%">
+                    <div class="row" style="height: 100%">
+                        <div class="col-lg-6" style="height: 100%; background-color: #656565">
+                            <p style="color: white; text-transform: uppercase; font-size: 18px; font-weight: bolder; margin: 0 15px" > Dirección y demás información de contacto </p>
+                        </div>
+                        <div class="col-lg-6" style="height: 100%; background-color: #9f9f9f">
+                            <p style="color: black; text-transform: uppercase; font-size: 26px; font-weight: bolder; text-align: right; margin: 0 15px" > (+34) 981 542 300 <br> (+34) 981 542 357 </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid redes-sociales" style="height: 15%; background-color: #c3c3c3">
+                    <div class="row" style="height: 100%">
+                        <div class="col-md-3" style="height: 100%">
+                            <img class="img-responsive" alt="" src="imagenes/perfil.jpg">
+                        </div>
+                        <div class="col-md-3" style="height: 100%">
+                            <img class="img-responsive" alt="" src="imagenes/perfil.jpg">
+                        </div>
+                        <div class="col-md-3" style="height: 100%">
+                            <img class="img-responsive" alt="" src="imagenes/perfil.jpg">
+                        </div>
+                        <div class="col-md-3" style="height: 100%">
+                            <img class="img-responsive" alt="" src="imagenes/perfil.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" style="background-color: #e2e2e2;">
+                <div class="card-header" style="padding: 10px; background-color: #d3d3d3"> FORO DE CLIENTES </div>
+
+                <div class="container" style="height: 87.5%; width: 92.5%; margin: 15px auto; padding: 0; background-color: #cecece; overflow-y: scroll">
+                    <ul class="list-unstyled">
+                        <li class="media">
+                            <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1">@mariano_rajoy_brey</h5>
+                                <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1">@blas_abalde</h5>
+                                <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1">@Camilo_777</h5>
+                                <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1">@Camilo_777</h5>
+                                <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1">@Camilo_777</h5>
+                                <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1">@Camilo_777</h5>
+                                <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------------ -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
