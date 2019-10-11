@@ -9,8 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Ubuntu&display=swap" rel="stylesheet">
 
     <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {background-color: #c0c0c0
+        }
+
         /* header/barra navegacion */
 
         nav, nav a{
@@ -35,12 +43,40 @@
 
         /* modelos de bici */
 
-        .modelos-bicis * {
-            background-color: #717171;
+        .modelos-bicis {
+            height: 350px;
 
-            color: #c3c3c3;
         }
 
+        .modelos-bicis row {
+
+        }
+
+        .modelos-bicis .col-md-7,
+        .modelos-bicis .col-md-5 {
+            height: 350px;
+        }
+
+        .modelos-bicis .col-md-7 {
+            padding: 45px;
+        }
+
+        .modelos-bicis .col-md-5 {
+            padding: 0;
+        }
+
+        .col-md-5 img {
+            height: 100%;
+            width: 80%;
+            float: right;
+            object-fit: cover;
+            mask-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1));
+        }
+
+        .order-md-1 img {
+            float: left !important;
+            mask-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0)) !important;
+        }
     </style>
 </head>
 
@@ -48,7 +84,9 @@
 
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="height: 120px; background-color: #00c18b; text-transform: uppercase !important;">
-        <a class="navbar-brand" href="../../index.html" style="font-size: 40px"> ALTER CYCLES </a>
+        <a class="navbar-brand" href="../../index.html" style="">
+            <img src="../../imagenes/logo.png" style="height: 100px">
+        </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -80,7 +118,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#"> Test rides </a>
                         <a class="dropdown-item" href="#"> Alquiler </a>
-                        <a class="dropdown-item" href="#"> Video-tutoriales </a>
+                        <a class="dropdown-item" href="../../servicios/videotutoriales/index.html"> Video-tutoriales </a>
                         <a class="dropdown-item" href="#"> Financiación </a>
                         <a class="dropdown-item" href="#"> Garantiás y devoluciones </a>
                     </div>
@@ -100,38 +138,46 @@
         </div>
     </nav>
 
-    <div class="container modelos-bicis" style="padding: 30px">
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    <!-- --------------------------------------------------------- -->
+
+    <div class="container-fluid modelos-bicis">
+        <div class="row">
+            <div class="col-md-7" style="background-color: #a7a7a7">
+                <h2> First featurette heading. It’ll blow your mind. </h2>
+                <p> Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
-            <div class="col-md-5">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+            <div class="col-md-5" style="background-color: #a7a7a7">
+                <img src="imagenes/Lowside_BK0887-2000x1333.jpg">
             </div>
         </div>
 
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <div class="row">
+            <div class="col-md-7 order-md-2" style="background-color: #cccccc">
+                <h2> First featurette heading. It’ll blow your mind. </h2>
+                <p> Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
-            <div class="col-md-5 order-md-1">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+            <div class="col-md-5 order-md-1" style="background-color: #cccccc">
+                <img src="imagenes/Lowside_BK0887-2000x1333.jpg">
             </div>
         </div>
 
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <div class="row">
+            <div class="col-md-7" style="background-color: #e0e0e0">
+                <h2> First featurette heading. It’ll blow your mind. </h2>
+                <p> Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
-            <div class="col-md-5">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+            <div class="col-md-5" style="background-color: #e0e0e0">
+                <img src="imagenes/Lowside_BK0887-2000x1333.jpg">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7 order-md-2" style="background-color: #bebebe">
+                <h2> First featurette heading. It’ll blow your mind. </h2>
+                <p> Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5 order-md-1" style="background-color: #bebebe">
+                <img src="imagenes/Lowside_BK0887-2000x1333.jpg">
             </div>
         </div>
     </div>
