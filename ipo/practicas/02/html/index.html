@@ -9,46 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="navbar-styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Ubuntu&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* header/barra navegacion */
-
-        nav, nav a{
-            background-color: #00c18b;
-            color: #e3e3e3 !important;
-            font-size: x-large;
-            font-weight: bolder;
-        }
-
-        .nav-item a {
-            padding-left: 10px !important;
-        }
-
-        .dropdown-menu {
-            background-color: rgba(165, 237, 179, 0.87);
-        }
-
-        .navbar .dropdown-item:hover {
-            color: black;
-        }
-
-        .dropdown-menu {
-            background-color: rgba(1,1,1,0.5);
-        }
-
-        .dropdown-item:hover {
-            background-color: #00c18b;
-            color: white;
-        }
-
         /* GALERÍA */
 
-        #galeria, .carousel-inner, .carousel-item {height: 500px;}
+        #galeria, .carousel-inner, .carousel-item {height: 650px;}
         .carousel img {
             width: 100%;
             height: 100%;
@@ -143,7 +110,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html"> Inicio </a>
+                    <a class="nav-link" href="./index.html"> Inicio </a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -171,15 +138,8 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Foro de clientes
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#"> Solicitar ayuda </a>
-                        <a class="dropdown-item" href="#"> Quejas/Sugerencias </a>
-                        <a class="dropdown-item" href="#"> MarketPlace </a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="./foro/index.html"> Foro de clientes </a>
                 </li>
             </ul>
         </div>
@@ -261,9 +221,9 @@
         <div class="row">
             <div class="col-lg-6" style="background-color: #717171">
                 <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 50%">
-                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2422357.765886347!2d-77.6405706711077!3d4.334637498999234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a690ba9fcabd%3A0x29cfe25a5b4be53b!2sBicicletas%20Garces!5e0!3m2!1ses!2ses!4v1570716937646!5m2!1ses!2ses"
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.3996013344427!2d-8.557771884066895!3d42.86440917915631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2efe1a02376a61%3A0x35d4bdb35b91fb17!2sBicicletas%20Oliveira!5e0!3m2!1ses!2ses!4v1570836432339!5m2!1ses!2ses"
                             frameborder="0" style="height: 100%; width: 100%; border:0;" allowfullscreen=""></iframe>
-                --></div>
+                </div>
 
                 <div class="container-fluid" style="height: 35%">
                     <div class="row" style="height: 100%">

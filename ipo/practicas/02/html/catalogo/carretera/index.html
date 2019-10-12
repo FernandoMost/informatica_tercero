@@ -9,36 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../navbar-styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Ubuntu&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {background-color: #c0c0c0
-        }
-
-        /* header/barra navegacion */
-
-        nav, nav a{
-            background-color: #00c18b;
-            color: #e3e3e3 !important;
-            font-size: x-large;
-            font-weight: bolder;
-        }
-
-        .dropdown-menu {
-            background-color: rgba(165, 237, 179, 0.87);
-        }
-
-        .dropdown-menu .nav-item {
-            font-weight: bolder;
-            color: white;
-        }
-
-        .navbar .dropdown-item:hover {
-            color: black;
+        body {
+            background-color: #c0c0c0
         }
 
         /* modelos de bici */
@@ -84,7 +60,7 @@
 
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="height: 120px; background-color: #00c18b; text-transform: uppercase !important;">
-        <a class="navbar-brand" href="../../index.html" style="">
+        <a class="navbar-brand" href="../../index.html">
             <img src="../../imagenes/logo.png" style="height: 100px">
         </a>
 
@@ -116,23 +92,15 @@
                         Servicios
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#"> Test rides </a>
-                        <a class="dropdown-item" href="#"> Alquiler </a>
+                        <a class="dropdown-item" href="../../servicios/alquiler/index.html"> Alquiler y test rides </a>
                         <a class="dropdown-item" href="../../servicios/videotutoriales/index.html"> Video-tutoriales </a>
-                        <a class="dropdown-item" href="#"> Financiación </a>
-                        <a class="dropdown-item" href="#"> Garantiás y devoluciones </a>
+                        <a class="dropdown-item" href="../../servicios/financiacion/index.html"> Financiación </a>
+                        <a class="dropdown-item" href="../../servicios/garantias/index.html"> Garantiás y devoluciones </a>
                     </div>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Foro de clientes
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#"> Solicitar ayuda </a>
-                        <a class="dropdown-item" href="#"> Quejas/Sugerencias </a>
-                        <a class="dropdown-item" href="#"> MarketPlace </a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../foro/index.html"> Foro de clientes </a>
                 </li>
             </ul>
         </div>
