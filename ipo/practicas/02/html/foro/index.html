@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../navbar-styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Ubuntu&display=swap" rel="stylesheet">
 
     <style>
@@ -44,9 +45,41 @@
             font-size: 13px;
             margin: 0;
             text-align: justify;
+            max-height: 70px;
+            overflow-y: auto;
+        }
+
+        .col-3 .nav-link {
+            margin-left: 15px;
+        }
+
+        .media .iconos{
+            position: relative;
+            bottom: -5px;
+            right: -10px;
+            text-align: right;
+            font-size: x-large;
+            color: #575757;
         }
 
         /* ----------------------------------------------------- */
+
+        .col-3 .nav-link {
+            background-color: #ccc;
+            color: white;
+            border: 0;
+        }
+
+        .col-3 .nav-link.active {
+            background-color: #00C18B;
+            color: white;
+            font-weight: bolder;
+        }
+
+        .col-3 .nav-link:hover {
+            background-color: white;
+            color: #a1a1a1;
+        }
     </style>
 </head>
 
@@ -108,61 +141,105 @@
     </div>
 
     <div class="row">
-        <div class="col-2">
+        <div class="col-3">
             <div class="nav flex-column nav-pills position-sticky" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
-                    Ayuda </a>
-                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                    Quejas y sugerencias </a>
-                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                <a class="nav-link active" id="pill01" data-toggle="pill" href="#v-pills-01" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                    General </a>
+                <a class="nav-link" id="pill02" data-toggle="pill" href="#v-pills-02" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                    Ayuda, quejas y sugerencias </a>
+                <a class="nav-link" id="pill03" data-toggle="pill" href="#v-pills-03" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                    Entrenamientos </a>
+                <a class="nav-link" id="pill04" data-toggle="pill" href="#v-pills-04" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                    Rutas, quedadas y salidas </a>
+                <a class="nav-link" id="pill05" data-toggle="pill" href="#v-pills-05" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                     Marketplace </a>
             </div>
         </div>
-        <div class="col-10">
+        <div class="col-9">
             <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <div class="tab-pane fade show active" id="v-pills-01" role="tabpanel" aria-labelledby="v-pills-home-tab">
                     <div class="container" style="height: 87.5%; width: 92.5%; margin: 15px auto; padding: 0; background-color: #cecece; overflow-y: scroll">
                         <ul class="list-unstyled">
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/179/179007.jpg?1406124784" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@mariano_rajoy_brey</h5>
-                                    <p> Mirad chicos pues yo ya estoy harto de que Shimano cambie el estandar de la presion de sus neumaticos cada dos meses [...] </p>
+                                    <h5 class="mt-0 mb-1"> jichu20 </h5>
+                                    <p> Como medio de transporte me parece estupendo y espero que se vendan muchas. Pero me chirría que les llamen bicicletas. Que yo sepa en una bici la tracción es exclusivamente realizada por el ciclista, tracción animal, vamos. Lo otro yo lo considero mas una moto que una bici. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/16/16112.jpg?1267211812" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@blas_abalde</h5>
-                                    <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> javiloco </h5>
+                                    <p> La cubierta tubuless con liquido antipinchazos no pesa mas que una cubierta no tubuless mas la camara antipinchazos,yo utilizo hasta que desgaste las cubiertas camaras antipinchazos y pesan cada camara 320 gramos+750 de la cubierta=1070 gramos por rueda. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/179/179098.jpg?1460905625" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@Camilo_777</h5>
-                                    <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> coqueteam </h5>
+                                    <p> Vendo esta Rock Shox Reba RL 29¨boost con mando de bloqueo remoto,con 100 mm de recorrido, nueva de despiece de una Specialized 2019.Tubo cortado a 17,3 cm,se incluye araña cierre pasante y mando de bloqueo remoto.
+                                        <br> Se vende por 300€ gtos de envio incluidos con envio por correos con numero de seguimiento.
+                                        <br> El pago se realizara por ingreso en cta o transferencia bancaria. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/10/10632.jpg?1158939284" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@Camilo_777</h5>
-                                    <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> filcot </h5>
+                                    <p> Estoy pasando unos dias por la zona de Ortigueira y Cariño.
+                                        <br> Me he traido la bici de carretera y me gustaria saber de algun grupo q salga por la zona o alguien q se anime a una ruta de 2 o 3 horas. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/19/19086.jpg?1272389884" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@Camilo_777</h5>
-                                    <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> Charlie Root </h5>
+                                    <p> Viendo el movimiento que últimamente está teniendo por el foro el tema de las horquillas rígidas, recojo el testigo lanzado por luke racer y creo este censo para que los amigos de lo rígido vayamos "saliendo del armario" poniendo nuestra monturas, con despieces y pesos a poder ser, pero vamos, con la foto en un principio servirá... </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/397/397853.jpg?1521650443" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@Camilo_777</h5>
-                                    <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> Jovi_91 </h5>
+                                    <p> La verdad me ha gustado mucho los colores y a un precio buenísimo para lo que monta. He estado a punto de comprármela pero no me convence eso de que sea compatible en 27.5, 27,5+ y 29. Tanto tiempo diciendo que hacer eso es una "aberración", va decathlon y lo hace.
+                                        <br> He usado buscador no he encontrado gran cosa sobre ella. Que opináis de este nuevo modelo y sus ruedas intercambiables?  </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -170,49 +247,90 @@
                 </div>
 
 
-                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
+                <div class="tab-pane fade show active" id="v-pills-02" role="tabpanel" aria-labelledby="v-pills-home-tab">
                     <div class="container" style="height: 87.5%; width: 92.5%; margin: 15px auto; padding: 0; background-color: #cecece; overflow-y: scroll">
                         <ul class="list-unstyled">
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/179/179007.jpg?1406124784" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@mariano_rajoy_brey</h5>
-                                    <p> Mirad chicos pues yo ya estoy harto de que Shimano cambie el estandar de la presion de sus neumaticos cada dos meses [...] </p>
+                                    <h5 class="mt-0 mb-1"> jichu20 </h5>
+                                    <p> Como medio de transporte me parece estupendo y espero que se vendan muchas. Pero me chirría que les llamen bicicletas. Que yo sepa en una bici la tracción es exclusivamente realizada por el ciclista, tracción animal, vamos. Lo otro yo lo considero mas una moto que una bici. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/16/16112.jpg?1267211812" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@blas_abalde</h5>
-                                    <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> javiloco </h5>
+                                    <p> La cubierta tubuless con liquido antipinchazos no pesa mas que una cubierta no tubuless mas la camara antipinchazos,yo utilizo hasta que desgaste las cubiertas camaras antipinchazos y pesan cada camara 320 gramos+750 de la cubierta=1070 gramos por rueda. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/179/179098.jpg?1460905625" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@Camilo_777</h5>
-                                    <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> coqueteam </h5>
+                                    <p> Vendo esta Rock Shox Reba RL 29¨boost con mando de bloqueo remoto,con 100 mm de recorrido, nueva de despiece de una Specialized 2019.Tubo cortado a 17,3 cm,se incluye araña cierre pasante y mando de bloqueo remoto.
+                                        <br> Se vende por 300€ gtos de envio incluidos con envio por correos con numero de seguimiento.
+                                        <br> El pago se realizara por ingreso en cta o transferencia bancaria. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/10/10632.jpg?1158939284" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@Camilo_777</h5>
-                                    <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> filcot </h5>
+                                    <p> Estoy pasando unos dias por la zona de Ortigueira y Cariño.
+                                        <br> Me he traido la bici de carretera y me gustaria saber de algun grupo q salga por la zona o alguien q se anime a una ruta de 2 o 3 horas. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/19/19086.jpg?1272389884" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@Camilo_777</h5>
-                                    <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> Charlie Root </h5>
+                                    <p> Viendo el movimiento que últimamente está teniendo por el foro el tema de las horquillas rígidas, recojo el testigo lanzado por luke racer y creo este censo para que los amigos de lo rígido vayamos "saliendo del armario" poniendo nuestra monturas, con despieces y pesos a poder ser, pero vamos, con la foto en un principio servirá... </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/397/397853.jpg?1521650443" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@Camilo_777</h5>
-                                    <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> Jovi_91 </h5>
+                                    <p> La verdad me ha gustado mucho los colores y a un precio buenísimo para lo que monta. He estado a punto de comprármela pero no me convence eso de que sea compatible en 27.5, 27,5+ y 29. Tanto tiempo diciendo que hacer eso es una "aberración", va decathlon y lo hace.
+                                        <br> He usado buscador no he encontrado gran cosa sobre ella. Que opináis de este nuevo modelo y sus ruedas intercambiables?  </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -220,49 +338,277 @@
                 </div>
 
 
-                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+
+
+
+                <div class="tab-pane fade show active" id="v-pills-03" role="tabpanel" aria-labelledby="v-pills-home-tab">
                     <div class="container" style="height: 87.5%; width: 92.5%; margin: 15px auto; padding: 0; background-color: #cecece; overflow-y: scroll">
                         <ul class="list-unstyled">
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/179/179007.jpg?1406124784" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@mariano_rajoy_brey</h5>
-                                    <p> Mirad chicos pues yo ya estoy harto de que Shimano cambie el estandar de la presion de sus neumaticos cada dos meses [...] </p>
+                                    <h5 class="mt-0 mb-1"> jichu20 </h5>
+                                    <p> Como medio de transporte me parece estupendo y espero que se vendan muchas. Pero me chirría que les llamen bicicletas. Que yo sepa en una bici la tracción es exclusivamente realizada por el ciclista, tracción animal, vamos. Lo otro yo lo considero mas una moto que una bici. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/16/16112.jpg?1267211812" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@blas_abalde</h5>
-                                    <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> javiloco </h5>
+                                    <p> La cubierta tubuless con liquido antipinchazos no pesa mas que una cubierta no tubuless mas la camara antipinchazos,yo utilizo hasta que desgaste las cubiertas camaras antipinchazos y pesan cada camara 320 gramos+750 de la cubierta=1070 gramos por rueda. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/179/179098.jpg?1460905625" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@Camilo_777</h5>
-                                    <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> coqueteam </h5>
+                                    <p> Vendo esta Rock Shox Reba RL 29¨boost con mando de bloqueo remoto,con 100 mm de recorrido, nueva de despiece de una Specialized 2019.Tubo cortado a 17,3 cm,se incluye araña cierre pasante y mando de bloqueo remoto.
+                                        <br> Se vende por 300€ gtos de envio incluidos con envio por correos con numero de seguimiento.
+                                        <br> El pago se realizara por ingreso en cta o transferencia bancaria. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/10/10632.jpg?1158939284" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@Camilo_777</h5>
-                                    <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> filcot </h5>
+                                    <p> Estoy pasando unos dias por la zona de Ortigueira y Cariño.
+                                        <br> Me he traido la bici de carretera y me gustaria saber de algun grupo q salga por la zona o alguien q se anime a una ruta de 2 o 3 horas. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/19/19086.jpg?1272389884" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@Camilo_777</h5>
-                                    <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> Charlie Root </h5>
+                                    <p> Viendo el movimiento que últimamente está teniendo por el foro el tema de las horquillas rígidas, recojo el testigo lanzado por luke racer y creo este censo para que los amigos de lo rígido vayamos "saliendo del armario" poniendo nuestra monturas, con despieces y pesos a poder ser, pero vamos, con la foto en un principio servirá... </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3" src="imagenes/perfil.jpg" alt="Foto de perfil.">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/397/397853.jpg?1521650443" alt="Foto de perfil.">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">@Camilo_777</h5>
-                                    <p> Cras sit amet nibh libecccccccccccccccccccccccccccccccro, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+                                    <h5 class="mt-0 mb-1"> Jovi_91 </h5>
+                                    <p> La verdad me ha gustado mucho los colores y a un precio buenísimo para lo que monta. He estado a punto de comprármela pero no me convence eso de que sea compatible en 27.5, 27,5+ y 29. Tanto tiempo diciendo que hacer eso es una "aberración", va decathlon y lo hace.
+                                        <br> He usado buscador no he encontrado gran cosa sobre ella. Que opináis de este nuevo modelo y sus ruedas intercambiables?  </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="tab-pane fade show active" id="v-pills-04" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="container" style="height: 87.5%; width: 92.5%; margin: 15px auto; padding: 0; background-color: #cecece; overflow-y: scroll">
+                        <ul class="list-unstyled">
+                            <li class="media">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/179/179007.jpg?1406124784" alt="Foto de perfil.">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"> jichu20 </h5>
+                                    <p> Como medio de transporte me parece estupendo y espero que se vendan muchas. Pero me chirría que les llamen bicicletas. Que yo sepa en una bici la tracción es exclusivamente realizada por el ciclista, tracción animal, vamos. Lo otro yo lo considero mas una moto que una bici. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/16/16112.jpg?1267211812" alt="Foto de perfil.">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"> javiloco </h5>
+                                    <p> La cubierta tubuless con liquido antipinchazos no pesa mas que una cubierta no tubuless mas la camara antipinchazos,yo utilizo hasta que desgaste las cubiertas camaras antipinchazos y pesan cada camara 320 gramos+750 de la cubierta=1070 gramos por rueda. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/179/179098.jpg?1460905625" alt="Foto de perfil.">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"> coqueteam </h5>
+                                    <p> Vendo esta Rock Shox Reba RL 29¨boost con mando de bloqueo remoto,con 100 mm de recorrido, nueva de despiece de una Specialized 2019.Tubo cortado a 17,3 cm,se incluye araña cierre pasante y mando de bloqueo remoto.
+                                        <br> Se vende por 300€ gtos de envio incluidos con envio por correos con numero de seguimiento.
+                                        <br> El pago se realizara por ingreso en cta o transferencia bancaria. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/10/10632.jpg?1158939284" alt="Foto de perfil.">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"> filcot </h5>
+                                    <p> Estoy pasando unos dias por la zona de Ortigueira y Cariño.
+                                        <br> Me he traido la bici de carretera y me gustaria saber de algun grupo q salga por la zona o alguien q se anime a una ruta de 2 o 3 horas. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/19/19086.jpg?1272389884" alt="Foto de perfil.">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"> Charlie Root </h5>
+                                    <p> Viendo el movimiento que últimamente está teniendo por el foro el tema de las horquillas rígidas, recojo el testigo lanzado por luke racer y creo este censo para que los amigos de lo rígido vayamos "saliendo del armario" poniendo nuestra monturas, con despieces y pesos a poder ser, pero vamos, con la foto en un principio servirá... </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/397/397853.jpg?1521650443" alt="Foto de perfil.">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"> Jovi_91 </h5>
+                                    <p> La verdad me ha gustado mucho los colores y a un precio buenísimo para lo que monta. He estado a punto de comprármela pero no me convence eso de que sea compatible en 27.5, 27,5+ y 29. Tanto tiempo diciendo que hacer eso es una "aberración", va decathlon y lo hace.
+                                        <br> He usado buscador no he encontrado gran cosa sobre ella. Que opináis de este nuevo modelo y sus ruedas intercambiables?  </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+                <div class="tab-pane fade show active" id="v-pills-05" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="container" style="height: 87.5%; width: 92.5%; margin: 15px auto; padding: 0; background-color: #cecece; overflow-y: scroll">
+                        <ul class="list-unstyled">
+                            <li class="media">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/179/179007.jpg?1406124784" alt="Foto de perfil.">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"> jichu20 </h5>
+                                    <p> Como medio de transporte me parece estupendo y espero que se vendan muchas. Pero me chirría que les llamen bicicletas. Que yo sepa en una bici la tracción es exclusivamente realizada por el ciclista, tracción animal, vamos. Lo otro yo lo considero mas una moto que una bici. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/16/16112.jpg?1267211812" alt="Foto de perfil.">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"> javiloco </h5>
+                                    <p> La cubierta tubuless con liquido antipinchazos no pesa mas que una cubierta no tubuless mas la camara antipinchazos,yo utilizo hasta que desgaste las cubiertas camaras antipinchazos y pesan cada camara 320 gramos+750 de la cubierta=1070 gramos por rueda. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/179/179098.jpg?1460905625" alt="Foto de perfil.">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"> coqueteam </h5>
+                                    <p> Vendo esta Rock Shox Reba RL 29¨boost con mando de bloqueo remoto,con 100 mm de recorrido, nueva de despiece de una Specialized 2019.Tubo cortado a 17,3 cm,se incluye araña cierre pasante y mando de bloqueo remoto.
+                                        <br> Se vende por 300€ gtos de envio incluidos con envio por correos con numero de seguimiento.
+                                        <br> El pago se realizara por ingreso en cta o transferencia bancaria. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/10/10632.jpg?1158939284" alt="Foto de perfil.">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"> filcot </h5>
+                                    <p> Estoy pasando unos dias por la zona de Ortigueira y Cariño.
+                                        <br> Me he traido la bici de carretera y me gustaria saber de algun grupo q salga por la zona o alguien q se anime a una ruta de 2 o 3 horas. </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/19/19086.jpg?1272389884" alt="Foto de perfil.">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"> Charlie Root </h5>
+                                    <p> Viendo el movimiento que últimamente está teniendo por el foro el tema de las horquillas rígidas, recojo el testigo lanzado por luke racer y creo este censo para que los amigos de lo rígido vayamos "saliendo del armario" poniendo nuestra monturas, con despieces y pesos a poder ser, pero vamos, con la foto en un principio servirá... </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/397/397853.jpg?1521650443" alt="Foto de perfil.">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"> Jovi_91 </h5>
+                                    <p> La verdad me ha gustado mucho los colores y a un precio buenísimo para lo que monta. He estado a punto de comprármela pero no me convence eso de que sea compatible en 27.5, 27,5+ y 29. Tanto tiempo diciendo que hacer eso es una "aberración", va decathlon y lo hace.
+                                        <br> He usado buscador no he encontrado gran cosa sobre ella. Que opináis de este nuevo modelo y sus ruedas intercambiables?  </p>
+                                    <div class="container iconos">
+                                        <span class="fas fa-comment-alt"></span>
+                                        <span class="fas fa-star"></span>
+                                        <span class="fas fa-share-alt"></span>
+                                        <span class="fas fa-angle-double-down"></span>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
