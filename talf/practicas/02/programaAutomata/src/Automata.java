@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -12,4 +13,13 @@ public class Automata {
 
     /* ----------------------------------------------------------------- */
 
+    public Automata(File archivo) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(archivo));
+
+        String linea;
+        while ((linea = reader.readLine()) != null) {
+            System.out.println(linea);
+        }
+
+    }
 }
