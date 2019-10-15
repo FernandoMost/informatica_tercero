@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <title> ALTER CYCLES </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="./imagenes/icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="navbar-styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Ubuntu&display=swap" rel="stylesheet">
+
+    <style>
+        /* GALERÍA */
+
+        #galeria, .carousel-inner, .carousel-item {height: 650px;}
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            object-fit: cover;
+        }
+
+        .carousel span {
+            background-color: rgba(0.5,0.5,0.5,0.5);
+        }
+
+        /* circulos */
+
+        .circulos-portada {
+            background-color: #c7c7c7;
+            text-align: center;
+            padding: 30px;
+            margin: auto auto;
+        }
+
+        .circulos-portada img { object-fit: cover; }
+        .circulos-portada p { max-width: 70%; margin: 15px auto }
+
+        /* parte inferior */
+
+        .col-lg-6 {
+            height: 700px;
+            padding: 0;
+        }
+
+        .card-header {
+            font-size: 25px;
+            text-align: center;
+            font-weight: bolder;
+            text-transform: uppercase;
+        }
+
+        /* foros */
+
+        .media {
+            height: 150px;
+            width: 92.5%;
+            margin: 15px auto;
+            padding: 12px;
+            background-color: #c4c4c4;
+            overflow-y: auto;
+        }
+
+        .media img {
+            height: 100px;
+            width: 100px;
+            object-fit: cover;
+        }
+
+        .media-body h5 {
+            font-size: large;
+            font-weight: bolder;
+            margin: 0;
+        }
+
+        .media-body p {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        /* redes sociales */
+
+        .redes-sociales img {
+            display: block;
+            height: 75px;
+            margin: 17px auto;
+            object-fit: cover;
+
+            transition-duration: 0.5s;
+        }
+
+        .redes-sociales img:hover {
+            filter: invert(100%);
+
+            transition-duration: 0.5s;
+        }
+    </style>
+</head>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="height: 120px; background-color: #00c18b; text-transform: uppercase !important;">
+        <a class="navbar-brand" href="./index.html">
+            <img src="./imagenes/logo.png" style="height: 100px">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="height: 100%">
+            <ul class="navbar-nav" style="height: 100%">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./index.html"> Inicio </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Catálogo
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="./catalogo/montanha/index.html"> Montaña </a>
+                        <a class="dropdown-item" href="./catalogo/carretera/index.html"> Carretera </a>
+                        <a class="dropdown-item" href="./catalogo/electrica/index.html"> Eléctricas </a>
+                        <a class="dropdown-item" href="./catalogo/infantiles/index.html"> Infantiles </a>
+                        <a class="dropdown-item" href="./catalogo/componentes/index.html"> Por componentes </a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Servicios
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="./servicios/alquiler/index.html"> Alquiler y test rides </a>
+                        <a class="dropdown-item" href="./servicios/videotutoriales/index.html"> Video-tutoriales </a>
+                        <a class="dropdown-item" href="./servicios/financiacion/index.html"> Financiación </a>
+                        <a class="dropdown-item" href="./servicios/garantias/index.html"> Garantiás y devoluciones </a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="./foro/index.html"> Foro de clientes </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="galeria" class="carousel slide" data-ride="carousel" data-interval="3500">
+        <ol class="carousel-indicators">
+            <li data-target="#galeria" data-slide-to="0" class="active"></li>
+            <li data-target="#galeria" data-slide-to="1"></li>
+            <li data-target="#galeria" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="first-slide" src="imagenes/Lowside_BK0887-2000x1333.jpg" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h1 style="font-size: 100px"> <span> ALTER CYCLES </span>.</h1>
+                        <p style="font-size: 25px; line-height: 35px"> <span> Bienvenido/a a nuestro sitio web, aquí encontrarás todo lo que necesitas saber sobre nuestra marca, o discutir con otros usuarios en nuestro foro. </span> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="second-slide" src="imagenes/orbea-rallon-2-1560139661.jpg" alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1 style="font-size: 60px"> <span> Arrasando en todos los terrenos. </span> </h1>
+                        <p style="font-size: 20px"> <span> Nuestro nuevo modelo de montaña incluye una doble suspensión de aire, con tecnología usada por la NASA. </span> </p>
+                        <p><a class="btn btn-lg btn-primary" href="./catalogo/montanha/index.html" role="button" style="background-color: #00c18b; border: 0"> Modelos de montaña</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="third-slide" src="imagenes/prestamos.jpg" alt="Third slide">
+                <div class="container">
+                    <div class="carousel-caption text-right" style="">
+                        <h1 style="font-size: 65px"> <span> Te financiamos </span> </h1>
+                        <p style="font-size: 23px"> <span> Una forma fácil y rápida de financiar tu pago con Cofidis en 4 cuotas con cargo a tu tarjeta habitual, para pedidos desde 75€. </span> </p>
+                        <p><a class="btn btn-lg btn-primary" href="./servicios/financiacion/index.html" role="button" style="background-color: #00c18b; border: 0"> Más información </a></p>
+                    </div>
+                </div>
+            </div>
+        
+
+            <a class="carousel-control-prev" href="#galeria" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#galeria" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="row circulos-portada">
+        <div class="col-lg-4">
+            <img class="rounded-circle" src="imagenes/TONG.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2> El mejor diseño </h2>
+            <p> Nuestro equipo se esfuerza en darte el mejor diseño posible, ademas de apoyarte en alcanzar el mejor rendimiento. </p>
+        </div>
+        <div class="col-lg-4">
+            <img class="rounded-circle" src="imagenes/dscn1582.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>Materiales reciclados</h2>
+            <p> Empleamos los mejores materiales, ademas de incorporar materiales reciclados. </p>
+        </div>
+        <div class="col-lg-4">
+            <img class="rounded-circle" src="imagenes/Atencion-al-cliente.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2> La mejor atención </h2>
+            <p> Nuestros clientes siempre satisfechos! Con 91 reseñas, y con una calificacion de 4.5/5 estrellas. </p>
+            <p><a class="btn btn-secondary" href="https://www.google.com/search?client=ubuntu&channel=fs&q=bicicletas+oliveira&ie=utf-8&oe=utf-8#lrd=0xd2efe1a02376a61:0x35d4bdb35b91fb17,1,,," role="button"> Nuestras reseñas  &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="height: 700px">
+        <div class="row">
+            <div class="col-lg-6" style="background-color: #717171">
+                <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 50%">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.3996013344427!2d-8.557771884066895!3d42.86440917915631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2efe1a02376a61%3A0x35d4bdb35b91fb17!2sBicicletas%20Oliveira!5e0!3m2!1ses!2ses!4v1570836432339!5m2!1ses!2ses"
+                            frameborder="0" style="height: 100%; width: 100%; border:0;" allowfullscreen=""></iframe>
+                </div>
+
+                <div class="container-fluid" style="height: 35%">
+                    <div class="row" style="height: 100%">
+                        <div class="col-lg-6" style="overflow-y: auto; height: 100%; background-color: #656565">
+                            <p style="padding: 30px; font-size: large; color: white">
+                                Rúa de Sánchez Freire, 83 <br>
+                                15706 Santiago de Compostela, A Coruña
+                                <br><br>
+                                (+34) 981 542 300 <br> (+34) 981 542 357 </p>
+                        </div>
+                        <div class="col-lg-6" style="height: 100%; background-color: #9f9f9f">
+                            <p style="padding: 30px; font-size: large; color: white; text-align: right">
+                                Vísita nuestro taller!
+                                <br>
+                                Horario de lunes a viernes:
+                                <br>
+                                10:00–14:00, 16:30–20:30
+                                <br>
+                                ... y los sábados:
+                                <br>
+                                10:00–14:00
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid redes-sociales" style="height: 15%; background-color: #c3c3c3">
+                    <div class="row" style="height: 100%">
+                        <div class="col-md-3" style="height: 100%">
+                            <img class="img-responsive" alt="" src="imagenes/facebook.png">
+                        </div>
+                        <div class="col-md-3" style="height: 100%">
+                            <img class="img-responsive" alt="" src="imagenes/gmail.png">
+                        </div>
+                        <div class="col-md-3" style="height: 100%">
+                            <img class="img-responsive" alt="" src="imagenes/instagram.png">
+                        </div>
+                        <div class="col-md-3" style="height: 100%">
+                            <img class="img-responsive" alt="" src="imagenes/twitter.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" style="background-color: #e2e2e2;">
+                <div class="card-header" style="padding: 10px; background-color: #d3d3d3"> FORO DE CLIENTES </div>
+
+                <div class="container" style="height: 87.5%; width: 92.5%; margin: 15px auto; padding: 0; background-color: #cecece; overflow-y: scroll">
+                    <ul class="list-unstyled">
+                        <li class="media">
+                            <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/179/179007.jpg?1406124784" alt="Foto de perfil.">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1"> jichu20 </h5>
+                                <p> Como medio de transporte me parece estupendo y espero que se vendan muchas. Pero me chirría que les llamen bicicletas. Que yo sepa en una bici la tracción es exclusivamente realizada por el ciclista, tracción animal, vamos. Lo otro yo lo considero mas una moto que una bici. </p>
+                                <div class="container iconos">
+                                    <span class="fas fa-comment-alt"></span>
+                                    <span class="fas fa-star"></span>
+                                    <span class="fas fa-share-alt"></span>
+                                    <span class="fas fa-angle-double-down"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/16/16112.jpg?1267211812" alt="Foto de perfil.">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1"> javiloco </h5>
+                                <p> La cubierta tubuless con liquido antipinchazos no pesa mas que una cubierta no tubuless mas la camara antipinchazos,yo utilizo hasta que desgaste las cubiertas camaras antipinchazos y pesan cada camara 320 gramos+750 de la cubierta=1070 gramos por rueda. </p>
+                                <div class="container iconos">
+                                    <span class="fas fa-comment-alt"></span>
+                                    <span class="fas fa-star"></span>
+                                    <span class="fas fa-share-alt"></span>
+                                    <span class="fas fa-angle-double-down"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/179/179098.jpg?1460905625" alt="Foto de perfil.">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1"> coqueteam </h5>
+                                <p> Vendo esta Rock Shox Reba RL 29¨boost con mando de bloqueo remoto,con 100 mm de recorrido, nueva de despiece de una Specialized 2019.Tubo cortado a 17,3 cm,se incluye araña cierre pasante y mando de bloqueo remoto.
+                                    <br> Se vende por 300€ gtos de envio incluidos con envio por correos con numero de seguimiento.
+                                    <br> El pago se realizara por ingreso en cta o transferencia bancaria. </p>
+                                <div class="container iconos">
+                                    <span class="fas fa-comment-alt"></span>
+                                    <span class="fas fa-star"></span>
+                                    <span class="fas fa-share-alt"></span>
+                                    <span class="fas fa-angle-double-down"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/10/10632.jpg?1158939284" alt="Foto de perfil.">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1"> filcot </h5>
+                                <p> Estoy pasando unos dias por la zona de Ortigueira y Cariño.
+                                    <br> Me he traido la bici de carretera y me gustaria saber de algun grupo q salga por la zona o alguien q se anime a una ruta de 2 o 3 horas. </p>
+                                <div class="container iconos">
+                                    <span class="fas fa-comment-alt"></span>
+                                    <span class="fas fa-star"></span>
+                                    <span class="fas fa-share-alt"></span>
+                                    <span class="fas fa-angle-double-down"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/19/19086.jpg?1272389884" alt="Foto de perfil.">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1"> Charlie Root </h5>
+                                <p> Viendo el movimiento que últimamente está teniendo por el foro el tema de las horquillas rígidas, recojo el testigo lanzado por luke racer y creo este censo para que los amigos de lo rígido vayamos "saliendo del armario" poniendo nuestra monturas, con despieces y pesos a poder ser, pero vamos, con la foto en un principio servirá... </p>
+                                <div class="container iconos">
+                                    <span class="fas fa-comment-alt"></span>
+                                    <span class="fas fa-star"></span>
+                                    <span class="fas fa-share-alt"></span>
+                                    <span class="fas fa-angle-double-down"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3" src="https://www.foromtb.com/storage/data/avatars/l/397/397853.jpg?1521650443" alt="Foto de perfil.">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1"> Jovi_91 </h5>
+                                <p> La verdad me ha gustado mucho los colores y a un precio buenísimo para lo que monta. He estado a punto de comprármela pero no me convence eso de que sea compatible en 27.5, 27,5+ y 29. Tanto tiempo diciendo que hacer eso es una "aberración", va decathlon y lo hace.
+                                    <br> He usado buscador no he encontrado gran cosa sobre ella. Que opináis de este nuevo modelo y sus ruedas intercambiables?  </p>
+                                <div class="container iconos">
+                                    <span class="fas fa-comment-alt"></span>
+                                    <span class="fas fa-star"></span>
+                                    <span class="fas fa-share-alt"></span>
+                                    <span class="fas fa-angle-double-down"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------------ -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

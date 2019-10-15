@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <title> ALTER CYCLES </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="../../imagenes/icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../navbar-styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Ubuntu&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #c0c0c0
+        }
+
+        /* modelos de bici */
+
+        .modelos-bicis {
+            height: 350px;
+
+        }
+
+        .modelos-bicis row {
+
+        }
+
+        .modelos-bicis .col-md-7,
+        .modelos-bicis .col-md-5 {
+            height: 350px;
+        }
+
+        .modelos-bicis .col-md-5 {
+            padding: 30px;
+            overflow-y: hidden;
+        }
+
+        .modelos-bicis .col-md-7 {
+            padding: 0;
+        }
+
+        .modelos-bicis h1 {
+            text-align: center;
+        }
+
+        .col-md-7 img {
+            height: 100%;
+            float: right;
+            object-fit: cover;
+            mask-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 10%);
+        }
+
+        .order-md-1 img {
+            float: left !important;
+            mask-image: linear-gradient(to right, rgba(0,0,0,1) 90%, rgba(0,0,0,0)) !important;
+        }
+    </style>
+</head>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg" style="height: 120px; background-color: #00c18b; text-transform: uppercase !important;">
+        <a class="navbar-brand" href="../../index.html">
+            <img src="../../imagenes/logo.png" style="height: 100px">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="height: 100%">
+            <ul class="navbar-nav" style="height: 100%">
+                <li class="nav-item">
+                    <a class="nav-link" href="../../index.html"> Inicio </a>
+                </li>
+
+                <li class="nav-item active dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Catálogo
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="../../catalogo/montanha/index.html"> Montaña </a>
+                        <a class="dropdown-item" href="../../catalogo/carretera/index.html"> Carretera </a>
+                        <a class="dropdown-item" href="../../catalogo/electrica/index.html"> Eléctricas </a>
+                        <a class="dropdown-item" href="../../catalogo/infantiles/index.html"> Infantiles </a>
+                        <a class="dropdown-item" href="../../catalogo/componentes/index.html"> Por componentes </a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Servicios
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="../../servicios/alquiler/index.html"> Alquiler y test rides </a>
+                        <a class="dropdown-item" href="../../servicios/videotutoriales/index.html"> Video-tutoriales </a>
+                        <a class="dropdown-item" href="../../servicios/financiacion/index.html"> Financiación </a>
+                        <a class="dropdown-item" href="../../servicios/garantias/index.html"> Garantiás y devoluciones </a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../../foro/index.html"> Foro de clientes </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- --------------------------------------------------------- -->
+
+    <div class="card-header" style="padding: 10px; font-size: 50px; text-align: center; background-color: #00c18b; color: white; font-weight: bolder">
+        CARRETERA
+    </div>
+
+    <div class="container-fluid modelos-bicis">
+        <div class="row">
+            <div class="col-md-5" style="background-color: #a7a7a7">
+                <h2> Giant Tcr Advanced 1 KOM 2020 </h2>
+                <p> Su cuadro de Carbono de grado Advanced T-700, consigue ahorrar todo el peso posible, a la vez que conserva la rigidez de cada pedalada. El sistema de dirección Overdrive y el tubo diagonal Megadrive, te permiten girar en las curvas a toda velocidad. </p>
+                <h1> 2.099,00€ </h1>
+            </div>
+            <div class="col-md-7" style="background-color: #a7a7a7">
+                <img src="imagenes/Screenshot%20from%202019-10-12%2018-16-27.png">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 order-md-2" style="background-color: #cccccc">
+                <h2> Specialized Tarmac Disc Expert 2020 </h2>
+                <p> Las especificaciones de esta bicicleta de rendimiento Tarmac Expert Disc son impresionantes, con cambios electrónicos Shimano Ultegra Di2 y frenos de disco hidráulicos, ruedas de fibra de carbono Roval C 38 Disc. </p>
+                <h1> 5.999,00€ </h1>
+            </div>
+            <div class="col-md-7 order-md-1" style="background-color: #cccccc">
+                <img src="imagenes/Screenshot%20from%202019-10-12%2018-19-52.png">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5" style="background-color: #e0e0e0">
+                <h2> Giant Tcr Advanced Pro Team Disc 2020 </h2>
+                <p> La TCR Advanced Pro Disc te proporciona la confianza necesaria, o para para forzar tus límites durante un descenso. Con un cuadro de carbono de grado Advanced T-700 que cuenta con la integración de frenos de disco de diseño "flat-mount". </p>
+                <h1> 2.550€ </h1>
+            </div>
+            <div class="col-md-7" style="background-color: #e0e0e0">
+                <img src="imagenes/Screenshot%20from%202019-10-12%2018-19-59.png">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 order-md-2" style="background-color: #bebebe">
+                <h2> Specialized Turbo Creo SL Expert 2020 </h2>
+                <p> Bicicleta eléctrica para ciclismo de carretera superará tus expectativas sobre el rendimiento de una e-road: es ligera, suave, capaz e incluso vivaz.
+                    <br>
+                    Presenta un cuadro de carbono Fact 11r, el mismo que en el modelo S-Works. También cuenta con el nuevo Future Shock 2.0. </p>
+                <h1> 12.499,00€ </h1>
+            </div>
+            <div class="col-md-7 order-md-1" style="background-color: #bebebe">
+                <img src="imagenes/Screenshot%20from%202019-10-12%2018-20-06.png">
+            </div>
+        </div>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------------ -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
