@@ -3,6 +3,16 @@
 <head>
     <title> VIZUAL CONTENDER </title>
 
+    <link rel="icon" href="../../_imagenes/tab-icon.png">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../styles.css">
+    <link rel="stylesheet" type="text/css" href="proper-styles.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend+Exa&display=swap">
+
     <meta charset="utf-8">
     <meta name="description" content="Sitio web del estudio Vizual Contender">
     <meta name="keywords" content="Prototipos,Materiales,Madera,Metales,Electronica">
@@ -12,16 +22,74 @@
 
 <body>
     <header>
-        <a href="../../index.html">
-            <img src="../../_imagenes/VClogo.png" height="100">
-        </a>
-        <h1> VIZUAL </h1>
-        <h1> CONTENDER </h1>
+        <div class="logo-container">
+            <a href="../../index.html"> <img src="../../_imagenes/VClogo.png" alt="Logo"> </a>
+            <a href="../../index.html" id="header-title"> <h1> VIZUAL CONTENDER </h1> </a>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown" style="height: 100%">
+                <ul class="navbar-nav nav-fill">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-target="./trabajos/index.html"  target="_blank" href="../../trabajos/index.html" data-toggle="dropdown">
+                            Trabajos
+                        </a>
+                        <div class="dropdown-menu animate slideIn">
+                            <a class="dropdown-item" href="#">        Metal </a>
+                            <a class="dropdown-item" href="#">       Madera </a>
+                            <a class="dropdown-item" href="../../trabajos/impresion3d/cascoRogueOne.html">  Impresión 3D </a>
+                            <a class="dropdown-item" href="#">       Téxtil </a>
+                            <a class="dropdown-item" href="#">  Electrónica </a>
+                            <a class="dropdown-item" href="#">   Exteriores </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                            Nuestro Taller
+                        </a>
+                        <div class="dropdown-menu animate slideIn">
+                            <a class="dropdown-item" href="#"> Herramientas </a>
+                            <a class="dropdown-item" href="#"> Materiales </a>
+                            <a class="dropdown-item" href="#"> Espacios Públicos </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                            Quiénes Somos
+                        </a>
+                        <div class="dropdown-menu animate slideIn">
+                            <a class="dropdown-item" href="#"> Integrantes </a>
+                            <a class="dropdown-item" href="#"> Partners </a>
+                            <a class="dropdown-item" href="#"> Premios </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../lanzaTuIdea/index.html"> Lanza Tu Idea </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../contacto/index.html"> Contacto </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <hr>
 
     <h2> Exteriores </h2>
+
+    <!-- ------------------------------------------------------------------------------------ -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 
