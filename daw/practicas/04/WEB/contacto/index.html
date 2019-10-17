@@ -83,88 +83,114 @@
 
 	<!-- ---------------------------------------------------------------------------------- -->
 
-	<div class="content">
-		<div id="info-izq">
-			<p> ¿Buscas más información? ¿Te gustaría trabajar con nosotros? </p>
+	<div class="container-fluid main-content">
+		<div class="row" id="infos">
+			<div class="col-lg-6" id="info-izq" style="background-color: #404040">
+				<p> ¿Buscas más información? ¿Te gustaría trabajar con nosotros? </p>
+			</div>
+
+			<div class="col-lg-6" id="info-der" style="background-color: #6f6f6f">
+				<p> Contacta al 963 92 40 53 o por e-mail a <a href="mailto:fernandomosteiro30@gmail.com" target="_blank"> fernando@vizualcontender.com </a> </p>
+			</div>
 		</div>
 
-		<div id="info-der">
-			<p> Contacta al 963 92 40 53 o por e-mail a <a href="mailto:fernandomosteiro30@gmail.com" target="_blank"> fernando@vizualcontender.com </a> </p>
+		<div class="divisor" style="background-color: black;margin: 0 auto;">
+			Contacta con nosotros en nuestros talleres
 		</div>
 
-		<!-- --------------------------------------------------------------------------- -->
+		<div class="row" id="mapas">
+			<div class="col-lg-4">
+				<div class="map-container">
+					<div class="map-name">
+						<h3> Rúa dos Porróns, 8, 15705 Santiago de Compostela, A Coruña </h3>
+					</div>
 
-		<div class="divisor"> Contácta con nosotros en nuestros talleres </div>
+					<figure>
+						<div id="mapa1" style=""></div>
+					</figure>
+				</div>
+			</div>
 
-		<div class="map-container">
-			<h3> Rúa dos Porróns, 8, 15705 Santiago de Compostela, A Coruña </h3>
-			<figure>
-				<div id="mapa1" style=""></div>
-			</figure>
+			<div class="col-lg-4">
+				<div class="map-container">
+					<div class="map-name">
+						<h3> Calle Muros de San Pedro, 1, 48007 Bilbao, Vizcaya </h3>
+					</div>
+
+					<figure>
+						<div id="mapa2" style=""></div>
+					</figure>
+				</div>
+			</div>
+
+			<div class="col-lg-4">
+				<div class="map-container">
+					<div class="map-name">
+						<h3> Carrer de Lluís Vives, 2, 46003 València </h3>
+					</div>
+
+					<figure>
+						<div id="mapa3" style="position: relative; bottom: 0"></div>
+					</figure>
+				</div>
+			</div>
+
+			<script>
+				function misMapas() {
+					var latLongCorunha =  {lat: 42.902534, lng: -8.524831},
+							latLongVizcaya =  {lat: 43.268494, lng: -2.924309},
+							latLongValencia = {lat: 39.474114, lng: -0.374846};
+
+					var corunha = new google.maps.Map(document.getElementById('mapa1'), {
+						zoom: 17,
+						center: latLongCorunha,
+						gestureHandling: 'cooperative'
+					}), vizcaya = new google.maps.Map(document.getElementById('mapa2'), {
+						zoom: 17,
+						center: latLongVizcaya,
+						gestureHandling: 'cooperative'
+					}), valencia = new google.maps.Map(document.getElementById('mapa3'), {
+						zoom: 17,
+						center: latLongValencia,
+						gestureHandling: 'cooperative'
+					});
+
+					var icono = './_imagenes/VClogo.png';
+
+					var marker1 = new google.maps.Marker({position: latLongCorunha,  icon: icono}),
+							marker2 = new google.maps.Marker({position: latLongVizcaya,  icon: icono}),
+							marker3 = new google.maps.Marker({position: latLongValencia, icon: icono});
+
+					marker1.setMap(corunha);
+					marker2.setMap(vizcaya);
+					marker3.setMap(valencia);
+				}
+			</script>
+
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfRIi9hOE0MIOq0GkhinUxgVzYcVSdP04&callback=misMapas"></script>
 		</div>
 
-		<div class="map-container">
-			<h3> Calle Muros de San Pedro, 1, 48007 Bilbao, Vizcaya </h3>
-			<figure>
-				<div id="mapa2" style=""></div>
-			</figure>
+		<div class="divisor" style="background-color: black;margin: 0 auto;">
+			Redes Sociales
 		</div>
 
-		<div class="map-container">
-			<h3> Carrer de Lluís Vives, 2, 46003 València </h3>
-			<figure>
-				<div id="mapa3" style=""></div>
-			</figure>
+		<div class="row" id="redes">
+			<div class="col-lg">
+				<a href="mailto:fernandomosteiro30@gmail.com" target="_blank"> <img src="_imagenes/gmail.png"> </a>
+			</div>
+			<div class="col-lg">
+				<a href="https://www.instagram.com/fernando_most/" target="_blank"> <img src="_imagenes/instagram.png"> </a>
+			</div>
+			<div class="col-lg">
+				<a href="https://twitter.com/karguinano" target="_blank"> <img src="_imagenes/twitter.png"> </a>
+			</div>
+			<div class="col-lg">
+				<a href="https://www.youtube.com/feed/trending" target="_blank"> <img src="_imagenes/youtube.png"> </a>
+			</div>
+			<div class="col-lg">
+				<a href="https://www.facebook.com/" target="_blank"> <img src="_imagenes/facebook.png"> </a>
+			</div>
 		</div>
-
-		<script>
-			function misMapas() {
-				var latLongCorunha =  {lat: 42.902534, lng: -8.524831},
-					latLongVizcaya =  {lat: 43.268494, lng: -2.924309},
-					latLongValencia = {lat: 39.474114, lng: -0.374846};
-
-				var corunha = new google.maps.Map(document.getElementById('mapa1'), {
-					zoom: 17,
-					center: latLongCorunha,
-					gestureHandling: 'cooperative'
-				}), vizcaya = new google.maps.Map(document.getElementById('mapa2'), {
-					zoom: 17,
-					center: latLongVizcaya,
-					gestureHandling: 'cooperative'
-				}), valencia = new google.maps.Map(document.getElementById('mapa3'), {
-					zoom: 17,
-					center: latLongValencia,
-					gestureHandling: 'cooperative'
-				});
-
-				var icono = './_imagenes/VClogo.png';
-
-				var marker1 = new google.maps.Marker({position: latLongCorunha,  icon: icono}),
-					marker2 = new google.maps.Marker({position: latLongVizcaya,  icon: icono}),
-					marker3 = new google.maps.Marker({position: latLongValencia, icon: icono});
-
-				marker1.setMap(corunha);
-				marker2.setMap(vizcaya);
-				marker3.setMap(valencia);
-			}
-		</script>
-
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfRIi9hOE0MIOq0GkhinUxgVzYcVSdP04&callback=misMapas"></script>
-
-		<!-- --------------------------------------------------------------------------- -->
-
-		<div class="divisor"> Redes Sociales </div>
-
-		<div id="redes">
-			<ul>
-				<li> <a href="mailto:fernandomosteiro30@gmail.com" target="_blank"> <img src="_imagenes/gmail.png"> </a> </li>
-				<li> <a href="https://www.instagram.com/fernando_most/" target="_blank"> <img src="_imagenes/instagram.png"> </a> </li>
-				<li> <a href="https://twitter.com/karguinano" target="_blank"> <img src="_imagenes/twitter.png"> </a> </li>
-				<li> <a href="https://www.youtube.com/feed/trending" target="_blank"> <img src="_imagenes/youtube.png"> </a> </li>
-				<li> <a href="https://www.facebook.com/" target="_blank"> <img src="_imagenes/facebook.png"> </a> </li>
-			</ul>
-		</div>
-
 	</div>
 
 	<!-- ------------------------------------------------------------------------------------ -->

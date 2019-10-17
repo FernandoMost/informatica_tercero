@@ -2,68 +2,86 @@ body {
     background-color: lightgray;
 }
 
-/* ---------------------------------------------- */
+/* --------------------------------------------------------------- */
 
-#info-izq,
-#info-der {
-    width: 50%;
-    height: 400px;
+#infos .col-lg-6 {
     margin: 0;
-    float: left;
     overflow: hidden;
 }
 
-#info-izq p,
-#info-der p {
+#infos .col-lg-6 p {
     width: 80%;
-    margin: 0;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: white;
+}
 
+/* ----------------------------------- */
+
+@media screen and (max-width: 992px) {
+    #info-izq {
+        padding: 22px;
+    }
+
+    #info-izq p {
+        font-size: 35px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #info-der {
+        padding: 10px;
+    }
+
+    #info-der p {
+        font-size: 15px;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 993px) {
+    #info-izq {
+        padding: 35px;
+    }
+
+    #info-izq p {
+        font-size: 50px;
+        margin: 0 10px 0 auto;
+        text-align: right;
+    }
+
+    #info-der {
+        padding: 26px;
+    }
+
+    #info-der p {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        font-size: 35px;
+        margin: auto auto auto 10px;
+        text-align: left;
+    }
+}
+
+/* --------------------------------------------------------------- */
+
+#mapas .col-lg-4 {
+    padding: 0;
+}
+
+#mapas .map-name {
+    height: 150px;
+    padding: 20px;
+}
+
+#mapas h3 {
     position: relative;
     top: 50%;
-    transform: translateY(-50%)
-}
+    transform: translateY(-50%);
 
-#info-izq {
-    background-color: #303030;
-}
-
-#info-der {
-    background-color: #767676;
-}
-
-#info-izq p {
-    float: right;
-    margin-right: 15px;
-
-    color: white;
-    font-size: 3.5em;
-    text-align: right;
-
-    text-transform: uppercase;
-    font-weight: bolder;
-}
-
-#info-der p {
-    margin-left: 15px;
-
-    font-size: 2.5em;
-    text-align: left;
-}
-
-/* ---------------------------------------------- */
-
-.map-container {
-    width: 33%;
-    display: inline-block;
-}
-
-.map-container h3 {
     text-align: center;
-    margin-bottom: 5px;
-    margin-top: 0;
-    overflow: hidden;
-
-
     text-transform: uppercase;
 }
 
@@ -72,38 +90,27 @@ body {
     padding-top: 100%;
 }
 
-/* ---------------------------------------------- */
+/* --------------------------------------------------------------- */
 
-#redes {
-    width: 100%;
-    height: 150px;
-    margin-top: 15px;
+#redes .col-lg {
+    padding: 30px;
 }
 
-#redes ul {
-    position: relative;
-    height: 100%;
-
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+@media screen and (max-width: 992px) {
+    #redes .col-lg {
+        height: 175px;
+    }
 }
-
-#redes li {
-    position: relative;
-    height: 100%;
-    width: 20%;
-
-    float: left;
+@media screen and (min-width: 993px) {
+    #redes .col-lg {
+        height: 200px;
+    }
 }
 
 #redes img {
-    position: relative;
     height: 100%;
-
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 
     transition-duration: 1s;
 }
