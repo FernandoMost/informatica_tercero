@@ -10,6 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="../styles.css">
 	<link rel="stylesheet" type="text/css" href="proper-styles.css">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="uploadIdea.js"></script>
+
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" >
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend+Exa&display=swap">
 
@@ -65,9 +68,9 @@
 							Quiénes Somos
 						</a>
 						<div class="dropdown-menu animate slideIn">
-							<a class="dropdown-item" href="#"> Integrantes </a>
-							<a class="dropdown-item" href="#"> Partners </a>
-							<a class="dropdown-item" href="#"> Premios </a>
+							<a class="dropdown-item" href="../quienesSomos/index.html"> Integrantes </a>
+							<a class="dropdown-item" href="../quienesSomos/index.html#socios"> Partners </a>
+							<a class="dropdown-item" href="../quienesSomos/index.html#premios"> Premios </a>
 						</div>
 					</li>
 					<li class="nav-item">
@@ -89,15 +92,17 @@
 		<div class="container">
 			<form>
 				<fieldset>
+					<legend> Información de contacto </legend>
+
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label for="inputNombre"> Nombre </label>
-							<input type="text" class="form-control" id="inputNombre" placeholder="Nombre">
+							<input type="text" class="form-control" id="inputNombre" placeholder="Nombre" required>
 						</div>
 
 						<div class="form-group col-md-6">
 							<label for="inputEmail">Email</label>
-							<input type="email" class="form-control" id="inputEmail" placeholder="Email">
+							<input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
 						</div>
 					</div>
 
@@ -115,103 +120,43 @@
 				</fieldset>
 
 				<fieldset>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputNombre"> Nombre </label>
-							<input type="text" class="form-control" id="inputNombre" placeholder="Nombre">
-						</div>
+					<legend> Desarrolla tu idea </legend>
 
-						<div class="form-group col-md-6">
-							<label for="inputEmail">Email</label>
-							<input type="email" class="form-control" id="inputEmail" placeholder="Email">
-						</div>
+					<div class="form-group">
+						<label for="inputTitulo"> Título </label>
+						<input type="text" class="form-control" id="inputTitulo" placeholder="Título" required>
 					</div>
 
-					<div class="form-row">
-						<div class="form-group col-md-3">
-							<label for="inputTelefono"> Teléfono </label>
-							<input type="text" class="form-control" id="inputTelefono" placeholder="Teléfono">
-						</div>
+					<div class="form-group">
+						<label for="inputAbstract"> Abstract </label>
+						<textarea class="form-control" id="inputAbstract" rows="2" placeholder = "Abstract"></textarea>
+					</div>
 
-						<div class="form-group col-md-9">
-							<label for="inputDireccion"> Dirección completa </label>
-							<input type="text" class="form-control" id="inputDireccion" placeholder="Dirección completa">
-						</div>
+					<div class="form-group">
+						<label for="inputIdea"> Idea completa </label>
+						<textarea class="form-control" id="inputIdea" rows="5" placeholder = "Idea completa" required></textarea>
 					</div>
 				</fieldset>
 
-
-
-<!--				<div class="form-row">-->
-<!--					<div class="form-group col-md-6">-->
-<!--						<label for="inputCity">City</label>-->
-<!--						<input type="text" class="form-control" id="inputCity">-->
-<!--					</div>-->
-<!--					<div class="form-group col-md-4">-->
-<!--						<label for="inputState">State</label>-->
-<!--						<select id="inputState" class="form-control">-->
-<!--							<option selected>Choose...</option>-->
-<!--							<option>...</option>-->
-<!--						</select>-->
-<!--					</div>-->
-<!--					<div class="form-group col-md-2">-->
-<!--						<label for="inputZip">Zip</label>-->
-<!--						<input type="text" class="form-control" id="inputZip">-->
-<!--					</div>-->
-<!--				</div>-->
-
 				<div class="form-group">
 					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="checkCondiciones">
+						<input class="form-check-input" type="checkbox" id="checkCondiciones" required>
 						<label class="form-check-label" for="checkCondiciones">
 							He leído y acepto los términos y condiciones.
 						</label>
 					</div>
 				</div>
 
-				<button type="submit" class="btn btn-primary"> Enviar </button>
+				<button type="submit" class="btn btn-primary" id="botonEnviar"> Enviar </button>
 			</form>
-
-
-			<div id="idea-input">
-				<form action="" method="get">
-					<fieldset id="contacto" style="margin-bottom: 30px">
-						<legend> Información de Contacto </legend>
-						<p> Nombre: </p>
-						<label> <input type="text"> </label>
-
-						<p> E-mail: </p>
-						<label> <input type="text"> </label>
-
-						<p> Teléfono: </p>
-						<label> <input type="text"> </label>
-
-						<p> Ubicación: </p>
-						<label> <input type="text" style="width: 75% !important;"> </label>
-					</fieldset>
-
-					<fieldset id="idea">
-						<legend> Desarrolla tu idea </legend>
-
-						<p> Asunto: </p>
-						<label> <input type="text"> </label>
-
-						<p> Abstract: </p>
-						<label> <textarea name="abstract" id="abstract"> </textarea> </label>
-
-						<p> Idea: </p>
-						<label> <textarea name="full-idea" id="idea-box"> </textarea> </label>
-
-						<p> Adjuntar archivo: </p>
-						<label> <input type="file" id="adjuntar"> </label>
-					</fieldset>
-
-					<input type="submit" value="ENVIAR" id="submit">
-				</form>
-			</div>
 		</div>
 
 		<div class="divisor"> Chat/Replies </div>
+
+		<div class="container" id="chat-replies">
+			<div style="height: 150px"> </div>
+		</div>
+
 	</div>
 
 	<!-- ------------------------------------------------------------------------------------ -->

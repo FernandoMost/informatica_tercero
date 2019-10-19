@@ -50,3 +50,125 @@ h3 {
         font-size: 60px;
     }
 }
+
+/*-------------------------------------------------------------------*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: auto;
+
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
+}
+
+@media screen and (max-width: 767px) { .modal { top: 150px; height: calc(100% - 150px) } }
+@media screen and (min-width: 768px) { .modal { top: 250px; height: calc(100% - 250px) } }
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 95%;
+    max-height: 95%;
+
+    background-color: transparent !important;
+
+    animation-name: zoom;
+    animation-duration: 0.25s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 5;
+
+    cursor: pointer;
+}
+
+@media screen and (max-width: 767px) { .close { font-size: 50px; } }
+@media screen and (min-width: 768px) { .close { font-size: 100px; } }
+
+.close:hover,
+.close:focus {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*-------------------------------------------------------------------*/
+
+a#collapse .divisor {
+    background-color: #191919;
+
+    transition-duration: 2s;
+}
+
+a#collapse:hover .divisor {
+    background-color: white;
+    color: black !important;
+
+    transition-duration: 2s;
+}
+
+
+#collapseContent .row {
+    width: 100%;
+    margin: 0;
+}
+
+#collapseContent .row .col-lg-4 {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    height: 300px;
+}
+
+#collapseContent .col-lg-4 img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 1;
+    transition-duration: 1s;
+}
+
+#collapseContent .col-lg-4 h2 {
+    opacity: 0;
+    transition-duration: 1s;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: black;
+}
+
+#collapseContent .col-lg-4 a:hover img {
+    opacity: 0.05;
+    transition-duration: 1s;
+}
+
+#collapseContent .col-lg-4 a:hover h2 {
+    opacity: 1;
+    transition-duration: 1s;
+}

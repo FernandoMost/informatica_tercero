@@ -1,72 +1,74 @@
 .divisor {
-    background-color: #202020 !important;
-    font-size: 2em !important;
+    background-color: #131313;
 }
-
-/* -------------------------------------------------------- */
-
-#idea-input {
-    max-width: 1200px;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    font-size: large;
-}
-
-#idea-input p {
-    margin: 0;
-}
-
-/* -------------------------------------------------------- */
 
 fieldset {
     border: 3px solid #767676;
     border-radius: 7px;
-    padding: 20px;
+    padding: 0 20px;
+    margin: 25px 0;
 }
 
 legend {
     font-size: x-large;
-    padding: 15px;
+    padding: 0 15px;
+    margin: 0 0 10px 0;
 }
 
-/* ----------------------------------------- */
-
-fieldset input {
-    width: 50%;
-}
-
-input {
-    margin-bottom: 10px;
-}
-
-/* ----------------------------------------- */
-
-textarea#abstract {
-    width: 75%;
-    height: 100px;
+textarea {
     resize: none;
 }
 
-textarea#idea-box {
-    width: 100%;
-    height: 200px;
-    resize: none;
-}
-
-input#adjuntar {
-    margin: 0;
-}
-
-input#submit {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-
+.btn {
     display: block;
+
+    width: 220px;
+    margin: 20px auto;
+    padding: 10px 20px !important;
+    border: 0;
+
+    background-color: black;
+
+    font-size: 30px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.btn:hover,
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 0 .2rem rgba(0,0,0,1) !important;
+    border-color: black !important;
 }
 
 /* -------------------------------------------------------- */
+
+.card {
+    border-radius: 15px;
+    margin: 25px 0;
+    background-color: #e6e6e6;
+}
+
+.card h5 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 30px;
+
+}
+
+.card p {
+    font-size: 20px;
+}
+
+hr {
+    height: 2px;
+    background: #c2c2c2;
+}
+
+.card img {
+    padding: 15px;
+}
 

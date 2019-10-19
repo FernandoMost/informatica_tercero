@@ -3,31 +3,26 @@ body {
 }
 
 #our-team {
-	max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 0;
 }
 
-.persona {
-	width: 33.333%;
-	float: left;
-	margin-top: 50px;
+#our-team .row {
+    margin: 35px 0;
 }
 
-.persona h3 {
+#our-team h3 {
 	margin: 0;
 	text-align: center;
 }
 
-.persona p {
+#our-team p {
     margin: 0;
     text-align: center;
 }
 
-.persona img {
+#our-team img {
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 20px auto;
 
 	width: 300px;
 	height: 300px;
@@ -39,70 +34,59 @@ body {
     transition-duration: 3s;
 }
 
-.persona:hover img {
-    transform: scale(1.05);
+#our-team .col-lg-4:hover img {
+    transform: scale(1.125);
     transition-duration: 3s;
 }
 
 /* ----------------------------------------------------------- */
 
 #socios {
-	clear: left;
-    width: 100%;
-
-    position: relative;
-    top: 25px;
-
-    text-align: center;
+	text-align: center;
 }
 
-.empresa {
-    width: 50%;
-    float: left;
+#socios .row {
+    margin: 20px auto;
 }
 
-.empresa img {
-    width: 80%;
+#socios img {
+    max-height: 250px;
+    max-width: 100%;
     display: block;
-    margin: auto;
+    margin: 10px auto;
 }
 
 /* ----------------------------------------------------------- */
 
 #premios {
-    clear: left;
-    width: 100%;
-    margin: 0;
+
 }
 
-.competicion,
-.premios {
-    height: 200px;
-    float: left;
+#premios .row {
+    min-height: 200px;
+    border-bottom: 1px solid #7b7b7b;
 }
 
-.competicion {
-    width: 35%;
+#premios .col-lg-4 {
     background-color: #898989;
-}
-.premios {
-    width: 65%;
+    padding: 15px;
 }
 
-.premios p {
+#premios .col-lg-8 {
+    background-color: #c4c4c4;
+    padding: 18px;
+}
+
+#premios p {
     font-size: 18px;
-    line-height: 15px;
-
-    margin-left: 20px;
 }
 
-.competicion img {
+#premios img {
     max-width: 80%;
     max-height: 85%;
 
-    margin-top: 5px;
-
     display: block;
-    margin-left: auto;
-    margin-right: 20px;
 }
+
+@media screen and (max-width: 992px) { #premios img { margin: auto } }
+@media screen and (min-width: 993px) { #premios img { margin-left: auto; } }

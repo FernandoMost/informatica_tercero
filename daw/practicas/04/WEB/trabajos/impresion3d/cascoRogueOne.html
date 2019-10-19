@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend+Exa&display=swap">
 
+    <script src="modals.js"></script>
+
     <meta charset="utf-8">
     <meta name="description" content="Sitio web del estudio Vizual Contender">
     <meta name="keywords" content="Prototipos,Materiales,Madera,Metales,Electronica">
@@ -65,9 +67,9 @@
                             Quiénes Somos
                         </a>
                         <div class="dropdown-menu animate slideIn">
-                            <a class="dropdown-item" href="#"> Integrantes </a>
-                            <a class="dropdown-item" href="#"> Partners </a>
-                            <a class="dropdown-item" href="#"> Premios </a>
+                            <a class="dropdown-item" href="../../quienesSomos/index.html"> Integrantes </a>
+                            <a class="dropdown-item" href="../../quienesSomos/index.html#socios"> Partners </a>
+                            <a class="dropdown-item" href="../../quienesSomos/index.html#premios"> Premios </a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -84,6 +86,71 @@
 <!-- ---------------------------------------------------------------------------------- -->
 
     <div class="container-fluid main-content">
+
+        <a id="collapse"
+           style="color: white; text-decoration: none"
+           data-toggle="collapse"
+           href="#collapseContent"
+           role="button"
+           aria-expanded="false"
+           aria-controls="collapseContent">
+            <div class="divisor">
+                Otros proyectos
+            </div>
+        </a>
+
+        <div class="collapse" id="collapseContent">
+            <div class="container-fluid" style="padding: 0">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <a href="#">
+                            <img src="../_imagenes/metal.jpg" alt="metal">
+                            <h2> Metal </h2>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="#">
+                            <img src="../_imagenes/madera.jpg" alt="madera">
+                            <h2> Madera </h2>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="../impresion3d/cascoRogueOne.html">
+                            <img src="../_imagenes/impresion3d.jpg" alt="impresion3d">
+                            <h2> Impresión 3D </h2>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <a href="#">
+                            <img src="../_imagenes/textil.jpg" alt="textil">
+                            <h2> Téxtil </h2>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="#">
+                            <img src="../_imagenes/arduino2.jpg" alt="arduino2">
+                            <h2> Electrónica </h2>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="#">
+                            <img src="../_imagenes/exterior.jpg" alt="exterior">
+                            <h2> Exteriores </h2>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
         <div class="divisor" style="background-color: #2e2e2e;margin: 0 auto;">
             Coastal Defender Stormtrooper Helmet
         </div>
@@ -110,7 +177,7 @@
 
         <div class="row" style="background-color: #c4c4c4">
             <div class="col-lg-6">
-                <video src="_imagenes/01.mp4" autoplay muted loop> </video>
+                <video src="_imagenes/01.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
             </div>
 
             <div class="col-lg-6 texto">
@@ -128,7 +195,7 @@
             </div>
 
             <div class="col-lg-6">
-                <video src="_imagenes/02.mp4" autoplay muted loop> </video>
+                <video src="_imagenes/02.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
             </div>
         </div>
 
@@ -149,7 +216,7 @@
 
         <div class="row" style="background-color: #c4c4c4">
             <div class="col-lg-6">
-                <video src="_imagenes/03.mp4" autoplay muted loop> </video>
+                <video src="_imagenes/03.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
             </div>
 
             <div class="col-lg-6 texto">
@@ -160,7 +227,7 @@
         </div>
         <div class="row" style="background-color: #c4c4c4">
             <div class="col-lg-6">
-                <img src="_imagenes/03.png">
+                <img src="_imagenes/03.png" onclick="modalFunctionImg(this)">
             </div>
 
             <div class="col-lg-6 texto">
@@ -180,7 +247,7 @@
             </div>
 
             <div class="col-lg-6" style="background-color: #6a6a6a">
-                <img src="_imagenes/06.png">
+                <img src="_imagenes/06.png" onclick="modalFunctionImg(this)">
             </div>
         </div>
         <div class="row">
@@ -191,7 +258,7 @@
             </div>
 
             <div class="col-lg-6" style="background-color: #6a6a6a">
-                <video src="_imagenes/04.mp4" autoplay muted loop> </video>
+                <video src="_imagenes/04.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
             </div>
         </div>
 
@@ -203,11 +270,11 @@
 
         <div class="row">
             <div class="col-lg-6">
-                <img src="_imagenes/05.png">
+                <img src="_imagenes/05.png" onclick="modalFunctionImg(this)">
             </div>
 
             <div class="col-lg-6">
-                <img src="_imagenes/07.png">
+                <img src="_imagenes/07.png" onclick="modalFunctionImg(this)">
             </div>
         </div>
 
@@ -222,6 +289,15 @@
                 <video src="_imagenes/05.mp4" autoplay muted loop> </video>
             </div>
         </div>
+
+
+
+        <div class="modal" id="modal01">
+            <span class="close" onclick="closeModal()" >&times;</span>
+            <video class="modal-content" id="modalVideo"></video>
+            <img class="modal-content" id="modalImg">
+        </div>
+
 
     </div>
 
