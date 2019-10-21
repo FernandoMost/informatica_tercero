@@ -56,7 +56,7 @@ h3 {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 50;
     left: 0;
 
     width: 100%;
@@ -68,12 +68,10 @@ h3 {
     background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
 }
 
-@media screen and (max-width: 767px) { .modal { top: 150px; height: calc(100% - 150px) } }
-@media screen and (min-width: 768px) { .modal { top: 250px; height: calc(100% - 250px) } }
-
 .modal-content {
     margin: auto;
     display: block;
+    width: unset!important;
     max-width: 95%;
     max-height: 95%;
 

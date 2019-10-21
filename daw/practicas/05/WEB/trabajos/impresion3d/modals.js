@@ -1,13 +1,17 @@
-function pauseVideos() {
+function pauseVideos(bool) {
     var x = document.getElementsByTagName("video");
     var i;
     for (i = 0; i < x.length; i++) {
-        x[i].pause();
+        if (bool) {
+            x[i].pause();
+        } else {
+            x[i].play();
+        }
     }
 }
 
 function modalFunctionImg(element) {
-    pauseVideos();
+    pauseVideos(true);
 
     document.getElementById("modalImg").src = element.src;
 
@@ -17,7 +21,7 @@ function modalFunctionImg(element) {
 }
 
 function modalFunctionVideo(element) {
-    pauseVideos();
+    pauseVideos(true);
 
     var videoModal = document.getElementById("modalVideo");
 
@@ -36,10 +40,5 @@ function closeModal() {
     document.getElementById("modalVideo").style.display = "none";
     document.getElementById("modalImg").style.display = "none";
 
-    var x = document.getElementsByTagName("video");
-    var i;
-    for (i = 0; i < x.length; i++) {
-        x[i].play();
-    }
-
+    pauseVideos(false);
 }
