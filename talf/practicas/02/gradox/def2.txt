@@ -1,0 +1,9 @@
+#5 A B C D E
+#2 C E
+#2 0 1
+--TABLA DE TRANSICIONES--
+A B # A # #
+D # C # #
+ # # #
+E # # #
+ # # #

@@ -1,0 +1,7 @@
+Pues bien el programa está implementado en Python3 (3.4.3) así que no es compatible con python2, en lo que respecta al programa, no es necesario compilarlo por estar en Python, para correrlo lo único que se necesita será tener instalado Python3 y usar el comando
+
+python3 pFlap.py -f "archivo autómata" "cadena"
+
+por ejemplo:
+
+python3 pFlap.py -f machine.txt 152ac22bd1c2c

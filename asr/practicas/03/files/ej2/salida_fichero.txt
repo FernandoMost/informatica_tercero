@@ -1,0 +1,6 @@
+* las lineas 2 difieren
+<- for(i=0;i<10;i++) a+=1; 
+-> for(i=0;i<11;i++) b+=1;
+* las lineas 4 difieren
+<- s=s-2; } 
+-> s=s+2; }
