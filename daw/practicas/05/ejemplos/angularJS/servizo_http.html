@@ -1,0 +1,26 @@
+<html ng-app= "miApp">
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+
+<div ng-app="miApp" ng-controller="miCtr">
+<ul>
+	<li ng-repeat="x in miDato">
+	{{ x.Nombre + '--> ' + x.Ciudad + ', ' + x.Pais }}
+	</li>
+</ul>
+</div>
+
+
+<script>
+var app = angular.module('miApp', []);
+app.controller('miCtr', function($scope, $http){
+	$http.get("prueba.txt").then(function(response){
+		$scope.miDato= response.data.registros;
+	});
+});
+</script>
+
+
+</html>

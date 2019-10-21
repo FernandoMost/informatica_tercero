@@ -1,0 +1,28 @@
+<html ng-app= "miApp">
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+
+<div ng-app= "miApp" ng-controller= "miCtr">
+<p>Introduce un valor: <input type="number" ng-model="number"/></p>
+<h3 ng-click= "square()">Pulsar</h3>
+<p>Resultado: {{result}}</p>
+</div>
+
+<script>
+var miApp= angular.module("miApp", []);
+miApp.service('fService', function(){
+	this.cuadrado= function(a) {
+		return a*a;
+	}
+});
+miApp.controller('miCtr', function($scope, fService){
+	$scope.square= function(){
+		$scope.result= fService.cuadrado($scope.number);
+	}
+});
+</script>
+
+
+</html>

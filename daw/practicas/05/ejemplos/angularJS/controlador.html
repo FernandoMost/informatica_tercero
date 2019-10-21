@@ -1,0 +1,19 @@
+<html>
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="miApp" ng-controller="miCtr">
+{{nombre + " " + apellido}}
+</div>
+
+<script>
+var app=angular.module("miApp",[])
+app.controller("miCtr",function($scope) {
+	$scope.nombre="Pablo"
+	$scope.apellido='García'
+})
+</script>
+
+</body>
+</html>

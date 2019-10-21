@@ -1,0 +1,19 @@
+<html>
+<meta charset='utf-8'>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="miApp" ng-controller="ctr">
+<p>El apellido es: {{ apellido | uppercase }} </p>
+</div>
+<script>
+angular.module('miApp', []).controller('ctr', function($scope) {
+	$scope.nombre = "Pablo",
+	$scope.apellido = "García"
+});
+</script>
+
+
+</body>
+
+</html>

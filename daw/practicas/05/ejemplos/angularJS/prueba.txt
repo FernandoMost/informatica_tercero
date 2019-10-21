@@ -1,0 +1,5 @@
+{"registros":[
+	{"Nombre":"Pedro Suárez","Ciudad":"Santiago","País":"España"},
+	{"Nombre":"Ana Gómez","Ciudad":"Londres","País":"UK"},
+	{"Nombre":"Peter Church","Ciudad":"New York","País":"USA"}]
+}

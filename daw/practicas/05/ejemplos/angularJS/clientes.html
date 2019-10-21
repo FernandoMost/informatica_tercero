@@ -1,0 +1,22 @@
+<html ng-app= "miApp">
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<div ng-controller= "cSimple">
+<ul>
+<li ng-repeat= "data in clientes">
+{{ data.nombre }} – {{ data.ciudad }}
+</li>
+</ul>
+</div>
+
+<script>
+var miApp= angular.module("miApp", [ ]);
+miApp.controller("cSimple", function($scope){
+	$scope.clientes= [
+		{ nombre: "Pedro", ciudad: "León" },
+		{ nombre: "Antonio", ciudad: "Huelva" },
+		{ nombre: "Jesús", ciudad: "Santiago" } ];
+})
+</script>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<meta charset='utf-8'>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+<body ng-app="miApp">
+<p><a href="#/">Ciudad</a></p>
+<a href="#usc">Universidad</a>
+<a href="#etse">Centro</a>
+<div ng-view></div>
+
+<script>
+var app = angular.module("miApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+	$routeProvider
+	.when("/", {
+		templateUrl : "main.html",
+		controller : "mainCtrl"
+	})
+	.when("/usc", {
+		templateUrl : "usc.html",
+		controller : "uscCtrl"
+	})
+	.when("/etse", {
+		templateUrl : "etse.html",
+		controller : "etseCtrl"
+	})
+})
+</script>
+
+<script>
+app.controller("mainCtrl", function($scope) {
+	$scope.msg= "Santiago de Compostela es la capital de Galicia";
+})
+
+app.controller("uscCtrl", function($scope) {
+	$scope.msg= "La USC es la universidad de Santiago";
+})
+
+app.controller("etseCtrl", function($scope) {
+	$scope.msg= "La ETSE es la escuela de ingenieria de la universidad de Santiago";
+})
+</script>
+
+
+</body>
+
+</html>

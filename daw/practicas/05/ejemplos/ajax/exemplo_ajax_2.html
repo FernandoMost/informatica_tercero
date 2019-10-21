@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<html>
+<body>
+
+<h1>ETSE</h1>
+<h2 id="demo" onclick="cargaTexto()">Cambia contido</h2>
+
+<script>
+function cargaTexto() {
+  var xhttp = new XMLHttpRequest()
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+		var xmlDoc=this.responseXML
+		var txt="<ul>"
+		var x=xmlDoc.getElementsByTagName("TITULO")
+		for (var i=0;i<x.length;i++)
+			txt=txt+"<li>"+x[i].childNodes[0].nodeValue + "</li>"
+		txt=txt+"</ul>"
+		document.getElementById("demo").innerHTML=txt
+    }
+  };
+  xhttp.open("GET", "fileXML.xml", true);
+  xhttp.send();   
+}
+</script>
+
+</body>
+</html>

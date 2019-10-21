@@ -1,0 +1,16 @@
+<html>
+<meta charset='utf-8'>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+</script>
+<body>
+<!--<div ng-app>
+<p>Primeira expresión {{1 + 1}}</p>
+</div>-->
+
+<!--  Para que funcione o seguinte, comenta o anterior div-->
+<div ng-app ng-init="miColor='red'">
+<input style="background-color:{{miColor}}" ng-model="mColor">
+<h1 ng-bind="mColor" style="color:{{miColor}}"></h1>
+</div>
+</body>
+</html>

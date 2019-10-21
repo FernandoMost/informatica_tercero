@@ -1,0 +1,28 @@
+<html>
+<meta charset='utf-8'>
+<body>
+<h1>ETSE</h1>
+<h2 id='demo' onclick='cargaTexto()'>Cambia contido</h2>
+
+<script>
+function cargaTexto() {
+	var xhttp=new XMLHttpRequest()
+	xhttp.onreadystatechange=function() {
+		if(this.readyState==4 && this.status==200) {
+			var jsonObj=JSON.parse(this.responseText)
+			var txt='<ul>'
+			for(x in jsonObj.Registros) {
+				txt=txt + '<li>' + jsonObj.Registros[x].Nombre
+					+ '->' + jsonObj.Registros[x].Ciudad
+					+ '</li>'
+			}
+			txt=txt + '</ul>'
+			document.getElementById('demo').innerHTML=txt
+		}
+	}
+	xhttp.open('GET','fileJSON.json',true)
+	xhttp.send()
+}
+</script>
+</body>
+</html>
