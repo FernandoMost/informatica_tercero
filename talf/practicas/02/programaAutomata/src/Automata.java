@@ -9,7 +9,7 @@ public class Automata {
 
     private ArrayList<ArrayList<HashSet<Estado>>> matrizTransiciones;
 
-    private HashSet<Character> alfabeto;
+    private ArrayList<Character> alfabeto;
 
     /* ----------------------------------------------------------------- */
 
@@ -17,7 +17,7 @@ public class Automata {
         /*  Función que interpreta en archivo de entrada */
 
         BufferedReader reader = new BufferedReader(new FileReader(archivo));
-        int i, numEstados = 0, numEstadosFinales = 0, numElemsAlfabeto = 0;
+        int i, numEstados, numEstadosFinales, numElemsAlfabeto;
         String[] lineaSeparada = null;
         String linea;
 
@@ -39,7 +39,6 @@ public class Automata {
         }
 
         this.estados = new ArrayList<>();
-        String nombreEstado;
 
         for (i = 1; i < numEstados; i++) {
             Estado e = new Estado(lineaSeparada[i]);
@@ -91,7 +90,7 @@ public class Automata {
             throw new Exception("No se incluye # en la linea del alfabeto");
         }
 
-        this.alfabeto = new HashSet<>();
+        this.alfabeto = new ArrayList<>();
 
         for (i = 1; i < numElemsAlfabeto; i++) {
             alfabeto.add(lineaSeparada[i].charAt(0));
@@ -133,16 +132,54 @@ public class Automata {
 
     // ----------------------------------------------------------------------------------------
 
-    public boolean solve(String cadena) throws Exception {
+    private HashSet<Estado> transicion(HashSet<Estado> estadosActuales, Character entrada) {
+        HashSet<Estado> nuevosEstados = new HashSet<>();
+
+        if (this.alfabeto.contains(entrada)) {
+            for (Estado e : estadosActuales ) {
+                int fila = this.estados.indexOf(e);
+                int columna = this.alfabeto.indexOf(entrada);
+
+                nuevosEstados.addAll(this.matrizTransiciones.get(fila).get(columna));
+            }
+
+            return nuevosEstados;
+        }
+
+        return nuevosEstados;
+    }
+
+    private HashSet<Estado> clausura(Estado e) {
+        HashSet<Estado> set = new HashSet<>();
+
+        set.add(e);
+
+        for (Estado salidaCadenaVacia : this.transicion(set, 'λ')) {
+            set.addAll(this.clausura(salidaCadenaVacia));
+        }
+
+        return set;
+    }
+
+
+
+    // ----------------------------------------------------------------------------------------
+
+    public boolean solve(String cadena) {
+        HashSet<Estado> estadosActuales = new HashSet<>();
+
+        estadosActuales.add(this.estadoInicial);
+
         for (int i = 0; i < cadena.length(); i++)
-            if (!this.alfabeto.contains(cadena.charAt(i)))
-                throw new Exception("La cadena contiene un caracter que no pertenece a alfabeto");
+            estadosActuales = transicion(estadosActuales, cadena.charAt(i));
 
+        for (Estado e : estadosActuales)
+            estadosActuales.addAll(this.clausura(e));
 
+        for (Estado e : estadosActuales)
+            if (this.estadosFinales.contains(e)) return true;
 
-
-
-        return true;
+        return false;
     }
 
     // ----------------------------------------------------------------------------------------
