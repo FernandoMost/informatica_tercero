@@ -4,15 +4,15 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
-        File inputFile = new File("./src/02");
+        File inputFile = new File("./src/ejDefinicion.txt");
 
         try {
-            String inputString = "001101";
+            String inputString = "00110";
 
             Automata a = new Automata(inputFile);
 
             System.out.println(a.toString());
-
+            System.out.println("Cadena = " + inputString);
             System.out.println(a.solve(inputString));
 
         } catch (IOException e) {

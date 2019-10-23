@@ -134,26 +134,41 @@ public class Automata {
 
     private HashSet<Estado> transicion(HashSet<Estado> estadosActuales, Character entrada) {
         HashSet<Estado> nuevosEstados = new HashSet<>();
+        int columna = this.alfabeto.indexOf(entrada), columnaCadenaVacia = this.alfabeto.indexOf('λ');
+
+        if (this.alfabeto.contains(entrada)) {
+            for (Estado e : estadosActuales ) {
+                int fila = this.estados.indexOf(e);
+
+                for (Estado prox : this.matrizTransiciones.get(fila).get(columna))
+                    nuevosEstados.addAll(this.clausura(prox));
+
+                System.out.print("Estado: " + e.getNombre() + " con entrada " + entrada + "\n\t");
+
+                for (Estado prox : nuevosEstados) {
+                    System.out.print(prox.getNombre() + " ");
+                }
+
+                System.out.println();
+            }
+
+            System.out.println("------------------------------------------------");
+
+            return nuevosEstados;
+        }
+
+        return nuevosEstados;
+    }
+
+    private HashSet<Estado> transicion2(HashSet<Estado> estadosActuales, Character entrada) {
+        HashSet<Estado> nuevosEstados = new HashSet<>();
 
         if (this.alfabeto.contains(entrada)) {
             for (Estado e : estadosActuales ) {
                 int fila = this.estados.indexOf(e);
                 int columna = this.alfabeto.indexOf(entrada);
 
-                for (Estado proximo : this.matrizTransiciones.get(fila).get(columna) ) {
-                    nuevosEstados.add(proximo);
-
-                    int filaProximo = this.estados.indexOf(proximo);
-                    int columnaProximo = this.alfabeto.indexOf('λ');
-
-                    nuevosEstados.addAll(this.matrizTransiciones.get(filaProximo).get(columnaProximo));
-                }
-
-                nuevosEstados.addAll();
-
-
-                //AÑADIR CADENA VACIA
-
+                nuevosEstados.addAll(this.matrizTransiciones.get(fila).get(columna));
             }
 
             return nuevosEstados;
@@ -162,12 +177,24 @@ public class Automata {
         return nuevosEstados;
     }
 
+
+//    public void printClausuras() {
+//        for (Estado e : this.estados) {
+//            System.out.print(e.getNombre() + " --> ");
+//
+//            for (Estado enClausura : this.clausura(e))
+//                System.out.print(enClausura.getNombre() + "   ");
+//
+//            System.out.println();
+//        }
+//    }
+
     private HashSet<Estado> clausura(Estado e) {
         HashSet<Estado> set = new HashSet<>();
 
         set.add(e);
 
-        for (Estado salidaCadenaVacia : this.transicion(set, 'λ')) {
+        for (Estado salidaCadenaVacia : this.transicion2(set, 'λ')) {
             set.addAll(this.clausura(salidaCadenaVacia));
         }
 
@@ -179,15 +206,20 @@ public class Automata {
     // ----------------------------------------------------------------------------------------
 
     public boolean solve(String cadena) {
-        HashSet<Estado> estadosActuales = new HashSet<>();
+        HashSet<Estado> estadosActuales = new HashSet<>(), clausuras = new HashSet<>();
 
         estadosActuales.add(this.estadoInicial);
 
-        for (int i = 0; i < cadena.length(); i++)
+        for (int i = 0; i < cadena.length(); i++) {
             estadosActuales = transicion(estadosActuales, cadena.charAt(i));
+//
+//            for (Estado e : estadosActuales) {
+//                clausuras.addAll(this.clausura(e));
+//            }
+//
+//            estadosActuales.addAll(clausuras);
+        }
 
-        for (Estado e : estadosActuales)
-            estadosActuales.addAll(this.clausura(e));
 
         for (Estado e : estadosActuales)
             if (this.estadosFinales.contains(e)) return true;
