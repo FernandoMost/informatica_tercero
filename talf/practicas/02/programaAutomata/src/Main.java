@@ -4,10 +4,10 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
-        File inputFile = new File("./src/ejDefinicion.txt");
+        File inputFile = new File("./src/02");
 
         try {
-            String inputString = "101101";
+            String inputString = "001101";
 
             Automata a = new Automata(inputFile);
 

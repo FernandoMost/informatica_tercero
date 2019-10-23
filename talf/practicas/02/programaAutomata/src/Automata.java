@@ -40,12 +40,12 @@ public class Automata {
 
         this.estados = new ArrayList<>();
 
-        for (i = 1; i < numEstados; i++) {
-            Estado e = new Estado(lineaSeparada[i]);
+        for (i = 0; i < numEstados; i++) {
+            Estado e = new Estado(lineaSeparada[i+1]);
 
-            this.estados.add(i-1, e);
+            this.estados.add(i, e);
 
-            if (i == 1) this.estadoInicial = e;
+            if (i == 0) this.estadoInicial = e;
         }
 
         // ESTADOS FINALES
@@ -69,8 +69,8 @@ public class Automata {
         this.estadosFinales = new HashSet<>();
 
         for (Estado e : this.estados)
-            for (i = 1; i < numEstadosFinales; i++)
-                if (lineaSeparada[i].equals(e.getNombre())) {
+            for (i = 0; i < numEstadosFinales; i++)
+                if (lineaSeparada[i+1].equals(e.getNombre())) {
                     this.estadosFinales.add(e);
                     break;
                 }
@@ -92,8 +92,8 @@ public class Automata {
 
         this.alfabeto = new ArrayList<>();
 
-        for (i = 1; i < numElemsAlfabeto; i++) {
-            alfabeto.add(lineaSeparada[i].charAt(0));
+        for (i = 0; i < numElemsAlfabeto; i++) {
+            alfabeto.add(lineaSeparada[i+1].charAt(0));
         }
 
         alfabeto.add('λ'); numElemsAlfabeto++;
@@ -140,7 +140,20 @@ public class Automata {
                 int fila = this.estados.indexOf(e);
                 int columna = this.alfabeto.indexOf(entrada);
 
-                nuevosEstados.addAll(this.matrizTransiciones.get(fila).get(columna));
+                for (Estado proximo : this.matrizTransiciones.get(fila).get(columna) ) {
+                    nuevosEstados.add(proximo);
+
+                    int filaProximo = this.estados.indexOf(proximo);
+                    int columnaProximo = this.alfabeto.indexOf('λ');
+
+                    nuevosEstados.addAll(this.matrizTransiciones.get(filaProximo).get(columnaProximo));
+                }
+
+                nuevosEstados.addAll();
+
+
+                //AÑADIR CADENA VACIA
+
             }
 
             return nuevosEstados;
