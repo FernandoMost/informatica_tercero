@@ -7,9 +7,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        File inputFile = new File(args[0]);
-
         try {
+            if (args.length < 1) throw new Exception("Falta el fichero con la definicion del autómata!");
+
+            File inputFile = new File(args[0]);
+
             boolean salir = false;
             Scanner scanner = new Scanner(System.in);
 
