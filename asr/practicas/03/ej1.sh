@@ -1,7 +1,7 @@
 #!/bin/bash
 
 while read a; do
-    echo $a
+    echo "$a"
 
     titulo-> autor
     X -> -titulo-
