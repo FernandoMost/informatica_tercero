@@ -15,6 +15,8 @@
     <script src="./librerias/jquery.js"></script>
     <script src="./librerias/popper.js"></script>
     <script src="./librerias/bootstrap.js"></script>
+    <script src="./librerias/angular.js"></script>
+    <script src="./librerias/angular-route.js"></script>
 
 
     <meta charset="utf-8">
@@ -24,11 +26,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
+<body ng-app="myApp">
     <header>
         <div class="logo-container">
-            <a href="./index.html"> <img src="./_imagenes/VClogo.png" alt="Logo"> </a>
-            <a href="./index.html" id="header-title"> <h1> VIZUAL CONTENDER </h1> </a>
+            <a href="#!"> <img src="./_imagenes/VClogo.png" alt="Logo"> </a>
+            <a href="#!" id="header-title"> <h1> VIZUAL CONTENDER </h1> </a>
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -39,7 +41,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown" style="height: 100%">
                 <ul class="navbar-nav nav-fill">
                     <li class="nav-item">
-                        <a class="nav-link" href="./index.html">Inicio</a>
+                        <a class="nav-link" href="#/">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-target="./trabajos/index.html"  target="_blank" href="./trabajos/index.html" data-toggle="dropdown">
@@ -75,62 +77,37 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./lanzaTuIdea/index.html"> Lanza Tu Idea </a>
+                        <a class="nav-link" href="#!lanzaIdea"> Lanza Tu Idea </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./contacto/index.html"> Contacto </a>
+                        <a class="nav-link" href="#!contacto"> Contacto </a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <div class="video-container">
-        <video autoplay muted loop>
-            <source src="_imagenes/background.mp4" type="video/mp4">
-        </video>
-    </div>
+    <!-- -------------------------------------------------------------------------------------------- -->
 
-	<section id="ultimos-aportes">
-		<div class="divisor" style="margin-top: 0; margin-bottom: 0"> Últimos aportes </div>
+    <div class="ng-view"></div>
 
-        <div class="aportes">
-            <figure>
-                <a href="trabajos/impresion3d/cascoRogueOne.html">
-                    <img src="_imagenes/01.png">
-                    <p> Coastal <br> Defender <br> Stormtrooper <br> Helmet </p>
-                </a>
-            </figure>
+    <script>
+        var app = angular.module('myApp', ['ngRoute']);
 
-            <figure>
-                <a href="#">
-                    <img src="_imagenes/prot02.jpg">
-                    <p> En obras </p>
-                </a>
-            </figure>
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when("/", {
+                templateUrl : "./portada.html"
+            })
+            .when("/lanzaIdea", {
+                templateUrl : "./lanzaTuIdea/index.html"
+            })
+            .when("/contacto", {
+                templateUrl : "./lanzaTuIdea/index.html"
+            });
+        });
+    </script>
 
-            <figure>
-                <a href="#">
-                    <img src="_imagenes/prot03.jpg">
-                    <p> En obras </p>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="#">
-                    <img src="_imagenes/prot04.jpeg">
-                    <p> En obras </p>
-                </a>
-            </figure>
-
-            <figure>
-                <a href="#">
-                    <img src="_imagenes/prot05.jpg">
-                    <p> En obras </p>
-                </a>
-            </figure>
-        </div>
-	</section>
 </body>
 
 </html>
