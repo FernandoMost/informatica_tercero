@@ -3,58 +3,55 @@
 import argparse
 import os
 
-parser = argparse.ArgumentParser(description="Desglose de funciones")
+parser = argparse.ArgumentParser(description="Desglose de funciones en python")
 
-parser.add_argument("-i", dest="inputFile", required=True, help="Fichero en C de entrada")
+parser.add_argument("-i", dest="inputFile", required=True, help="Fichero en C de entrada")  # parametros requeridos
 parser.add_argument("-o", dest="outputFile", required=True, help="Fichero de salida")
 
 args = parser.parse_args()
 
-
 # ─────────────────────────────────────────────────────────────────────────────────────
 
-def extract_function(fichero, firstline, set):
-    corchetes = 0
-    strings = []
 
+def extract_function(fichero, firstline, set):         # función que extrae toda la función a partir de su primera linea
+    corchetes = 0                   # variable que guarda el núm. de corchetes
+    strings = []                    # vector con las líneas de la función
+
+    # nombre de la función en la primera linea, de lo anterior al '(', la segunda palabra
     nombre = firstline.split('(')[0].split(' ')[1]
 
-    for c in firstline:
+    for c in firstline:             # si se abre un corchete en la primera linea, se suma al contador
         if c == '{':
             corchetes += 1
-        elif c == '}':
-            corchetes -= 1
 
-    strings.append(firstline)
+    strings.append(firstline)       # se añade la primera linea al vector con las lineas
 
-    for line in fichero:
-        for c in line:
-            if c == '{':
+    for line in fichero:            # iterando por el cuerpo de la función
+        for c in line:              # se itera por los caracteres de la linea
+            if c == '{':            # si se abre un corchete
                 corchetes += 1
-            elif c == '}':
+            elif c == '}':          # si se cierra un corchete
                 corchetes -= 1
 
-        strings.append(line)
+        strings.append(line)        # se añade al vector con las lineas
 
-        if corchetes == 0:
+        if corchetes == 0:          # todos los corchetes que se abrieron, se cerraron
             break
 
-    set[nombre] = strings
-
+    set[nombre] = strings           # en el diccionario { nombreFuncion, lineasFuncion[] }
 
 # ─────────────────────────────────────────────────────────────────────────────────────
 
-file = open(args.inputFile, "r")
 
-includes = []
-floats = {}
-voids = {}
-resto = []
+file = open(args.inputFile, "r")    # abre el fichero de entrada
 
-for linea in file:
-    firstWord = linea.split(' ')[0]
+includes = []       # todas las lineas con includes
+floats = {}         # { nombreFuncion:[lineasDeLaFuncion], ...}
+voids = {}          # { nombreFuncion:[lineasDeLaFuncion], ...}
+resto = []          # resto de lineas
 
-    if linea.startswith('#include'):
+for linea in file:                          # iterando por las lineas del archivo
+    if linea.startswith('#include'):        # se trata cada linea según como comiencen
         includes.append(linea)
     elif linea.startswith('float'):
         extract_function(file, linea, floats)
@@ -63,21 +60,21 @@ for linea in file:
     else:
         resto.append(linea)
 
-if floats:
+if floats:  # si se encontraron funciones tipo float
     path = os.path.join('./float')
-    if not os.path.exists(path):
+    if not os.path.exists(path):        # si no existe la carpeta se crea
         os.mkdir(path)
 
-    for f in floats.keys():
-        destino = open('./float/' + f + '.c', "w+")
-        for i in includes:
+    for f in floats.keys():             # float.keys() contiene todos los nombres de las funciones
+        destino = open('./float/' + f + '.c', "w+")     # se crea el archivo .c con el nombre de la funcion
+        for i in includes:              # se escriben los includes
             destino.write(i)
         destino.write('\n')
-        for l in floats[f]:
+        for l in floats[f]:             # se escriben el cuerpo ded la funcion
             destino.write(l)
         destino.close()
 
-if voids:
+if voids:                               # similar a lo anterior pero con las de tipo void
     path = os.path.join('./void')
     if not os.path.exists(path):
         os.mkdir(path)
@@ -91,20 +88,25 @@ if voids:
             destino.write(l)
         destino.close()
 
-destino = open(args.outputFile, "w+")
-for i in includes:
+nombreSalida = args.outputFile          # nombre del fichero de salida
+
+if not nombreSalida.endswith(".c"):     # si el usuario no le puso .c al final, se lo pone
+    nombreSalida += ".c"
+
+destino = open(nombreSalida, "w+")      # se crea el fichero de salida
+for i in includes:                      # se escriben los includes
     destino.write(i)
 
 destino.write('\n')
 
-for f in floats.keys():
+for f in floats.keys():                 # los includes para las funciones de tipo float y void
     destino.write("#include \"float/" + f + ".c\"\n")
 for f in voids.keys():
     destino.write("#include \"void/" + f + ".c\"\n")
 
 destino.write('\n')
 
-for l in resto:
+for l in resto:                         # el resto de funciones
     destino.write(l)
 
 destino.close()
