@@ -1,0 +1,8 @@
+# Definimos la estructura superior de LDAP
+dn: ou=groups,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: organizationalUnit
+ou: groups 
+
+dn: ou=people,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: organizationalUnit
+ou: people

@@ -1,0 +1,191 @@
+$ ./crea_usuarios.sh 
+
+
+usage: usuarios.py [-h] [-u U] [-d D] [-p P] [-j | -e]
+usuarios.py: error: argument -e: not allowed with argument -j
+
+
+Usuario creado satisfactoriamente
+user:  maria
+dep:   rrhh
+clave: 3BcAmX,>
+home:  /home/rrhh/maria
+gecko: maria,rrhh
+grupo: empleados
+opciones de la contrasena puestas correctamente
+creado /home/rrhh/work
+creado /home/comun
+
+
+Usuario creado satisfactoriamente
+user:  josefa
+dep:   gerencia
+clave: 7sWE1(r^d
+home:  /home/gerencia/josefa
+gecko: josefa,gerencia
+grupo: empleados
+opciones de la contrasena puestas correctamente
+creado /home/gerencia/work
+creado /home/comun
+
+
+Usuario creado satisfactoriamente
+user:  ana
+dep:   gerencia
+clave: AQ=c2&|cL!)
+home:  /home/gerencia/ana
+gecko: ana,gerencia
+grupo: empleados
+opciones de la contrasena puestas correctamente
+creado /home/gerencia/work
+creado /home/comun
+
+
+Usuario creado satisfactoriamente
+user:  jesus
+dep:   gerencia
+clave: tIP$m;9o
+home:  /home/gerencia/jesus
+gecko: jesus,gerencia
+grupo: jefes
+opciones de la contrasena puestas correctamente
+creado /home/gerencia/work
+creado /home/comun
+creado /home/comun/comunJefes
+
+
+Usuario creado satisfactoriamente
+user:  eva
+dep:   gerencia
+clave: 2r,@/D=hkUZ
+home:  /home/gerencia/eva
+gecko: eva,gerencia
+grupo: empleados
+opciones de la contrasena puestas correctamente
+creado /home/gerencia/work
+creado /home/comun
+
+
+Error. El usuario maria existe
+
+
+Usuario creado satisfactoriamente
+user:  pepito
+dep:   administracion
+clave: I\ffzb1*}#
+home:  /home/administracion/pepito
+gecko: pepito,administracion
+grupo: empleados
+opciones de la contrasena puestas correctamente
+creado /home/administracion/work
+creado /home/comun
+
+
+Usuario creado satisfactoriamente
+user:  juana
+dep:   administracion
+clave: #|GaBG7e?
+home:  /home/administracion/juana
+gecko: juana,administracion
+grupo: empleados
+opciones de la contrasena puestas correctamente
+creado /home/administracion/work
+creado /home/comun
+
+
+Usuario creado satisfactoriamente
+user:  julian
+dep:   administracion
+clave: SS%3HMj<;G
+home:  /home/administracion/julian
+gecko: julian,administracion
+grupo: empleados
+opciones de la contrasena puestas correctamente
+creado /home/administracion/work
+creado /home/comun
+
+
+Usuario creado satisfactoriamente
+user:  fran
+dep:   programacion
+clave: te1Z)Yn+
+home:  /home/programacion/fran
+gecko: fran,programacion
+grupo: empleados
+opciones de la contrasena puestas correctamente
+creado /home/programacion/work
+creado /home/comun
+
+
+Usuario creado satisfactoriamente
+user:  antonio
+dep:   programacion
+clave: 5_hOUwDw
+home:  /home/programacion/antonio
+gecko: antonio,programacion
+grupo: jefes
+opciones de la contrasena puestas correctamente
+creado /home/programacion/work
+creado /home/comun
+creado /home/comun/comunJefes
+
+
+Error. El usuario eva existe
+
+
+Usuario creado satisfactoriamente
+user:  puri
+dep:   sistemas
+clave: Ps2yixp_5I4
+home:  /home/sistemas/puri
+gecko: puri,sistemas
+grupo: empleados
+opciones de la contrasena puestas correctamente
+creado /home/sistemas/work
+creado /home/comun
+
+
+Usuario creado satisfactoriamente
+user:  javier
+dep:   comercial
+clave: Yr$9|+ndD
+home:  /home/comercial/javier
+gecko: javier,comercial
+grupo: jefes
+opciones de la contrasena puestas correctamente
+creado /home/comercial/work
+creado /home/comun
+creado /home/comun/comunJefes
+
+
+Error al crear el usuario jaime
+
+
+Usuario creado satisfactoriamente
+user:  luis
+dep:   contabilidad
+clave: M.~Tl3u-
+home:  /home/contabilidad/luis
+gecko: luis,contabilidad
+grupo: jefes
+opciones de la contrasena puestas correctamente
+creado /home/contabilidad/work
+creado /home/comun
+creado /home/comun/comunJefes
+
+
+Error. El usuario pepito existe
+
+
+Error. No se ha indicado usuario y/o departamento
+usage: usuarios.py [-h] [-u U] [-d D] [-p P] [-j | -e]
+
+Crea usuarios
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -u U        usuario
+  -d D        departamento
+  -p P        clave
+  -j          jefe
+  -e          empleado

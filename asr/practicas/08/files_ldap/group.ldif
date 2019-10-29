@@ -1,0 +1,6 @@
+# Definimos el grupo empleados
+dn: cn=empleados,ou=groups,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: top
+objectClass: posixGroup
+cn: empleados
+gidNumber: 2000

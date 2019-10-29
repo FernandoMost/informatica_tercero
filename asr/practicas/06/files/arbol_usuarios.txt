@@ -1,0 +1,149 @@
+# ls -Rhl
+.:
+total 32K
+drwxr-x--- 6 root administracion 4,0K sep  4 17:59 administracion
+drwxr-x--- 4 root comercial      4,0K sep  4 17:59 comercial
+drwxrwxrwt 3 root root           4,0K sep  4 17:39 comun
+drwxr-x--- 4 root contabilidad   4,0K sep  4 17:59 contabilidad
+drwxr-x--- 7 root gerencia       4,0K sep  4 17:59 gerencia
+drwxr-x--- 5 root programacion   4,0K sep  4 17:59 programacion
+drwxr-x--- 4 root rrhh           4,0K sep  4 17:59 rrhh
+drwxr-x--- 4 root sistemas       4,0K sep  4 17:59 sistemas
+
+./administracion:
+total 16K
+drwxr-xr-x 2 juana  administracion 4,0K sep  4 17:59 juana
+drwxr-xr-x 2 julian administracion 4,0K sep  4 17:59 julian
+drwxr-xr-x 2 pepito administracion 4,0K sep  4 17:59 pepito
+drwxrwx--- 2 root   administracion 4,0K sep  4 17:39 work
+
+./administracion/juana:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 25 sep  4 17:59 work -> /home/administracion/work
+
+./administracion/julian:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 25 sep  4 17:59 work -> /home/administracion/work
+
+./administracion/pepito:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 25 sep  4 17:59 work -> /home/administracion/work
+
+./administracion/work:
+total 0
+
+./comercial:
+total 8,0K
+drwxr-xr-x 2 javier comercial 4,0K sep  4 17:59 javier
+drwxrwx--- 2 root   comercial 4,0K sep  4 17:39 work
+
+./comercial/javier:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 22 sep  4 17:59 comunJefes -> /home/comun/comunJefes
+lrwxrwxrwx 1 root root 20 sep  4 17:59 work -> /home/comercial/work
+
+./comercial/work:
+total 0
+
+./comun:
+total 4,0K
+drwxrwx--T 2 root jefes 4,0K sep  4 17:39 comunJefes
+
+./comun/comunJefes:
+total 0
+
+./contabilidad:
+total 8,0K
+drwxr-xr-x 2 luis contabilidad 4,0K sep  4 17:59 luis
+drwxrwx--- 2 root contabilidad 4,0K sep  4 17:39 work
+
+./contabilidad/luis:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 22 sep  4 17:59 comunJefes -> /home/comun/comunJefes
+lrwxrwxrwx 1 root root 23 sep  4 17:59 work -> /home/contabilidad/work
+
+./contabilidad/work:
+total 0
+
+./gerencia:
+total 20K
+drwxr-xr-x 2 ana    gerencia 4,0K sep  4 17:59 ana
+drwxr-xr-x 2 eva    gerencia 4,0K sep  4 17:59 eva
+drwxr-xr-x 2 jesus  gerencia 4,0K sep  4 17:59 jesus
+drwxr-xr-x 2 josefa gerencia 4,0K sep  4 17:59 josefa
+drwxrwx--- 2 root   gerencia 4,0K sep  4 17:39 work
+
+./gerencia/ana:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 19 sep  4 17:59 work -> /home/gerencia/work
+
+./gerencia/eva:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 19 sep  4 17:59 work -> /home/gerencia/work
+
+./gerencia/jesus:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 22 sep  4 17:59 comunJefes -> /home/comun/comunJefes
+lrwxrwxrwx 1 root root 19 sep  4 17:59 work -> /home/gerencia/work
+
+./gerencia/josefa:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 19 sep  4 17:59 work -> /home/gerencia/work
+
+./gerencia/work:
+total 0
+
+./programacion:
+total 12K
+drwxr-xr-x 2 antonio programacion 4,0K sep  4 17:59 antonio
+drwxr-xr-x 2 fran    programacion 4,0K sep  4 17:59 fran
+drwxrwx--- 2 root    programacion 4,0K sep  4 17:39 work
+
+./programacion/antonio:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 22 sep  4 17:59 comunJefes -> /home/comun/comunJefes
+lrwxrwxrwx 1 root root 23 sep  4 17:59 work -> /home/programacion/work
+
+./programacion/fran:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 23 sep  4 17:59 work -> /home/programacion/work
+
+./programacion/work:
+total 0
+
+./rrhh:
+total 8,0K
+drwxr-xr-x 2 maria rrhh 4,0K sep  4 17:59 maria
+drwxrwx--- 2 root  rrhh 4,0K sep  4 17:39 work
+
+./rrhh/maria:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 15 sep  4 17:59 work -> /home/rrhh/work
+
+./rrhh/work:
+total 0
+
+./sistemas:
+total 8,0K
+drwxr-xr-x 2 puri sistemas 4,0K sep  4 17:59 puri
+drwxrwx--- 2 root sistemas 4,0K sep  4 17:39 work
+
+./sistemas/puri:
+total 0
+lrwxrwxrwx 1 root root 11 sep  4 17:59 comun -> /home/comun
+lrwxrwxrwx 1 root root 19 sep  4 17:59 work -> /home/sistemas/work
+
+./sistemas/work:
+total 0

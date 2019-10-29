@@ -1,0 +1,70 @@
+.:
+total 48
+drwxr-x--- 3 root administracion  4096 nov 12 08:49 administracion
+drwxr-x--- 3 root comercial       4096 nov 12 08:49 comercial
+drwxrwxrwt 3 root root            4096 nov 12 08:49 comun
+drwxr-x--- 3 root contabilidad    4096 nov 12 08:49 contabilidad
+drwxr-x--- 3 root gerencia        4096 nov 12 08:49 gerencia
+drwx------ 2 root root           16384 sep  2 10:13 lost+found
+drwxr-x--- 3 root programacion    4096 nov 12 08:49 programacion
+drwxr-x--- 3 root rrhh            4096 nov 12 08:49 rrhh
+drwxr-x--- 3 root sistemas        4096 nov 12 08:49 sistemas
+
+./administracion:
+total 4
+drwxrwx--- 2 root administracion 4096 nov 12 08:49 work
+
+./administracion/work:
+total 0
+
+./comercial:
+total 4
+drwxrwx--- 2 root comercial 4096 nov 12 08:49 work
+
+./comercial/work:
+total 0
+
+./comun:
+total 4
+drwxrwx--T 2 root jefes 4096 nov 12 08:49 comunJefes
+
+./comun/comunJefes:
+total 0
+
+./contabilidad:
+total 4
+drwxrwx--- 2 root contabilidad 4096 nov 12 08:49 work
+
+./contabilidad/work:
+total 0
+
+./gerencia:
+total 4
+drwxrwx--- 2 root gerencia 4096 nov 12 08:49 work
+
+./gerencia/work:
+total 0
+
+./lost+found:
+total 0
+
+./programacion:
+total 4
+drwxrwx--- 2 root programacion 4096 nov 12 08:49 work
+
+./programacion/work:
+total 0
+
+./rrhh:
+total 4
+drwxrwx--- 2 root rrhh 4096 nov 12 08:49 work
+
+./rrhh/work:
+total 0
+
+./sistemas:
+total 4
+drwxrwx--- 2 root sistemas 4096 nov 12 08:49 work
+
+./sistemas/work:
+total 0

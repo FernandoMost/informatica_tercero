@@ -1,0 +1,176 @@
+# Definimos el usuario pepe
+dn: cn=pepe,ou=people,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: pepe
+cn: Jose Pena
+uid: pepe
+uidNumber: 2000
+gidNumber: 2000
+userPassword: pepe
+homeDirectory: /home/pepe
+loginShell: /bin/bash
+gecos: Jose Pena, Despacho 22,,
+
+# Definimos el usuario josue
+dn: cn=josue,ou=people,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: josue
+cn: Josue Pena
+uid: josue
+uidNumber: 2001
+gidNumber: 2000
+userPassword: josue
+homeDirectory: /home/josue
+loginShell: /bin/bash
+gecos: Josue Pena, Despacho 23,,
+
+# Definimos el usuario moises
+dn: cn=moises,ou=people,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: moises
+cn: Moises Pena
+uid: moises
+uidNumber: 2002
+gidNumber: 2000
+userPassword: moises
+homeDirectory: /home/moises
+loginShell: /bin/bash
+gecos: Moises Pena, Despacho 24,,
+
+# Definimos el usuario abraham
+dn: cn=abraham,ou=people,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: abraham
+cn: Abraham Pena
+uid: abraham
+uidNumber: 2003
+gidNumber: 2000
+userPassword: abraham
+homeDirectory: /home/abraham
+loginShell: /bin/bash
+gecos: Abraham Pena, Despacho 25,,
+
+# Definimos el usuario abel
+dn: cn=abel,ou=people,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: abel
+cn: Abel Pena
+uid: abel
+uidNumber: 2004
+gidNumber: 2000
+userPassword: abel
+homeDirectory: /home/abel
+loginShell: /bin/bash
+gecos: Abel Pena, Despacho 26,,
+
+# Definimos el usuario cain
+dn: cn=cain,ou=people,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: cain
+cn: Cain Pena
+uid: cain
+uidNumber: 2005
+gidNumber: 2000
+userPassword: cain
+homeDirectory: /home/cain
+loginShell: /bin/bash
+gecos: Cain Pena, Despacho 27,,
+
+# Definimos el usuario jacob
+dn: cn=jacob,ou=people,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: jacob
+cn: Jacob Pena
+uid: jacob
+uidNumber: 2006
+gidNumber: 2000
+userPassword: jacob
+homeDirectory: /home/jacob
+loginShell: /bin/bash
+gecos: Jacob Pena, Despacho 28,,
+
+# Definimos el usuario mateo
+dn: cn=mateo,ou=people,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: mateo
+cn: Mateo Pena
+uid: mateo
+uidNumber: 2007
+gidNumber: 2000
+userPassword: mateo
+homeDirectory: /home/mateo
+loginShell: /bin/bash
+gecos: Mateo Pena, Despacho 29,,
+
+# Definimos el usuario isaias
+dn: cn=isaias,ou=people,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: isaias
+cn: Isaias Pena
+uid: isaias
+uidNumber: 2008
+gidNumber: 2000
+userPassword: isaias
+homeDirectory: /home/isaias
+loginShell: /bin/bash
+gecos: Isaias Pena, Despacho 30,,
+
+# Definimos el usuario isac
+dn: cn=isac,ou=people,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: isac
+cn: Isac Pena
+uid: isac
+uidNumber: 2009
+gidNumber: 2000
+userPassword: isac
+homeDirectory: /home/isac
+loginShell: /bin/bash
+gecos: Isac Pena, Despacho 31,,
+
+# Definimos el usuario jeremias
+dn: cn=jeremias,ou=people,dc=nombre,dc=apellido1,dc=apellido2
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: jeremias
+cn: Jeremias Pena
+uid: jeremias
+uidNumber: 2010
+gidNumber: 2000
+userPassword: jeremias
+homeDirectory: /home/jeremias
+loginShell: /bin/bash
+gecos: Jeremias Pena, Despacho 32,,
+

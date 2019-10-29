@@ -7,12 +7,12 @@
 	6. %CPU ronda el 70-85%, %MEM está a 0,0 siempre
 	7. Con prioridad 20 pasa a 1,7% del CPU, con -20 llega al 100%
 	8. Ocupa el 100% durante 10 segundos y luego desaparece
-    9.
+	9.
 
 2
     1.
     2. Test2 usa algo de memoria (un 13%)
-    3. mmap - map or unmap files or devices into memory. Coincide porque se reserva memoria mediante mapeo
+    3. mmap - map or unmap files or devices into memory. Coincide porque se mapea memoria.
     4. 536870912 BYTES / 4096 BYTES/LINEA = 131072 LINEAS
 
 3
