@@ -7,5 +7,28 @@
 	6. %CPU ronda el 70-85%, %MEM está a 0,0 siempre
 	7. Con prioridad 20 pasa a 1,7% del CPU, con -20 llega al 100%
 	8. Ocupa el 100% durante 10 segundos y luego desaparece
+    9.
 
 2
+    1.
+    2. Test2 usa algo de memoria (un 13%)
+    3. mmap - map or unmap files or devices into memory. Coincide porque se reserva memoria mediante mapeo
+    4. 536870912 BYTES / 4096 BYTES/LINEA = 131072 LINEAS
+
+3
+    1. WRITE - write to a file descriptor, está escribiendo en un archivo
+    2.  ls -l 0         lrwx------ 1 fm fm 64 oct 28 23:29 0 -> /dev/pts/2
+        ls -l 1         lrwx------ 1 fm fm 64 oct 28 23:29 1 -> /dev/pts/2
+        ls -l 2         lrwx------ 1 fm fm 64 oct 28 23:29 2 -> /dev/pts/2
+        ls -l 3         l-wx------ 1 fm fm 64 oct 28 23:29 3 -> /tmp/hola.txt
+    3. ctrl + c manda SIGINT, pero por la línea signal(SIGINT,SIG IGN) se ignora
+       kill -KILL manda SIGKILL
+
+4
+    1.  at now+1minutes
+            echo "hello world"
+        atq
+
+        cat /var/mail/fernando
+    2.
+
