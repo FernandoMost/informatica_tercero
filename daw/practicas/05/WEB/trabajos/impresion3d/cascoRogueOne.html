@@ -14,8 +14,6 @@
     <script src="../../librerias/popper.js"></script>
     <script src="../../librerias/bootstrap.js"></script>
 
-    <script src="modals.js"></script>
-
     <meta charset="utf-8">
     <meta name="description" content="Sitio web del estudio Vizual Contender">
     <meta name="keywords" content="Prototipos,Materiales,Madera,Metales,Electronica">
@@ -105,7 +103,7 @@
             </div>
 
             <div class="col-lg-6">
-                <img src="_imagenes/00.png" style="height: 90%; display: block;">
+                <img src="./trabajos/impresion3d/_imagenes/00.png" style="height: 90%; display: block;">
             </div>
         </div>
 
@@ -117,7 +115,7 @@
 
         <div class="row" style="background-color: #c4c4c4">
             <div class="col-lg-6">
-                <video src="_imagenes/01.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
+                <video src="./trabajos/impresion3d/_imagenes/01.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
             </div>
 
             <div class="col-lg-6 texto">
@@ -135,7 +133,7 @@
             </div>
 
             <div class="col-lg-6">
-                <video src="_imagenes/02.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
+                <video src="./trabajos/impresion3d/_imagenes/02.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
             </div>
         </div>
 
@@ -143,7 +141,7 @@
 
         <div class="row">
             <div class="col-lg-12" style="background-color: #8f8f8f">
-                <img src="_imagenes/02.png"
+                <img src="./trabajos/impresion3d/_imagenes/02.png"
                      style="display: block; max-height: 100%; max-width: 100%; margin: auto; position: relative; top: 50%; transform: translateY(-50%)">
             </div>
         </div>
@@ -156,7 +154,7 @@
 
         <div class="row" style="background-color: #c4c4c4">
             <div class="col-lg-6">
-                <video src="_imagenes/03.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
+                <video src="./trabajos/impresion3d/_imagenes/03.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
             </div>
 
             <div class="col-lg-6 texto">
@@ -167,7 +165,7 @@
         </div>
         <div class="row" style="background-color: #c4c4c4">
             <div class="col-lg-6">
-                <img src="_imagenes/03.png" onclick="modalFunctionImg(this)">
+                <img src="./trabajos/impresion3d/_imagenes/03.png" onclick="modalFunctionImg(this)">
             </div>
 
             <div class="col-lg-6 texto">
@@ -187,7 +185,7 @@
             </div>
 
             <div class="col-lg-6" style="background-color: #6a6a6a">
-                <img src="_imagenes/06.png" onclick="modalFunctionImg(this)">
+                <img src="./trabajos/impresion3d/_imagenes/06.png" onclick="modalFunctionImg(this)">
             </div>
         </div>
         <div class="row">
@@ -198,7 +196,7 @@
             </div>
 
             <div class="col-lg-6" style="background-color: #6a6a6a">
-                <video src="_imagenes/04.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
+                <video src="./trabajos/impresion3d/_imagenes/04.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
             </div>
         </div>
 
@@ -210,11 +208,11 @@
 
         <div class="row">
             <div class="col-lg-6">
-                <img src="_imagenes/05.png" onclick="modalFunctionImg(this)">
+                <img src="./trabajos/impresion3d/_imagenes/05.png" onclick="modalFunctionImg(this)">
             </div>
 
             <div class="col-lg-6">
-                <img src="_imagenes/07.png" onclick="modalFunctionImg(this)">
+                <img src="./trabajos/impresion3d/_imagenes/07.png" onclick="modalFunctionImg(this)">
             </div>
         </div>
 
@@ -226,7 +224,7 @@
 
         <div class="row">
             <div class="col-lg-12" style="background-color: #8f8f8f">
-                <video src="_imagenes/05.mp4" autoplay muted loop> </video>
+                <video src="./trabajos/impresion3d/_imagenes/05.mp4" autoplay muted loop> </video>
             </div>
         </div>
 
@@ -240,6 +238,53 @@
 
 
     </div>
+
+    <script>
+        function pauseVideos(bool) {
+            var x = document.getElementsByTagName("video");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                if (bool) {
+                    x[i].pause();
+                } else {
+                    x[i].play();
+                }
+            }
+        }
+
+        function modalFunctionImg(element) {
+            pauseVideos(true);
+
+            document.getElementById("modalImg").src = element.src;
+
+            document.getElementById("modalVideo").style.display = "none";
+            document.getElementById("modalImg").style.display = "block";
+            document.getElementById("modal01").style.display = "block";
+        }
+
+        function modalFunctionVideo(element) {
+            pauseVideos(true);
+
+            var videoModal = document.getElementById("modalVideo");
+
+            videoModal.src = element.src;
+            videoModal.autoplay = true;
+            videoModal.muted = true;
+            videoModal.loop = true;
+
+            document.getElementById("modalImg").style.display = "none";
+            videoModal.style.display = "block";
+            document.getElementById("modal01").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("modal01").style.display = "none";
+            document.getElementById("modalVideo").style.display = "none";
+            document.getElementById("modalImg").style.display = "none";
+
+            pauseVideos(false);
+        }
+    </script>
 </body>
 
 </html>

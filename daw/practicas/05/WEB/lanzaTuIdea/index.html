@@ -14,8 +14,6 @@
 	<script src="../librerias/popper.js"></script>
 	<script src="../librerias/bootstrap.js"></script>
 
-	<script src="uploadIdea.js"></script>
-
 	<meta charset="utf-8">
 	<meta name="description" content="Sitio web del estudio Vizual Contender">
 	<meta name="keywords" content="Prototipos,Materiales,Madera,Metales,Electronica">
@@ -90,11 +88,105 @@
 			</form>
 		</div>
 
+		<script>
+			$(function() {
+				$("form").submit(function (e) {
+					e.preventDefault();
+					setTimeout(cargaRespuesta, 2000);
+
+					var card = $(document.createElement('div')).addClass("card");
+
+					var cardBody = $(document.createElement('div')).addClass("card-body");
+					card.append(cardBody);
+
+					var titulo = $(document.createElement('h5')).addClass("card-title");
+					titulo.append($("#inputTitulo").val());
+					cardBody.append(titulo);
+
+					cardBody.append($("<hr>"));
+
+					var p1 = $(document.createElement('p')).addClass("card-text");
+					p1.append($("#inputNombre").val());
+					cardBody.append(p1);
+
+					var p2 = $(document.createElement('p')).addClass("card-text");
+					p2.append($("#inputEmail").val());
+					cardBody.append(p2);
+
+					var p3 = $(document.createElement('p')).addClass("card-text");
+					p3.append($("#inputTelefono").val());
+					cardBody.append(p3);
+
+					var p4 = $(document.createElement('p')).addClass("card-text");
+					p4.append($("#inputDireccion").val());
+					cardBody.append(p4);
+
+					cardBody.append($("<hr>"));
+
+					var p5 = $(document.createElement('p')).addClass("card-text");
+					p5.append($("#inputAbstract").val());
+					cardBody.append(p5);
+
+					var p6 = $(document.createElement('p')).addClass("card-text");
+					p6.append($("#inputIdea").val());
+					cardBody.append(p6);
+
+					var p7 = $(document.createElement('p')).addClass("card-text");
+					var small = $(document.createElement('small')).addClass("text-muted");
+
+					var dt = new Date();
+					var time = "Subido el " + dt.getDate() + "/" + (dt.getMonth()+1) + "/" + dt.getFullYear() + " a las " + dt.getHours() + ":" + dt.getMinutes();
+
+					small.append(time);
+					p7.append(small);
+					cardBody.append(p7);
+
+					$("#chat-replies").prepend(card);
+
+					$("input").val('');
+					$("textarea").val('');
+				});
+			});
+		</script>
+
 		<div class="divisor"> Chat/Replies </div>
 
 		<div class="container" id="chat-replies">
-			<div style="height: 150px"> </div>
+			<div style="min-height: 150px"> </div>
 		</div>
+
+		<script>
+			function cargaRespuesta() {
+				var xhttp=new XMLHttpRequest();
+
+				xhttp.onreadystatechange = function() {
+					if(this.readyState===4 && this.status===200) {
+						var jsonObj=JSON.parse(this.responseText);
+
+						var txt = "";
+
+						for(x in jsonObj.Respuestas) {
+							txt=txt + "<p>" + jsonObj.Respuestas[x].Nombre
+									+ "->" + jsonObj.Respuestas[x].Ciudad
+									+ "</p>";
+						}
+
+						// var txt='<ul>';
+						// for(x in jsonObj.Registros) {
+						// 	txt=txt + '<li>' + jsonObj.Registros[x].Nombre
+						// 			+ '->' + jsonObj.Registros[x].Ciudad
+						// 			+ '</li>';
+						// }
+						// txt=txt + '</ul>';
+
+						document.getElementById("chat-replies").innerHTML=txt;
+					}
+				};
+
+				xhttp.open('GET','./lanzaTuIdea/posiblesRespuestas.json',true);
+				xhttp.send()
+			}
+		</script>
 
 	</div>
 </body>

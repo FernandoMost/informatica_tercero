@@ -1,9 +1,9 @@
 header {
-    opacity: 0;
+    /*opacity: 0;*/
 
-    animation: fadeIn 3s;
-    animation-delay: 3.5s;
-    animation-fill-mode: forwards;
+    /*animation: fadeIn 3s;*/
+    /*animation-delay: 3.5s;*/
+    /*animation-fill-mode: forwards;*/
 }
 /********************************************/
 
