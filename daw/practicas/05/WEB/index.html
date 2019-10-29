@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./librerias/w3.css">
     <link rel="stylesheet" href="./librerias/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="proper-styles.css">
+<!--    <link rel="stylesheet" type="text/css" href="proper-styles.css">-->
 
 
     <script src="./librerias/jquery.js"></script>
@@ -17,6 +17,7 @@
     <script src="./librerias/bootstrap.js"></script>
     <script src="./librerias/angular.js"></script>
     <script src="./librerias/angular-route.js"></script>
+    <script src="./librerias/angular-css.js"></script>
 
 
     <meta charset="utf-8">
@@ -29,8 +30,8 @@
 <body ng-app="myApp">
     <header>
         <div class="logo-container">
-            <a href="#!"> <img src="./_imagenes/VClogo.png" alt="Logo"> </a>
-            <a href="#!" id="header-title"> <h1> VIZUAL CONTENDER </h1> </a>
+            <a href="#/"> <img src="./_imagenes/VClogo.png" alt="Logo"> </a>
+            <a href="#/" id="header-title"> <h1> VIZUAL CONTENDER </h1> </a>
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -50,7 +51,7 @@
                         <div class="dropdown-menu animate slideIn">
                             <a class="dropdown-item" href="#">        Metal </a>
                             <a class="dropdown-item" href="#">       Madera </a>
-                            <a class="dropdown-item" href="./trabajos/impresion3d/cascoRogueOne.html">  Impresión 3D </a>
+                            <a class="dropdown-item" href="#/impresion3d">  Impresión 3D </a>
                             <a class="dropdown-item" href="#">       Téxtil </a>
                             <a class="dropdown-item" href="#">  Electrónica </a>
                             <a class="dropdown-item" href="#">   Exteriores </a>
@@ -71,16 +72,16 @@
                             Quiénes Somos
                         </a>
                         <div class="dropdown-menu animate slideIn">
-                            <a class="dropdown-item" href="./quienesSomos/index.html"> Integrantes </a>
-                            <a class="dropdown-item" href="./quienesSomos/index.html#socios"> Partners </a>
-                            <a class="dropdown-item" href="./quienesSomos/index.html#premios"> Premios </a>
+                            <a class="dropdown-item" href="#/integrantes"> Integrantes </a>
+                            <a class="dropdown-item" href="#/partners"> Partners </a>
+                            <a class="dropdown-item" href="#/premios"> Premios </a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#!lanzaIdea"> Lanza Tu Idea </a>
+                        <a class="nav-link" href="#/lanzaIdea"> Lanza Tu Idea </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#!contacto"> Contacto </a>
+                        <a class="nav-link" href="#/contacto"> Contacto </a>
                     </li>
                 </ul>
             </div>
@@ -92,19 +93,37 @@
     <div class="ng-view"></div>
 
     <script>
-        var app = angular.module('myApp', ['ngRoute']);
-
+        var app = angular.module("myApp", ["ngRoute", "angularCSS"]);
         app.config(function($routeProvider) {
             $routeProvider
-            .when("/", {
-                templateUrl : "./portada.html"
-            })
-            .when("/lanzaIdea", {
-                templateUrl : "./lanzaTuIdea/index.html"
-            })
-            .when("/contacto", {
-                templateUrl : "./lanzaTuIdea/index.html"
-            });
+                .when("/", {
+                    templateUrl : "portada.html",
+                    css : "proper-styles.css"
+                })
+                .when("/impresion3d", {
+                    templateUrl : "trabajos/impresion3d/cascoRogueOne.html",
+                    css : "trabajos/impresion3d/proper-styles.css"
+                })
+                .when("/integrantes", {
+                    templateUrl : "quienesSomos/index.html",
+                    css : "quienesSomos/proper-styles.css"
+                })
+                .when("/partners", {
+                    templateUrl : "quienesSomos/index.html#socios",
+                    css : "quienesSomos/proper-styles.css"
+                })
+                .when("/premios", {
+                    templateUrl : "quienesSomos/index.html#premios",
+                    css : "quienesSomos/proper-styles.css"
+                })
+                .when("/lanzaIdea", {
+                    templateUrl : "lanzaTuIdea/index.html",
+                    css : "lanzaTuIdea/proper-styles.css"
+                })
+                .when("/contacto", {
+                    templateUrl : "contacto/index.html",
+                    css : "contacto/proper-styles.css"
+                });
         });
     </script>
 
