@@ -36,7 +36,7 @@
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" id="compressed-navbar" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -126,6 +126,15 @@
                     css : "contacto/proper-styles.css"
                 });
         });
+    </script>
+
+    <script>
+        function cerrarNavbar() {
+            $("#navbarNavDropdown").collapse("hide");
+        }
+
+        $('.dropdown-item').click(cerrarNavbar());
+        $(".nav-item").click(cerrarNavbar());
     </script>
 
 </body>
