@@ -92,7 +92,7 @@
 			$(function() {
 				$("form").submit(function (e) {
 					e.preventDefault();
-					setTimeout(cargaRespuesta, 2000);
+					setTimeout(cargaRespuesta, 5000);
 
 					var card = $(document.createElement('div')).addClass("card");
 
@@ -163,23 +163,37 @@
 					if(this.readyState===4 && this.status===200) {
 						var jsonObj=JSON.parse(this.responseText);
 
-						var txt = "";
+						var indexRespuesta = Math.floor(Math.random() * jsonObj.Respuestas.length);
 
-						for(x in jsonObj.Respuestas) {
-							txt=txt + "<p>" + jsonObj.Respuestas[x].Nombre
-									+ "->" + jsonObj.Respuestas[x].Ciudad
-									+ "</p>";
-						}
+						var card = $(document.createElement('div')).addClass("card");
+						var cardBody = $(document.createElement('div')).addClass("card-body");
+						card.append(cardBody);
 
-						// var txt='<ul>';
-						// for(x in jsonObj.Registros) {
-						// 	txt=txt + '<li>' + jsonObj.Registros[x].Nombre
-						// 			+ '->' + jsonObj.Registros[x].Ciudad
-						// 			+ '</li>';
-						// }
-						// txt=txt + '</ul>';
+						var titulo = $(document.createElement('h5')).addClass("card-title");
+						titulo.append(jsonObj.Respuestas[indexRespuesta]["Titulo"]);
+						cardBody.append(titulo);
 
-						document.getElementById("chat-replies").innerHTML=txt;
+						var p1 = $(document.createElement('p')).addClass("card-text");
+						p1.append(jsonObj.Respuestas[indexRespuesta]["Autor"]);
+						cardBody.append(p1);
+
+						cardBody.append($("<hr>"));
+
+						var p6 = $(document.createElement('p')).addClass("card-text");
+						p6.append(jsonObj.Respuestas[indexRespuesta]["Cuerpo"]);
+						cardBody.append(p6);
+
+						var p7 = $(document.createElement('p')).addClass("card-text");
+						var small = $(document.createElement('small')).addClass("text-muted");
+
+						var dt = new Date();
+						var time = "Subido el " + dt.getDate() + "/" + (dt.getMonth()+1) + "/" + dt.getFullYear() + " a las " + dt.getHours() + ":" + dt.getMinutes();
+
+						small.append(time);
+						p7.append(small);
+						cardBody.append(p7);
+
+						$("#chat-replies").prepend(card);
 					}
 				};
 
