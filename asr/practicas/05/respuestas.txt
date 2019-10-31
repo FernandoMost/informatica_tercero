@@ -1,0 +1,6 @@
+1
+	1. find -perm 657
+	2. al menos los permisos rwx para el grupo y wx para otros.
+	3. find -type f -size +10c -size -1000c -o -type d -iname "*.dir"
+	4. find -type f -mtime +365
+	
