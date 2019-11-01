@@ -1,0 +1,28 @@
+<POSIBLESRESPUESTAS>
+    
+
+</POSIBLESRESPUESTAS>
+
+
+
+{"Respuestas":[
+  {"Titulo":"Propuesta aceptada",
+   "Autor":"Fernando Mosteiro",
+   "Cuerpo":"Lorem Ipsum 1 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."},
+
+  {"Titulo":"Propuesta rechazada",
+   "Autor":"Blas Abalde",
+   "Cuerpo":"Lorem Ipsum 2 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."},
+
+  {"Titulo":"Necesitamos más información",
+   "Autor":"Guillem Alonso",
+   "Cuerpo":"Lorem Ipsum 3 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."},
+
+  {"Titulo":"No nos interesa",
+   "Autor":"Marcos Delgado",
+   "Cuerpo":"Lorem Ipsum 4 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."},
+
+  {"Titulo":"No somos quien buscas",
+   "Autor":"Aaron Marquez",
+   "Cuerpo":"Lorem Ipsum 5 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}
+]}
