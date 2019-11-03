@@ -90,7 +90,7 @@
 
 		<script>
 			$("form").submit(function (e) {
-			// $("#botonEnviar").click(function (e) {
+			//$("#botonEnviar").click(function (e) {
 				e.preventDefault();
 
 				var card = $(document.createElement('div')).addClass("card");
@@ -175,26 +175,30 @@
 
 				xhttp.onreadystatechange = function() {
 					if(this.readyState===4 && this.status===200) {
-						var jsonObj=JSON.parse(this.responseText);
+						var xmlDoc = this.responseXML;
 
-						var indexRespuesta = Math.floor(Math.random() * jsonObj.Respuestas.length);
+						var t = xmlDoc.getElementsByTagName("TITULO");
+						var a = xmlDoc.getElementsByTagName("AUTOR");
+						var c = xmlDoc.getElementsByTagName("CUERPO");
+
+						var indexRespuesta = Math.floor(Math.random() * t.length);
 
 						var card = $(document.createElement('div')).addClass("card");
 						var cardBody = $(document.createElement('div')).addClass("card-body");
 						card.append(cardBody);
 
 						var titulo = $(document.createElement('h5')).addClass("card-title");
-						titulo.append(jsonObj.Respuestas[indexRespuesta]["Titulo"]);
+						titulo.append(t[indexRespuesta].childNodes[0].nodeValue);
 						cardBody.append(titulo);
 
 						var p1 = $(document.createElement('p')).addClass("card-text");
-						p1.append(jsonObj.Respuestas[indexRespuesta]["Autor"]);
+						p1.append(a[indexRespuesta].childNodes[0].nodeValue);
 						cardBody.append(p1);
 
 						cardBody.append($("<hr>"));
 
 						var p6 = $(document.createElement('p')).addClass("card-text");
-						p6.append(jsonObj.Respuestas[indexRespuesta]["Cuerpo"]);
+						p6.append(c[indexRespuesta].childNodes[0].nodeValue);
 						cardBody.append(p6);
 
 						var p7 = $(document.createElement('p')).addClass("card-text");
@@ -213,7 +217,7 @@
 					}
 				};
 
-				xhttp.open('GET','./lanzaTuIdea/posiblesRespuestas.json',true);
+				xhttp.open('GET','./lanzaTuIdea/posiblesRespuestas.xml',true);
 				xhttp.send()
 			}
 		</script>

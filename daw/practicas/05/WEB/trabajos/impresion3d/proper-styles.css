@@ -110,13 +110,14 @@ h3 {
 
 /*-------------------------------------------------------------------*/
 
-a#collapse .divisor {
+a#otrosProyectos .divisor {
     background-color: #191919;
 
     transition-duration: 2s;
+    cursor: pointer;
 }
 
-a#collapse:hover .divisor {
+a#otrosProyectos:hover .divisor {
     background-color: white;
     color: black !important;
 

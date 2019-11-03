@@ -1,28 +1,43 @@
 <POSIBLESRESPUESTAS>
-    
+
+    <RESPUESTA>
+        <TITULO> Propuesta aceptada </TITULO>
+        <AUTOR> Fernando Mosteiro </AUTOR>
+        <CUERPO>
+            Lorem Ipsum 1 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        </CUERPO>
+    </RESPUESTA>
+
+    <RESPUESTA>
+        <TITULO> Propuesta rechazada </TITULO>
+        <AUTOR> Blas Abalde </AUTOR>
+        <CUERPO>
+            Lorem Ipsum 2 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        </CUERPO>
+    </RESPUESTA>
+
+    <RESPUESTA>
+        <TITULO> Necesitamos más información </TITULO>
+        <AUTOR> Guillem Alonso </AUTOR>
+        <CUERPO>
+            Lorem Ipsum 3 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        </CUERPO>
+    </RESPUESTA>
+
+    <RESPUESTA>
+        <TITULO> No nos interesa </TITULO>
+        <AUTOR> Marcos Delgado </AUTOR>
+        <CUERPO>
+            Lorem Ipsum 4 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        </CUERPO>
+    </RESPUESTA>
+
+    <RESPUESTA>
+        <TITULO> No somos quien buscas </TITULO>
+        <AUTOR> Aaron Marquez </AUTOR>
+        <CUERPO>
+            Lorem Ipsum 5 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        </CUERPO>
+    </RESPUESTA>
 
 </POSIBLESRESPUESTAS>
-
-
-
-{"Respuestas":[
-  {"Titulo":"Propuesta aceptada",
-   "Autor":"Fernando Mosteiro",
-   "Cuerpo":"Lorem Ipsum 1 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."},
-
-  {"Titulo":"Propuesta rechazada",
-   "Autor":"Blas Abalde",
-   "Cuerpo":"Lorem Ipsum 2 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."},
-
-  {"Titulo":"Necesitamos más información",
-   "Autor":"Guillem Alonso",
-   "Cuerpo":"Lorem Ipsum 3 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."},
-
-  {"Titulo":"No nos interesa",
-   "Autor":"Marcos Delgado",
-   "Cuerpo":"Lorem Ipsum 4 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."},
-
-  {"Titulo":"No somos quien buscas",
-   "Autor":"Aaron Marquez",
-   "Cuerpo":"Lorem Ipsum 5 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}
-]}

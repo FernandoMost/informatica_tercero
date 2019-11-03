@@ -10,16 +10,12 @@
     <link rel="stylesheet" href="./librerias/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
 
-    <!--    <link rel="stylesheet" type="text/css" href="proper-styles.css">-->
-    <!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfRIi9hOE0MIOq0GkhinUxgVzYcVSdP04&callback=misMapas"></script>-->
-
     <script src="./librerias/jquery.js"></script>
     <script src="./librerias/popper.js"></script>
     <script src="./librerias/bootstrap.js"></script>
     <script src="./librerias/angular.js"></script>
     <script src="./librerias/angular-route.js"></script>
     <script src="./librerias/angular-css.js"></script>
-
 
     <meta charset="utf-8">
     <meta name="description" content="Sitio web del estudio Vizual Contender">
@@ -129,12 +125,9 @@
     </script>
 
     <script>
-        function cerrarNavbar() {
-            $("#navbarNavDropdown").collapse("hide");
-        }
-
-        $('.dropdown-item').click(cerrarNavbar());
-        $(".nav-item").click(cerrarNavbar());
+        $('.dropdown-item, .nav-item:not(.dropdown)').on('click', function () {
+            $('.navbar-collapse').collapse('hide');
+        });
     </script>
 
 </body>

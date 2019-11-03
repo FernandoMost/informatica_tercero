@@ -25,10 +25,9 @@
 
     <div class="container-fluid main-content">
 
-        <a id="collapse"
+        <a id="otrosProyectos"
            style="color: white; text-decoration: none"
            data-toggle="collapse"
-           href="#collapseContent"
            role="button"
            aria-expanded="false"
            aria-controls="collapseContent">
@@ -37,26 +36,38 @@
             </div>
         </a>
 
-        <div class="collapse" id="collapseContent">
+        <script>
+            $("#otrosProyectos").click(function () {
+                var c = $("#collapseContent");
+
+                if (c.hasClass("show")) {
+                    c.collapse("hide");
+                } else {
+                    c.collapse("show");
+                }
+            })
+        </script>
+
+        <div class="collapse" id="collapseContent" aria-expanded="false">
             <div class="container-fluid" style="padding: 0">
                 <div class="row">
                     <div class="col-lg-4">
-                        <a href="#">
-                            <img src="../_imagenes/metal.jpg" alt="metal">
+                        <a href="">
+                            <img src="./trabajos/_imagenes/metal.jpg" alt="metal">
                             <h2> Metal </h2>
                         </a>
                     </div>
 
                     <div class="col-lg-4">
-                        <a href="#">
-                            <img src="../_imagenes/madera.jpg" alt="madera">
+                        <a href="">
+                            <img src="./trabajos/_imagenes/madera.jpg" alt="madera">
                             <h2> Madera </h2>
                         </a>
                     </div>
 
                     <div class="col-lg-4">
                         <a href="../impresion3d/cascoRogueOne.html">
-                            <img src="../_imagenes/impresion3d.jpg" alt="impresion3d">
+                            <img src="./trabajos/_imagenes/impresion3d.jpg" alt="impresion3d">
                             <h2> Impresión 3D </h2>
                         </a>
                     </div>
@@ -64,22 +75,22 @@
 
                 <div class="row">
                     <div class="col-lg-4">
-                        <a href="#">
-                            <img src="../_imagenes/textil.jpg" alt="textil">
+                        <a href="">
+                            <img src="./trabajos/_imagenes/textil.jpg" alt="textil">
                             <h2> Téxtil </h2>
                         </a>
                     </div>
 
                     <div class="col-lg-4">
-                        <a href="#">
-                            <img src="../_imagenes/arduino2.jpg" alt="arduino2">
+                        <a href="">
+                            <img src="./trabajos/_imagenes/arduino2.jpg" alt="arduino2">
                             <h2> Electrónica </h2>
                         </a>
                     </div>
 
                     <div class="col-lg-4">
-                        <a href="#">
-                            <img src="../_imagenes/exterior.jpg" alt="exterior">
+                        <a href="">
+                            <img src="./trabajos/_imagenes/exterior.jpg" alt="exterior">
                             <h2> Exteriores </h2>
                         </a>
                     </div>
