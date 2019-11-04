@@ -1,0 +1,33 @@
+<html>
+<meta charset='utf-8'>
+<title>Formulario</title>
+
+<body>
+
+<style>
+    input: focus { background-color: yellow; }
+</style>
+
+<form name='pedido' onsubmit='return validacion()' action='http://localhost:8080/examples/servlet/servlet' method='post'>
+	<fieldset>
+		<legend>Identificación</legend>
+		<label><b>Nome:</b> <input type='text' size=40 name='nome' value='Manolo' autofocus required></label><br>
+		<label><b>Chave:</b> <input type='password' size=40 name='chave'></label>
+	</fieldset>
+	<input type='submit' name='enviar' value='Enviar'>
+	<input type='reset' name='reiniciar' value='Restablecer'>
+</form>
+
+<script>
+function validacion() {
+    if(document.pedido.chave.value=='') {
+        alert('Introduce a chave!')
+        return(false)
+    }
+	alert('chave='+document.pedido.chave.value)
+    return(true)
+}
+</script>
+
+</body>
+</html>
