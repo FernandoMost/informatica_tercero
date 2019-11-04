@@ -31,7 +31,7 @@
 	</section>
 
     <script>
-        $.getJSON("ultimosAportes.json", function (data) {
+        $.getJSON("./ultimosAportes.json", function (data) {
             $.each(data.Aportes, function (index, aporte) {
                 var A = document.createElement("a");
                 A.setAttribute("href", aporte.enlace);
@@ -41,7 +41,7 @@
                 A.append(I);
 
                 var texto = document.createElement("p");
-                texto.innerText = aporte.titulo;
+                texto.innerHTML = aporte.titulo;
                 A.append(texto);
 
                 $(".aportes").append(
