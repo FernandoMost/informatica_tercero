@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8c695ab2-4621-4a35-983a-e52c86bfb678" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/.idea/WEB.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/.idea/dictionaries/fm.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/VClogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/background.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/obras.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/prot01.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/prot02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/prot03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/prot04.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/prot05.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/tab-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/toggler.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/underConstruction.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/_imagenes/underConstruction.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/contacto/_imagenes/VClogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/contacto/_imagenes/facebook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/contacto/_imagenes/gmail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/contacto/_imagenes/instagram.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/contacto/_imagenes/instagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/contacto/_imagenes/twitter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/contacto/_imagenes/youtube.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/contacto/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/contacto/proper-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/enObras.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/lanzaTuIdea/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/lanzaTuIdea/proper-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/lanzaTuIdea/uploadIdea.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/nuestroTaller/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/proper-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/05.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/06.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/07.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/08.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/09.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/premios/aDesignAward.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/premios/premiosClap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/socios/01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/socios/02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/socios/03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/_imagenes/socios/04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/quienesSomos/proper-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/arduino1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/arduino2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/decoloured/arduino2 (copy).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/decoloured/exterior (copy).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/decoloured/impresion3d (copy).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/decoloured/madera (copy).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/decoloured/metal (copy).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/decoloured/textil (copy).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/exterior.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/impresion3d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/madera.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/metal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/_imagenes/textil.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/electronica/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/exteriores/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/00.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/01.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/02.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/03.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/04.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/05.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/_imagenes/07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/cascoRogueOne.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/modals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/impresion3d/proper-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/madera/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/metal/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/proper-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05/WEB/trabajos/textil/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../talf/practicas/02/programaAutomata/src/Automata.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../talf/practicas/02/programaAutomata/src/Automata.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../talf/practicas/02/programaAutomata/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../talf/practicas/02/programaAutomata/src/Main.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1Rc8VOSOfJhLxxj8uclD9SvSmft" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../05/WEB" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8c695ab2-4621-4a35-983a-e52c86bfb678" name="Default Changelist" comment="" />
+      <created>1569955046907</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569955046907</updated>
+      <workItem from="1569955049175" duration="81000" />
+      <workItem from="1569955142835" duration="8000" />
+      <workItem from="1569963102701" duration="2493000" />
+      <workItem from="1569976318992" duration="1000" />
+      <workItem from="1570008957159" duration="20000" />
+      <workItem from="1570013314204" duration="1202000" />
+      <workItem from="1570032772609" duration="4218000" />
+      <workItem from="1570099409578" duration="599000" />
+      <workItem from="1570124116860" duration="2738000" />
+      <workItem from="1570189379666" duration="5061000" />
+      <workItem from="1570209860305" duration="5692000" />
+      <workItem from="1570222704334" duration="11159000" />
+      <workItem from="1570237584448" duration="283000" />
+      <workItem from="1570267474741" duration="1215000" />
+      <workItem from="1570293308419" duration="6179000" />
+      <workItem from="1570308750134" duration="9113000" />
+      <workItem from="1570362950027" duration="1567000" />
+      <workItem from="1570367669014" duration="15829000" />
+      <workItem from="1570631321363" duration="10000" />
+      <workItem from="1571840753164" duration="7000" />
+      <workItem from="1571840796457" duration="137000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
