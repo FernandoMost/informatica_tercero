@@ -1,0 +1,11 @@
+TALF - Practica 2 - Fernando Mosteiro Del Pilar
+
+Se adjunta el código fuente en un .txt y la máquina expendedora en JFLAP.
+
+El programa automata está realizado en Java. En la carpeta 'ejecutable' se incluyen las clases compiladas, el código fuente (por si hay que recompilarlo), y la definición de la máquina expendedora en el formato específico para nuestro programa.
+
+Comando de ejemplo, en una terminal situada en la carpeta 'ejecutable':
+
+        java ProgramaAutomata expendedora.txt
+
+Se adjunta una captura de pantalla del correcto funcionamiento del programa.
