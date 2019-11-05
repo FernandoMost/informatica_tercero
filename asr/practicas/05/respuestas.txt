@@ -1,6 +1,11 @@
 1
 	1. find -perm 657
-	2. al menos los permisos rwx para el grupo y wx para otros.
-	3. find -type f -size +10c -size -1000c -o -type d -iname "*.dir"
+	2. find -perm -g=rwx,o=wx | sort
+	3. find -type f -size +9c -size -1001c -o -type d -iname "*.dir"
 	4. find -type f -mtime +365
-	
+	5. find -type f -mtime +365 -exec cp {} ./pruebas/antiguos/ \;
+	6. find -type f -mtime +365 | xargs -I{} cp {} ./pruebas/antiguos/
+
+2
+	1. qemu-img create -f qcow2 servidor3.img 75G
+	2. kvm -m 1G -name servidor -hda servidor1.img -hdb servidor2.img -hdc servidor3.img -net nic -net user,hostfwd=tcp::3333-:22 &
