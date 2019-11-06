@@ -9,3 +9,6 @@
 2
 	1. qemu-img create -f qcow2 servidor3.img 75G
 	2. kvm -m 1G -name servidor -hda servidor1.img -hdb servidor2.img -hdc servidor3.img -net nic -net user,hostfwd=tcp::3333-:22 &
+
+3
+    7. 4ca41f3f-38cf-496a-a008-0305b83f0f3b
