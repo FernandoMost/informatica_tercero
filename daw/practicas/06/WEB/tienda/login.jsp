@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +26,8 @@
 						</form>
 
 						<hr>
+
+						<h1> ${respuesta} </h1>
 
 						<button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="openModal()"> Sign in </button>
 					</div>

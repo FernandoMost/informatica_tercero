@@ -2,7 +2,8 @@
 
 systemctl stop tomcat.service
 
-sudo javac -verbose -cp /opt/tomcat/apache-tomcat-9.0.27/lib/servlet-api.jar:/home/fm/Desktop/infomatica/daw/practicas/06/WEB/WEB-INF/lib/mysql-connector-java-5.1.48-bin.jar /home/fm/Desktop/infomatica/daw/practicas/06/WEB/WEB-INF/classes/servlet.java
+# CAMBIAR ESTO
+javac -verbose -cp /opt/tomcat/apache-tomcat-9.0.27/lib/servlet-api.jar:/home/fm/Desktop/infomatica/daw/practicas/06/WEB/WEB-INF/lib/mysql-connector-java-5.1.48-bin.jar /home/fm/Desktop/infomatica/daw/practicas/06/WEB/WEB-INF/classes/*.java
 
 cd /home/fm/Desktop/infomatica/daw/practicas/06/WEB/
 

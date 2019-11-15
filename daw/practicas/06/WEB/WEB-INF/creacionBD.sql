@@ -8,6 +8,7 @@ CREATE TABLE altadaw (
     apellidos VARCHAR(80) NOT NULL,
     dni CHAR(9) NOT NULL,
     email VARCHAR(50) NOT NULL,
+    contrasena VARCHAR(32) NOT NULL,
     
     -- DIRECCION
     calle VARCHAR(100),
@@ -29,11 +30,12 @@ CREATE TABLE altadaw (
 );
 
 
-INSERT INTO altadaw (nombre, apellidos, dni, email) VALUES (
+INSERT INTO altadaw (nombre, apellidos, dni, email, contrasena) VALUES (
     'Fernando',
     'Mosteiro del Pilar',
     '49402968A',
-    'fernandomosteiro@gmail.com'
+    'fernandomosteiro@gmail.com',
+    '1234'
 );
 
 -- CREATE DATABASE mosteiroDelPilar;

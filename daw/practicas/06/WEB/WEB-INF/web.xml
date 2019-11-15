@@ -3,12 +3,12 @@
 <web-app>
 
     <servlet>
-        <servlet-name>servlet</servlet-name>
+        <servlet-name>LogInServlet</servlet-name>
         <servlet-class>servlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>servlet</servlet-name>
+        <servlet-name>LogInServlet</servlet-name>
         <url-pattern>/LogInServlet</url-pattern>
     </servlet-mapping>
 

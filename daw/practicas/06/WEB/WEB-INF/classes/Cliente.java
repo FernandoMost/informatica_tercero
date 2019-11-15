@@ -7,42 +7,72 @@ import java.util.*;
 public class Cliente {
     // Atributos
 
+    private String email;
+    private String contrasena;
+    private String id;
     private String nombre;
     private String apellidos;
-    private String email;
-    private String id;
 
     // ────────────────────────────────────────────────────
 
-    public Cliente() {
-        conectandoBD("mysql", "127.0.0.1", "3306", "alumnosDB", "daw", "daw");
+    public Cliente(String email, String contrasena) {
+        this.email = email;
+        this.contrasena = contrasena;
+        this.id = null;
+        this.nombre = null;
+        this.apellidos = null;
+    }
+
+    public Cliente(String email, String contrasena,  String id, String nombre, String apellidos) {
+        this.email = email;
+        this.contrasena = contrasena;
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
     }
 
     // ────────────────────────────────────────────────────
 
-    private boolean conectandoBD(String gestor, String servidor, String puerto, String baseDatos, String usuario, String contrasena) {
-        Connection conexion = null;
-        Properties usuario = null;
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-        try {
-            String URL = "jdbc:" + gestor + "://" + servidor + ":" + puerto + "/" + baseDatos;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
-            usuario = new Properties();
-            usuario.setProperty("user", usuario);
-            usuario.setProperty("password", contrasena);
+    public void setId(String id) {
+        this.id = id;
+    }
 
-            conexion = java.sql.DriverManager.getConnection(URL, usuario);
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-            return true;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
 
-        } catch(ClassNotFoundException e) {
-            System.out.println("Clase no encontrada. " + e.getMessage());
-        } catch(InstantiationException e) {
-            System.out.println("Objeto no creado. " + e.getMessage());
-        } catch(IllegalAccessException e) {
-            System.out.println("Acceso ilegal. " + e.getMessage());
-        } catch(SQLException e) {
-            System.out.println("Excepción SQL. " + e.getMessage());
-        }
+    // ────────────────────────────────────────────────────
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
     }
 }
