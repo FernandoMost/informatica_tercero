@@ -6,3 +6,5 @@ talf/examenes/
 daw/practicas/06/WEB/WEB-INF/classes/*.class
 
 daw/practicas/06/WEB/*.war
+
+daw/practicas/06/WEB/.idea/
