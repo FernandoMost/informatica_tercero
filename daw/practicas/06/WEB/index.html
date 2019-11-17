@@ -81,7 +81,7 @@
                         <a class="nav-link" href="#!contacto"> Contacto </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#!tienda"> Tienda </a>
+                        <a class="nav-link" href="#!login"> Tienda </a>
                     </li>
                 </ul>
             </div>
@@ -124,8 +124,20 @@
                     templateUrl : "./contacto/index.html",
                     css : "./contacto/proper-styles.css"
                 })
-                .when("/tienda", {
+                .when("/login", {
                     templateUrl : "./tienda/login.jsp",
+                    css : "./tienda/proper-styles.css"
+                })
+                .when("/loginFailure", {
+                    templateUrl : "./tienda/loginFailure.jsp",
+                    css : "./tienda/proper-styles.css"
+                })
+                .when("/validarId", {
+                    templateUrl : "./tienda/validarId.jsp",
+                    css : "./tienda/proper-styles.css"
+                })
+                .when("/tienda", {
+                    templateUrl : "./tienda/inicio.jsp",
                     css : "./tienda/proper-styles.css"
                 });
         });

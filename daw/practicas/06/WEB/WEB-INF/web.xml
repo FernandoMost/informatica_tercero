@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <web-app>
-
     <servlet>
         <servlet-name>LogInServlet</servlet-name>
-        <servlet-class>servlet</servlet-class>
+        <servlet-class>LogInServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -12,4 +11,27 @@
         <url-pattern>/LogInServlet</url-pattern>
     </servlet-mapping>
 
+
+
+    <servlet>
+        <servlet-name>SignInServlet</servlet-name>
+        <servlet-class>SignInServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SignInServlet</servlet-name>
+        <url-pattern>/SignInServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>FullSignInServlet</servlet-name>
+        <servlet-class>FullSignInServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FullSignInServlet</servlet-name>
+        <url-pattern>/FullSignInServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

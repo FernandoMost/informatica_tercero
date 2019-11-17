@@ -2,12 +2,27 @@ CREATE DATABASE bd_alumnos;
 USE bd_alumnos;
 
 CREATE TABLE altadaw (
-    -- IDENTIFICACION
     id INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(40) NOT NULL,
     apellidos VARCHAR(80) NOT NULL,
-    dni CHAR(9) NOT NULL,
     email VARCHAR(50) NOT NULL,
+
+    PRIMARY KEY (id)
+);
+
+INSERT INTO altadaw (nombre, apellidos, email) VALUES ('Fernando', 'Mosteiro del Pilar', 'fernandomosteiro@gmail.com');
+
+-- -----------------------------------------------------------
+
+CREATE DATABASE mosteiroDelPilar;
+USE mosteiroDelPilar;
+
+CREATE TABLE usuario (
+    id INT NOT NULL,
+    nombre VARCHAR(40) NOT NULL,
+    apellidos VARCHAR(80) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    dni CHAR(9) NOT NULL,
     contrasena VARCHAR(32) NOT NULL,
     
     -- DIRECCION
@@ -28,14 +43,3 @@ CREATE TABLE altadaw (
     PRIMARY KEY (id),
     CHECK (metodoPago IN ('paypal', 'tarjeta', 'contrarrembolso'))
 );
-
-
-INSERT INTO altadaw (nombre, apellidos, dni, email, contrasena) VALUES (
-    'Fernando',
-    'Mosteiro del Pilar',
-    '49402968A',
-    'fernandomosteiro@gmail.com',
-    '1234'
-);
-
--- CREATE DATABASE mosteiroDelPilar;
