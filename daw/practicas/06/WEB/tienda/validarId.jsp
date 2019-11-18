@@ -48,11 +48,25 @@
 
 		.no-gutters,.no-gutters .col-md-6 {
 			margin: 0 !important;
-	}
+		}
 
-	.no-gutters p {
-	margin: 15px auto !important;
-	}
+		.no-gutters p {
+			margin: 15px auto !important;
+		}
+
+		form input {
+			text-align: center;
+			display: block;
+			margin: 15px auto !important;
+		}
+
+		button#botonSubmit {
+			transition-duration: 0.75s;
+		}
+
+		button#botonSubmit:disabled {
+			background-color: red !important;
+		}
 
 	</style>
 </head>
@@ -71,10 +85,19 @@
 						</h5>
 
 						<form action="${pageContext.request.contextPath}/FullSignInServlet" method="post">
-							<input type="text" name="validaID" style="text-align: center; display: block; margin-left: auto !important;margin-right: auto !important;" required>
+							<input type="text" name="validaID" placeholder="Id"  required>
+							<hr style="width: 60%">
+							<input type="password" id="contrasena" name="signContrasena" placeholder="Contraseña" required>
+							<input type="password" id="repitaContrasena" name="repitaContrasena" placeholder="Repita contraseña" required>
+
+							<p id="mensajeContrasena" style="display: none; color: red; text-align: center; margin: 0 !important">
+								Las contraseñas no coinciden!
+							</p>
+
 							<p style="color: red; text-align: center; font-weight: bold; text-transform: uppercase">
 								${mensajeId} </p>
-							<button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase" style="width: 50%">
+
+							<button id="botonSubmit" type="submit" class="btn btn-lg btn-primary btn-block text-uppercase" style="width: 50%">
 								Aceptar </button>
 						</form>
 
@@ -90,7 +113,6 @@
 								<p> <b> Apellidos: </b> ${apellidosRegistro} </p>
 								<p> <b> Correo: </b> ${emailRegistro} </p>
 								<p> <b> DNI: </b> ${dniRegistro} </p>
-								<p> <b> Contraseña: </b> ${contrasenaRegistro} </p>
 							</div>
 
 							<div class="col-md-6">
@@ -136,8 +158,17 @@
         $("button#sms").click( function() {
 			alert("Tu ID correspondiente es: <%=miCookie%>");
 		});
-	</script>
 
+		$("#contrasena, #repitaContrasena").keyup( function() {
+			if ($("#contrasena").val() == $('#repitaContrasena').val()) {
+				$("#mensajeContrasena").css("display", "none");
+				$("#botonSubmit").attr("disabled", false);
+			} else {
+				$("#mensajeContrasena").css("display", "block");
+				$("#botonSubmit").attr("disabled", true);
+			}
+		});
+	</script>
 	</div>
 </body>
 

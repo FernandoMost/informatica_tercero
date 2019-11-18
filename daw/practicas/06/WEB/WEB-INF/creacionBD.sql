@@ -41,5 +41,6 @@ CREATE TABLE usuario (
     codSeguridadTarjeta CHAR(3),
 
     PRIMARY KEY (id),
+    UNIQUE (email),
     CHECK (metodoPago IN ('paypal', 'tarjeta', 'contrarrembolso'))
 );

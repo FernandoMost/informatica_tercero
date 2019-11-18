@@ -23,6 +23,8 @@ public class LogInServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("LogInEmail"), pass = request.getParameter("LogInPassword"), resposta = "";
 
+        request.getSession().removeAttribute("mensajeLogin");
+        request.getSession().removeAttribute("mensajeSignin");
         Cliente c = new Cliente(email, pass);
 
         try {

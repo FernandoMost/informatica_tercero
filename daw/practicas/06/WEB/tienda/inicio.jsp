@@ -12,7 +12,7 @@
             </div>
 
             <div class="row" style="padding: 80px">
-                <div class="col-lg-6" style="font-size: 80px; text-transform: uppercase; font-weight: bolder; text-align: center">
+                <div class="col-lg-12" style="font-size: 80px; text-transform: uppercase; font-weight: bolder; text-align: center">
                     Nuestra tienda...
                     <br>
                     Proximamente!

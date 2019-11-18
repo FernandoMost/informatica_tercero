@@ -50,6 +50,10 @@
 
 						<hr>
 
+						<p style="color: red; text-transform: uppercase; text-align: center; font-weight: bold; font-size: 14px">
+							${mensajeSignin}
+						</p>
+
 						<button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="openModal()"> Sign in </button>
 					</div>
 				</div>
@@ -85,17 +89,7 @@
 								</div>
 
 								<div class="form-group col-md-5">
-								<input type="text" class="form-control" id="SignInNombre" name="signinDNI" placeholder="DNI" required>
-								</div>
-							</div>
-
-							<div class="form-row">
-								<div class="form-group col-md-6">
-								<input type="password" class="form-control" id="contrasena" name="signContrasena" placeholder="Contraseña" required>
-								</div>
-
-								<div class="form-group col-md-6">
-								<input type="password" class="form-control" id="repitaContrasena" name="repitaContrasena" placeholder="Repita contraseña" required>
+								<input type="text" class="form-control" id="SignInNombre" name="signinDNI" placeholder="DNI" pattern="[0-9]{8}[A-Za-z]{1}" required>
 								</div>
 							</div>
 
@@ -113,7 +107,7 @@
 
 							<div class="form-row">
 								<div class="form-group col-md-4">
-								<input type="text" class="form-control" id="SignInNombre" name="signinNumero" placeholder="Número">
+								<input type="text" class="form-control" id="SignInNombre" name="signinNumero" placeholder="Número" pattern="\d*">
 								</div>
 
 								<div class="form-group col-md-4">
@@ -121,7 +115,7 @@
 								</div>
 
 								<div class="form-group col-md-4">
-								<input type="text" class="form-control" id="SignInNombre" name="signinCP" placeholder="Código postal">
+								<input type="text" class="form-control" id="SignInNombre" name="signinCP" placeholder="Código postal" pattern="\d{5}">
 								</div>
 							</div>
 
@@ -157,21 +151,17 @@
 
 							<div class="form-row" id="infoTarjeta">
 								<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="numTarjeta" name="numTarjeta" placeholder="Número de tarjeta">
+								<input type="text" class="form-control" id="numTarjeta" name="numTarjeta" placeholder="Número de tarjeta" pattern="[0-9]{16}">
 								</div>
 
 								<div class="form-group col-md-3">
-								<input type="text" class="form-control" id="caducidadTarjeta" name="caducidadTarjeta" placeholder="Caducidad">
+								<input type="text" class="form-control" id="caducidadTarjeta" name="caducidadTarjeta" placeholder="Caducidad" pattern="\d{2}/\d{2}">
 								</div>
 
 								<div class="form-group col-md-3">
-								<input type="text" class="form-control" id="cvvTarjeta" name="cvvTarjeta" placeholder="CVV">
+								<input type="text" class="form-control" id="cvvTarjeta" name="cvvTarjeta" placeholder="CVV" pattern="\d{3}">
 								</div>
 							</div>
-
-							<p id="mensajeContrasena" style="display: none; color: red; text-align: center; margin: 0 !important">
-								Las contraseñas no coinciden!
-							</p>
 
 							<button id="botonSubmit" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"> Continuar </button>
 						</form>
@@ -205,16 +195,6 @@
 				document.getElementById("numTarjeta").disabled = true;
 				document.getElementById("caducidadTarjeta").disabled = true;
 				document.getElementById("cvvTarjeta").disabled = true;
-			}
-		});
-
-		$("#contrasena, #repitaContrasena").keyup( function() {
-			if ($("#contrasena").val() == $('#repitaContrasena').val()) {
-				$("#mensajeContrasena").css("display", "none");
-				$("#botonSubmit").attr("disabled", false);
-			} else {
-				$("#mensajeContrasena").css("display", "block");
-				$("#botonSubmit").attr("disabled", true);
 			}
 		});
 

@@ -54,9 +54,9 @@ public class ClienteDAO {
         ResultSet result;
 
         try {
-            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "bd_alumnos", "daw", "daw");
+            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "daw", "daw");
 
-            String query= "SELECT * FROM altadaw WHERE email=?";
+            String query= "SELECT * FROM usuario WHERE email=?";
 
             preparedStatement = connection.prepareStatement(query);
 

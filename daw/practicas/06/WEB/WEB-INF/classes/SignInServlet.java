@@ -25,6 +25,9 @@ public class SignInServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean facturacion;
 
+        request.getSession().removeAttribute("mensajeLogin");
+        request.getSession().removeAttribute("mensajeSignin");
+
         if (request.getParameter("signinNumero") == null) facturacion = false;
         else facturacion = true;
 
@@ -41,7 +44,7 @@ public class SignInServlet extends HttpServlet {
             request.getParameter("signinApellidos"),    // apellidos
             request.getParameter("signinEmail"),        // email
             request.getParameter("signinDNI"),          // dni
-            request.getParameter("signContrasena"),     // contrasena
+            null,                                       // contrasena
             request.getParameter("signinCalle"),        // calle
             numDireccion,                               // num
             request.getParameter("signinPiso"),         // piso
@@ -56,7 +59,8 @@ public class SignInServlet extends HttpServlet {
 
         try {
             if (clienteDAO.existAlready(c)) {
-                response.sendRedirect("/VizualContender/#!loginFailure");
+                request.getSession().setAttribute("mensajeSignin", "El correo ya está registrado en otra cuenta");
+                response.sendRedirect("/VizualContender/#!login");
                 return;
             } else {
                 int id = clienteDAO.insertBDprofe(c);
@@ -69,7 +73,6 @@ public class SignInServlet extends HttpServlet {
                 request.getSession().setAttribute("apellidosRegistro",      c.getApellidos());
                 request.getSession().setAttribute("emailRegistro",          c.getEmail());
                 request.getSession().setAttribute("dniRegistro",            c.getDni());
-                request.getSession().setAttribute("contrasenaRegistro",     c.getContrasena());
 
                 request.getSession().setAttribute("direccioncalle",         c.getCalle());
                 request.getSession().setAttribute("direccionnum",           c.getNum());

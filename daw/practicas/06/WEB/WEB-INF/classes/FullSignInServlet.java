@@ -25,6 +25,10 @@ public class FullSignInServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idBD = clienteDAO.getIdBDprofe(((String) request.getSession().getAttribute("emailRegistro")));
         int idInput = Integer.parseInt(request.getParameter("validaID"));
+        String pass = ((String) request.getParameter("signContrasena"));
+
+        request.getSession().removeAttribute("mensajeLogin");
+        request.getSession().removeAttribute("mensajeSignin");
 
         if (idBD == idInput) {
             HttpSession sesion = request.getSession();
@@ -35,7 +39,7 @@ public class FullSignInServlet extends HttpServlet {
                 ((String) sesion.getAttribute("apellidosRegistro")),     // apellidos
                 ((String) sesion.getAttribute("emailRegistro")),         // email
                 ((String) sesion.getAttribute("dniRegistro")),           // dni
-                ((String) sesion.getAttribute("contrasenaRegistro")),    // contrasena
+                pass,                                                    // contrasena
                 ((String) sesion.getAttribute("direccioncalle")),        // calle
                 ((int) sesion.getAttribute("direccionnum")),             // num
                 ((String) sesion.getAttribute("direccionpiso")),         // piso
