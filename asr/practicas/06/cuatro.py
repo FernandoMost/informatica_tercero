@@ -46,22 +46,24 @@ except KeyError:
     gecos = args.usuario + ", " + args.departamento
 
     # crear usuario, usuario a grupo, usuario a jefe/empleado
-    subprocess.call(['useradd', args.usuario, '-p', encriptada, '-d', directorio, '-g', args.departamento, '-G', nivel, '-c', gecos, '-s', '/bin/bash'])
+    subprocess.call(['useradd', args.usuario, '-p', encriptada, '-m', '-d', directorio, '-g', args.departamento, '-G', nivel, '-c', gecos, '-s', '/bin/bash'])
     subprocess.call(['passwd', '-x 30', '-w 10', args.usuario])
 
-    # no acaba de funcionar el directorio!
-
     # ln -s /home/{departamento}/work /home/{departamento}/{usuario}/comunDepartamento
+    subprocess.call(['ln', '-s', '/home/'comun'/comunJefes', '/home/' + args.departamento + '/' + args.usuario + '/comunJefes'])
     # ln -s /home/comun /home/{departamento}/{usuario}/comun
-    # IF ... ln -s /home/comun/comunJefes /home/{departamento}/{usuario}/comuinJefes
+    subprocess.call(['ln', '-s', '/home/comun', '/home/' + args.departamento + '/' + args.usuario + '/comun'])
+    # IF ... ln -s /home/comun/comunJefes /home/{departamento}/{usuario}/comunJefes
+    if args.esJefe:
+        subprocess.call(['ln', '-s', '/home/comun/comunJefes', '/home/' + args.departamento + '/' + args.usuario + '/comunJefes'])
 
     print("Usuario creado satisfactoriamente")
     print("user:\t" + args.usuario)
     print("dep:\t" + args.departamento)
     print("clave:\t" + args.clave)
-    # print("home:\t")
-    # print("gecko:\t")
-    # print("grupo:\t")
-    # print("opciones de la contrasena puestas correctamente")
-    # print("creado:\t")
-    # print("creado:\t")
+    print("home:\t")
+    print("gecko:\t")
+    print("grupo:\t")
+    print("opciones de la contrasena puestas correctamente")
+    print("creado:\t")
+    print("creado:\t")

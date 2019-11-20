@@ -28,7 +28,7 @@ public class ClienteDAO {
         ResultSet result;
 
         try {
-            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "daw", "daw");
+            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "mosteiroDelPilar", "1234");
 
             String query= "SELECT * FROM usuario WHERE email=? AND contrasena=?";
 
@@ -54,7 +54,7 @@ public class ClienteDAO {
         ResultSet result;
 
         try {
-            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "daw", "daw");
+            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "mosteiroDelPilar", "1234");
 
             String query= "SELECT * FROM usuario WHERE email=?";
 
@@ -108,7 +108,7 @@ public class ClienteDAO {
         PreparedStatement preparedStatement;
 
         try {
-            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "daw", "daw");
+            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "mosteiroDelPilar", "1234");
 
             String query = "INSERT INTO usuario VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -149,7 +149,7 @@ public class ClienteDAO {
         Cliente C = null;
 
         try {
-            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "daw", "daw");
+            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "mosteiroDelPilar", "1234");
 
             String query = "SELECT * FROM usuario WHERE email=?";
 
