@@ -3,12 +3,15 @@ package sample;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
 
 public class Controller {
+
+    //───────────────────────────────────────
 
     Timeline sreenSaver;
     private ArrayList<ImageView> imagesScreenSaver;
@@ -18,6 +21,10 @@ public class Controller {
     @FXML private ImageView imageScreenSaver2;
     @FXML private ImageView imageScreenSaver3;
     @FXML private ImageView imageScreenSaver4;
+
+    //───────────────────────────────────────
+
+    @FXML private Button btWheelchair;
 
     //───────────────────────────────────────
 
@@ -58,6 +65,8 @@ public class Controller {
         sreenSaver.stop();
         for (ImageView im : imagesScreenSaver) im.setVisible(false);
     }
+
+    // ───────────────────────────────────────────────────────────────────────────────────────────
 
     public void clickadoprueba() {
         paraScreenSaver();

@@ -7,7 +7,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ImageView fitHeight="1000.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="marco" fitHeight="1000.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imagenes/marco.png" />
          </image>
@@ -36,6 +36,32 @@
                         <Image url="@imagenes/poster1.jpg" />
                      </image>
                   </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="paneMain" prefHeight="814.0" prefWidth="641.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="814.0" fitWidth="641.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/curtains.jpg" />
+                     </image></ImageView>
+                  <Button layoutX="500.0" layoutY="714.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="141.0" style="-fx-background-color: white;">
+                     <graphic>
+                        <ImageView fx:id="btWheelchair" fitHeight="80.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagenes/100632.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="373.0" layoutY="714.0" mnemonicParsing="false" prefHeight="100.0" style="-fx-background-color: white; -fx-border-width: 0;">
+                     <graphic>
+                        <ImageView fitHeight="75.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagenes/language.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </Pane>
          </children>
