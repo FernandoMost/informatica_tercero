@@ -1,75 +1,1418 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.media.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="700.0" stylesheets="@stylesQuiosco.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ImageView fx:id="marco" fitHeight="1000.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="marco" fitHeight="1000.0" fitWidth="700.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imagenes/marco.png" />
          </image>
       </ImageView>
       <Pane layoutX="30.0" layoutY="14.0" prefHeight="814.0" prefWidth="641.0">
          <children>
-            <Pane fx:id="paneScreenSaver" prefHeight="814.0" prefWidth="641.0">
+            <ImageView fx:id="fondoCortinas" fitHeight="814.0" fitWidth="641.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagenes/curtains.jpg" />
+               </image>
+            </ImageView>
+            <Pane fx:id="paneScreenSaver" onMouseClicked="#paraScreenSaver" prefHeight="814.0" prefWidth="641.0" style="-fx-background-color: none;">
                <children>
-                  <ImageView fx:id="imageScreenSaver4" fitHeight="814.0" fitWidth="641.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagenes/poster4.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="imageScreenSaver1" fitHeight="814.0" fitWidth="641.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageScreenSaver1" fitHeight="814.0" fitWidth="641.0" layoutX="51.0" onMouseClicked="#paraScreenSaver" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@imagenes/poster3.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="imageScreenSaver3" fitHeight="814.0" fitWidth="641.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageScreenSaver3" fitHeight="814.0" fitWidth="641.0" layoutX="50.0" onMouseClicked="#paraScreenSaver" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@imagenes/poster2.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="imageScreenSaver2" fitHeight="814.0" fitWidth="641.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageScreenSaver2" fitHeight="814.0" fitWidth="641.0" layoutX="55.0" onMouseClicked="#paraScreenSaver" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@imagenes/poster1.jpg" />
                      </image>
                   </ImageView>
+                  <ImageView fx:id="imageScreenSaver4" fitHeight="814.0" fitWidth="641.0" layoutX="33.0" onMouseClicked="#paraScreenSaver" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/poster4.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageScreenSaver5" fitHeight="814.0" fitWidth="641.0" onMouseClicked="#paraScreenSaver" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/poster6.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageScreenSaver6" fitHeight="814.0" fitWidth="641.0" onMouseClicked="#paraScreenSaver" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/poster5.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="paneMain" prefHeight="814.0" prefWidth="641.0" style="-fx-background-color: white;">
+            <Pane fx:id="panelContenido" prefHeight="814.0" prefWidth="641.0" styleClass="pane">
                <children>
-                  <ImageView fitHeight="814.0" fitWidth="641.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagenes/curtains.jpg" />
-                     </image></ImageView>
-                  <Button layoutX="500.0" layoutY="714.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="141.0" style="-fx-background-color: white;">
+                  <ScrollPane fx:id="scrollContenido" hbarPolicy="NEVER" prefHeight="814.0" prefViewportHeight="814.0" prefViewportWidth="641.0" prefWidth="641.0">
+                     <content>
+                        <AnchorPane prefHeight="500.0" prefWidth="641.0">
+                           <children>
+                              <Pane fx:id="paneLanguage" prefHeight="814.0" prefWidth="641.0" styleClass="pane" visible="false">
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="-1.0" layoutY="107.0" prefWidth="641.0" text="Selecciona tu idioma">
+                                       <font>
+                                          <Font name="DejaVu Sans" size="51.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="52.0" layoutY="231.0" onMouseClicked="#clickHome" pickOnBounds="true" preserveRatio="true" styleClass="image">
+                                       <image>
+                                          <Image url="@imagenes/1-spain.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="244.0" layoutY="231.0" onMouseClicked="#clickHome" pickOnBounds="true" preserveRatio="true" styleClass="image">
+                                       <image>
+                                          <Image url="@imagenes/2-united-kingdom.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="439.0" layoutY="231.0" onMouseClicked="#clickHome" pickOnBounds="true" preserveRatio="true" styleClass="image">
+                                       <image>
+                                          <Image url="@imagenes/3-france.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="149.0" layoutY="434.0" onMouseClicked="#clickHome" pickOnBounds="true" preserveRatio="true" styleClass="image">
+                                       <image>
+                                          <Image url="@imagenes/4-germany.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="343.0" layoutY="434.0" onMouseClicked="#clickHome" pickOnBounds="true" preserveRatio="true" styleClass="image">
+                                       <image>
+                                          <Image url="@imagenes/5-italy.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children></Pane>
+                              <Pane fx:id="paneCargando" layoutX="10.0" layoutY="10.0" prefHeight="814.0" prefWidth="641.0" styleClass="pane" visible="false">
+                                 <children>
+                                    <Label fx:id="tramitandoLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="248.0" prefHeight="318.0" prefWidth="487.0" text="Tramitando pago " textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="70.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="paneExito" prefHeight="814.0" prefWidth="641.0" styleClass="pane">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="35.0" prefHeight="134.0" prefWidth="408.0" text="Pago realizado con éxito" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font name="DejaVu Sans Bold" size="48.0" />
+                                       </font></Label>
+                                    <ImageView fitHeight="277.0" fitWidth="309.0" layoutX="182.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@imagenes/qr-code.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="105.0" layoutY="169.0" prefHeight="68.0" prefWidth="432.0" text="Escanea este codigo QR y descarga tus entradas desde tu movil." textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="102.0" layoutY="571.0" text="O introduce tu correo electronico y te las enviamos" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="correoField" layoutX="134.0" layoutY="611.0" prefHeight="25.0" prefWidth="301.0" style="-fx-background-color: white;" />
+                                    <Button layoutX="448.0" layoutY="611.0" mnemonicParsing="false" onMouseClicked="#enviaCorreo" text="Enviar" />
+                                    <Label fx:id="enviadoLabel" layoutX="116.0" layoutY="672.0" prefHeight="57.0" prefWidth="410.0" text="Entradas enviadas, recuerda revisar tu bandeja de spam tambien!" textAlignment="CENTER" visible="false" wrapText="true">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                 </children></Pane>
+                              <Pane fx:id="paneButacas" prefHeight="814.0" prefWidth="641.0" styleClass="pane">
+                                 <children>
+                                    <GridPane fx:id="butacas" layoutX="32.0" layoutY="135.0" prefHeight="423.0" prefWidth="577.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" visible="false" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="15" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="15" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="15" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="15" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="15" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="15" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/seat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/sillaRuedas.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/sillaRuedas.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/sillaRuedas.png" />
+                                             </image></ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/sillaRuedas.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/sillaRuedas.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/sillaRuedas.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/sillaRuedas.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/sillaRuedas.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/sillaRuedas.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#clickEnButaca" pickOnBounds="true" preserveRatio="true" styleClass="image" GridPane.columnIndex="15" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@imagenes/sillaRuedas.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </GridPane>
+                                    <Label layoutX="56.0" layoutY="51.0" text="Selecciona tus asientos" textFill="WHITE">
+                                       <font>
+                                          <Font size="45.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="numEntradas" alignment="CENTER" editable="false" layoutX="92.0" layoutY="570.0" prefHeight="54.0" prefWidth="85.0" text="0">
+                                       <font>
+                                          <Font size="28.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="177.0" layoutY="582.0" text="Entradas">
+                                       <font>
+                                          <Font size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="precioEntradas" alignment="BASELINE_CENTER" editable="false" layoutX="342.0" layoutY="571.0" prefHeight="54.0" prefWidth="141.0" text="0.00">
+                                       <font>
+                                          <Font size="28.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="483.0" layoutY="582.0" prefHeight="31.0" prefWidth="24.0" text="€">
+                                       <font>
+                                          <Font size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="btConfirmarEntradas" disable="true" layoutX="342.0" layoutY="663.0" mnemonicParsing="false" onMouseClicked="#irAResumenPago" prefHeight="55.0" prefWidth="252.0" text="Confirmar" textFill="WHITE">
+                                       <font>
+                                          <Font size="29.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="56.0" layoutY="700.0" mnemonicParsing="false" onMouseClicked="#verFunciones" prefHeight="56.0" prefWidth="92.0" textFill="WHITE">
+                                       <font>
+                                          <Font name="DejaVu Sans Bold" size="30.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="35.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@imagenes/flecha.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children></Pane>
+                              <Pane fx:id="paneResumen" prefHeight="814.0" prefWidth="641.0" styleClass="pane">
+                                 <children>
+                                    <TextArea fx:id="resumenPago" layoutX="82.0" layoutY="152.0" prefHeight="353.0" prefWidth="478.0" text="proba">
+                                       <font>
+                                          <Font size="23.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </padding></TextArea>
+                                    <Label layoutX="54.0" layoutY="54.0" text="Resumen de tu compra">
+                                       <font>
+                                          <Font name="DejaVu Sans Bold" size="41.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="142.0" layoutY="547.0" mnemonicParsing="false" onMouseClicked="#pagoTarjeta" prefHeight="150.0" prefWidth="150.0" text="Tarjeta de crédito" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                       <font>
+                                          <Font name="DejaVu Sans Bold" size="22.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="350.0" layoutY="547.0" mnemonicParsing="false" onMouseClicked="#pagoClubPremium" prefHeight="150.0" prefWidth="150.0" text="Tarjeta miembro club premium" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                       <font>
+                                          <Font name="DejaVu Sans Bold" size="22.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="36.0" layoutY="726.0" mnemonicParsing="false" onMouseClicked="#verButacas" prefHeight="56.0" prefWidth="92.0" textFill="WHITE">
+                                       <font>
+                                          <Font name="DejaVu Sans Bold" size="30.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="35.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@imagenes/flecha.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="panePago" prefHeight="814.0" prefWidth="641.0" styleClass="pane">
+                                 <children>
+                                    <ImageView fx:id="flechaTarjeta" fitHeight="150.0" fitWidth="200.0" layoutX="208.0" layoutY="639.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@imagenes/flecha-diagonal.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="60.0" layoutY="183.0" prefHeight="448.0" prefWidth="521.0" text="Aproxima tu tarjeta al lector NFC" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="88.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="30.0" layoutY="127.0" mnemonicParsing="false" onMouseClicked="#irAResumenPago" prefHeight="56.0" prefWidth="92.0" textFill="WHITE">
+                                       <font>
+                                          <Font name="DejaVu Sans Bold" size="30.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="35.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@imagenes/flecha.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children></Pane>
+                              <Pane fx:id="panePin" prefHeight="814.0" prefWidth="641.0" styleClass="pane">
+                                 <children>
+                                    <BorderPane fx:id="numPad" layoutX="234.0" layoutY="440.0" prefHeight="238.0" prefWidth="173.0">
+                                       <center>
+                                          <GridPane BorderPane.alignment="CENTER">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Button mnemonicParsing="false" onMouseClicked="#addPinNumber" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: white;" text="7" textFill="RED">
+                                                   <font>
+                                                      <Font name="DejaVu Sans Bold" size="27.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onMouseClicked="#addPinNumber" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: white;" text="8" textFill="RED" GridPane.columnIndex="1">
+                                                   <font>
+                                                      <Font name="DejaVu Sans Bold" size="27.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onMouseClicked="#addPinNumber" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: white;" text="4" textFill="RED" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="DejaVu Sans Bold" size="27.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onMouseClicked="#addPinNumber" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: white;" text="5" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="DejaVu Sans Bold" size="27.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onMouseClicked="#addPinNumber" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: white;" text="1" textFill="RED" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="DejaVu Sans Bold" size="27.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onMouseClicked="#addPinNumber" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: white;" text="2" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="DejaVu Sans Bold" size="27.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onMouseClicked="#addPinNumber" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: white;" text="9" textFill="RED" GridPane.columnIndex="2">
+                                                   <font>
+                                                      <Font name="DejaVu Sans Bold" size="27.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onMouseClicked="#addPinNumber" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: white;" text="6" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="DejaVu Sans Bold" size="27.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onMouseClicked="#addPinNumber" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: white;" text="3" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="DejaVu Sans Bold" size="27.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onMouseClicked="#addPinNumber" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: white;" text="0" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <font>
+                                                      <Font name="DejaVu Sans Bold" size="27.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </GridPane>
+                                       </center>
+                                    </BorderPane>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="108.0" layoutY="81.0" prefHeight="199.0" prefWidth="426.0" text="Introduzca su PIN de seguridad" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="47.0" />
+                                       </font></Label>
+                                    <Label layoutX="231.0" layoutY="407.0" text="Evite ser observado">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font></Label>
+                                    <PasswordField fx:id="campoPIN" alignment="CENTER" layoutX="196.0" layoutY="329.0" promptText="PIN" style="-fx-background-color: darkred;">
+                                       <font>
+                                          <Font size="19.0" />
+                                       </font>
+                                    </PasswordField>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="paneHome" maxHeight="814.0" maxWidth="641.0" minHeight="814.0" minWidth="641.0" prefHeight="814.0" prefWidth="641.0" styleClass="pane">
+                                 <children>
+                                    <ScrollPane fx:id="scrollEntrada" hbarPolicy="NEVER" prefHeight="814.0" prefWidth="641.0" styleClass="scrollEntrada">
+                                       <content>
+                                          <VBox alignment="CENTER" prefHeight="814.0" prefWidth="641.0">
+                                             <padding>
+                                                <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="EN CARTELERA">
+                                                   <font>
+                                                      <Font name="DejaVu Sans Bold" size="63.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="25.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                                   <VBox.margin>
+                                                      <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
+                                                   </VBox.margin>
+                                                   <padding>
+                                                      <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
+                                                   </padding>
+                                                   <top>
+                                                      <Label text="Label" BorderPane.alignment="CENTER" />
+                                                   </top>
+                                                   <top>
+                                                      <Label text="Hamlet" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="DejaVu Sans Bold" size="40.0" />
+                                                         </font>
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="15.0" />
+                                                         </BorderPane.margin>
+                                                      </Label>
+                                                   </top>
+                                                   <left>
+                                                      <ImageView fitHeight="216.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                                         <image>
+                                                            <Image url="@imagenes/poster4.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </left>
+                                                   <center>
+                                                      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Escrita por William Shakespeare entre 1599 y 1601, Hamlet nos cuenta la historia del príncipe de Dinamarca, el cual enloquece al saber que su padre fue asesinado por su tío. La obra abarca temas como la venganza, la traición, la locura e incluso el incesto, siendo el trabajo más extenso de Shakespeare conocido. Debido a su fama, ha sido adaptada no solo al teatro sino también al cine y la televisión." textAlignment="CENTER" wrappingWidth="295.0" BorderPane.alignment="CENTER_LEFT">
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                                         </BorderPane.margin>
+                                                      </Text>
+                                                   </center>
+                                                   <bottom>
+                                                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#verFunciones" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: white;" text="Comprar entradas" textAlignment="CENTER" textFill="RED" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="DejaVu Sans Bold" size="30.0" />
+                                                         </font>
+                                                         <BorderPane.margin>
+                                                            <Insets top="20.0" />
+                                                         </BorderPane.margin>
+                                                      </Button>
+                                                   </bottom>
+                                                </BorderPane>
+                                                <BorderPane layoutX="62.0" layoutY="225.0" prefHeight="200.0" prefWidth="200.0">
+                                                   <bottom>
+                                                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#verFunciones" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: white;" text="Comprar entradas" textAlignment="CENTER" textFill="RED" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="DejaVu Sans Bold" size="30.0" />
+                                                         </font>
+                                                         <BorderPane.margin>
+                                                            <Insets top="20.0" />
+                                                         </BorderPane.margin>
+                                                      </Button>
+                                                   </bottom>
+                                                   <center>
+                                                      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Esta es otra de las obras clásicas de Shakespeare y probablemente la historia romántica más famosa en el mundo. Publicada originalmente con el nombre de «La más excelente y lamentable tragedia de Romeo y Julieta», esta nos cuenta el enamoramiento de sus dos protagonistas, pertenecientes a familias enemigas, los Montesco y los Capuleto. El argumento se caracteriza por su final trágico, cuando los amantes mueren tras no poder enfrentarse al odio entre sus parientes.Con numerosas adaptaciones al cine y la televisión, Romeo y Julieta también ha incursionado en el género de los musicales. Uno de los más célebres es el francés «Romeo et Juliette» del 2002, protagonizado por el actor y cantante Damien Sergue." textAlignment="CENTER" wrappingWidth="295.0" BorderPane.alignment="CENTER_LEFT">
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                                         </BorderPane.margin>
+                                                      </Text>
+                                                   </center>
+                                                   <left>
+                                                      <ImageView fitHeight="216.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                                         <image>
+                                                            <Image url="@imagenes/poster2.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </left>
+                                                   <padding>
+                                                      <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
+                                                   </padding>
+                                                   <top>
+                                                      <Label text="Romeo y Julieta" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="DejaVu Sans Bold" size="40.0" />
+                                                         </font>
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="15.0" />
+                                                         </BorderPane.margin>
+                                                      </Label>
+                                                   </top>
+                                                </BorderPane>
+                                                <BorderPane layoutX="40.0" layoutY="453.0" prefHeight="200.0" prefWidth="200.0">
+                                                   <bottom>
+                                                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#verFunciones" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: white;" text="Comprar entradas" textAlignment="CENTER" textFill="RED" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="DejaVu Sans Bold" size="30.0" />
+                                                         </font>
+                                                         <BorderPane.margin>
+                                                            <Insets top="20.0" />
+                                                         </BorderPane.margin>
+                                                      </Button>
+                                                   </bottom>
+                                                   <center>
+                                                      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Esta obra musical es una de las más célebres de Broadway. Fue creada por el legendario Andrew Lloyd Weber, quien a su vez se basó en los poemas de T. S. Eliot, «El libro de los gatos habilidosos del viejo Possum». Relata la historia de los Jellicle Cats, un grupo de gatos callejeros que poco a poco se va presentando ante el público, en medio de impresionantes números musicales." textAlignment="CENTER" wrappingWidth="295.0" BorderPane.alignment="CENTER_LEFT">
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                                         </BorderPane.margin>
+                                                      </Text>
+                                                   </center>
+                                                   <left>
+                                                      <ImageView fitHeight="216.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                                         <image>
+                                                            <Image url="@imagenes/poster7.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </left>
+                                                   <padding>
+                                                      <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
+                                                   </padding>
+                                                   <top>
+                                                      <Label text="Cats" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="DejaVu Sans Bold" size="40.0" />
+                                                         </font>
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="15.0" />
+                                                         </BorderPane.margin>
+                                                      </Label>
+                                                   </top>
+                                                </BorderPane>
+                                                <BorderPane layoutX="40.0" layoutY="837.0" prefHeight="200.0" prefWidth="200.0">
+                                                   <bottom>
+                                                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#verFunciones" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: white;" text="Comprar entradas" textAlignment="CENTER" textFill="RED" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="DejaVu Sans Bold" size="30.0" />
+                                                         </font>
+                                                         <BorderPane.margin>
+                                                            <Insets top="20.0" />
+                                                         </BorderPane.margin>
+                                                      </Button>
+                                                   </bottom>
+                                                   <center>
+                                                      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="El escritor Pedro Calderón de la Barca dio a conocer esta obra en 1635, la cual habla sobre un príncipe desterrado de su reino por su propio padre, a causa de una profecía fatal. Lo que vuelve tan interesante a este puesta en escena, son los temas filosóficos y religiosos que componen su trama, abarcando tópicos de religiones tan variadas como el hinduismo, el budismo y las tradiciones judeocristianas, entre otras." textAlignment="CENTER" wrappingWidth="295.0" BorderPane.alignment="CENTER_LEFT">
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                                         </BorderPane.margin>
+                                                      </Text>
+                                                   </center>
+                                                   <left>
+                                                      <ImageView fitHeight="216.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                                         <image>
+                                                            <Image url="@imagenes/poster8.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </left>
+                                                   <padding>
+                                                      <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
+                                                   </padding>
+                                                   <top>
+                                                      <Label text="La vida es sueño" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="DejaVu Sans Bold" size="40.0" />
+                                                         </font>
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="15.0" />
+                                                         </BorderPane.margin>
+                                                      </Label>
+                                                   </top>
+                                                </BorderPane>
+                                                <BorderPane layoutX="40.0" layoutY="1221.0" prefHeight="200.0" prefWidth="200.0">
+                                                   <bottom>
+                                                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#verFunciones" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: white;" text="Comprar entradas" textAlignment="CENTER" textFill="RED" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="DejaVu Sans Bold" size="30.0" />
+                                                         </font>
+                                                         <BorderPane.margin>
+                                                            <Insets top="20.0" />
+                                                         </BorderPane.margin>
+                                                      </Button>
+                                                   </bottom>
+                                                   <center>
+                                                      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="La adaptación teatral se basa en el poema del mismo nombre, por Dante Alighieri, que narra el viaje de su protagonista por el paraíso, el purgatorio y el infierno. Lo más interesante acerca de esta obra, son sus múltiples referencias a la religión, la filosofía, las matemáticas y la astronomía, entre otros conceptos que la votan de simbolismos diversos." textAlignment="CENTER" wrappingWidth="295.0" BorderPane.alignment="CENTER_LEFT">
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                                         </BorderPane.margin>
+                                                      </Text>
+                                                   </center>
+                                                   <left>
+                                                      <ImageView fitHeight="216.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                                         <image>
+                                                            <Image url="@imagenes/poster9.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </left>
+                                                   <padding>
+                                                      <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
+                                                   </padding>
+                                                   <top>
+                                                      <Label text="La Divina Comedia" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="DejaVu Sans Bold" size="40.0" />
+                                                         </font>
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="15.0" />
+                                                         </BorderPane.margin>
+                                                      </Label>
+                                                   </top>
+                                                </BorderPane>
+                                                <BorderPane layoutX="40.0" layoutY="1605.0" prefHeight="200.0" prefWidth="200.0">
+                                                   <bottom>
+                                                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#verFunciones" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: white;" text="Comprar entradas" textAlignment="CENTER" textFill="RED" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="DejaVu Sans Bold" size="30.0" />
+                                                         </font>
+                                                         <BorderPane.margin>
+                                                            <Insets top="20.0" />
+                                                         </BorderPane.margin>
+                                                      </Button>
+                                                   </bottom>
+                                                   <center>
+                                                      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="En 1879 se estrenó esta obra escrita por Henrik Ibsen. Sigue de cerca la historia de Nora y Torvaldo, matrimonio felizmente casado y con tres hijos. Su vida, aparentemente perfecta, se ve amenazada por un secreto de Nora, quien cometió un crimen para salvarle la vida a su marido. Poco a poco, el espectador presencia como la unión entre ambos se va derrumbando hasta desembocar en un final amargo." textAlignment="CENTER" wrappingWidth="295.0" BorderPane.alignment="CENTER_LEFT">
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                                         </BorderPane.margin>
+                                                      </Text>
+                                                   </center>
+                                                   <left>
+                                                      <ImageView fitHeight="216.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                                         <image>
+                                                            <Image url="@imagenes/poster10.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </left>
+                                                   <padding>
+                                                      <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
+                                                   </padding>
+                                                   <top>
+                                                      <Label text="Casa de Muñecas" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="DejaVu Sans Bold" size="40.0" />
+                                                         </font>
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="15.0" />
+                                                         </BorderPane.margin>
+                                                      </Label>
+                                                   </top>
+                                                </BorderPane>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                    </ScrollPane>
+                                 </children></Pane>
+                              <Pane fx:id="paneFunciones" prefHeight="814.0" prefWidth="641.0" style="-fx-background-color: ;" styleClass="pane">
+                                 <children>
+                                    <Label layoutX="121.0" layoutY="55.0" text="Selecciona tu funcion" textFill="WHITE">
+                                       <font>
+                                          <Font name="DejaVu Sans Bold" size="33.0" />
+                                       </font>
+                                    </Label>
+                                    <Accordion fx:id="acordeonFunciones" layoutY="124.0" prefHeight="609.0" prefWidth="641.0">
+                                      <panes>
+                                        <TitledPane graphicTextGap="2.0" onMouseClicked="#clickFecha" styleClass="fecha" text="21/12/2019" textFill="WHITE">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="fechaDentro">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="237.0" prefWidth="641.0">
+                                                         <children>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="19:30" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font></Button>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="20:45" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="22:00" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" layoutX="10.0" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="22:45" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                   </children></AnchorPane>
+                                          </content>
+                                             <font>
+                                                <Font name="DejaVu Sans Bold" size="32.0" />
+                                             </font>
+                                        </TitledPane>
+                                          <TitledPane graphicTextGap="2.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickFecha" styleClass="fecha" text="22/12/2019" textFill="WHITE">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="fechaDentro">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="237.0" prefWidth="641.0">
+                                                         <children>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="19:30" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="20:45" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="22:00" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" layoutX="10.0" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="22:45" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                             <font>
+                                                <Font name="DejaVu Sans Bold" size="32.0" />
+                                             </font>
+                                          </TitledPane>
+                                          <TitledPane graphicTextGap="2.0" layoutX="10.0" layoutY="557.0" onMouseClicked="#clickFecha" styleClass="fecha" text="23/12/2019" textFill="WHITE">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="fechaDentro">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="237.0" prefWidth="641.0">
+                                                         <children>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="19:30" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="20:45" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="22:00" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" layoutX="10.0" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="22:45" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                             <font>
+                                                <Font name="DejaVu Sans Bold" size="32.0" />
+                                             </font>
+                                          </TitledPane>
+                                          <TitledPane graphicTextGap="2.0" layoutX="10.0" layoutY="557.0" onMouseClicked="#clickFecha" styleClass="fecha" text="24/12/2019" textFill="WHITE">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="fechaDentro">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="237.0" prefWidth="641.0">
+                                                         <children>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="19:30" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="20:45" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="22:00" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" layoutX="10.0" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="22:45" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                             <font>
+                                                <Font name="DejaVu Sans Bold" size="32.0" />
+                                             </font>
+                                          </TitledPane>
+                                          <TitledPane graphicTextGap="2.0" layoutX="10.0" layoutY="557.0" onMouseClicked="#clickFecha" styleClass="fecha" text="25/12/2019" textFill="WHITE">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="fechaDentro">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="237.0" prefWidth="641.0">
+                                                         <children>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="19:30" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="20:45" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="22:00" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" layoutX="10.0" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="22:45" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                             <font>
+                                                <Font name="DejaVu Sans Bold" size="32.0" />
+                                             </font>
+                                          </TitledPane>
+                                          <TitledPane graphicTextGap="2.0" layoutX="10.0" layoutY="557.0" onMouseClicked="#clickFecha" styleClass="fecha" text="26/12/2019" textFill="WHITE">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="fechaDentro">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="237.0" prefWidth="641.0">
+                                                         <children>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="19:30" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="20:45" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="22:00" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button alignment="CENTER" layoutX="10.0" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#verButacas" prefWidth="400.0" text="22:45" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="DejaVu Sans Bold" size="27.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                             <font>
+                                                <Font name="DejaVu Sans Bold" size="32.0" />
+                                             </font>
+                                          </TitledPane>
+                                      </panes>
+                                    </Accordion>
+                                    <Button layoutX="29.0" layoutY="744.0" mnemonicParsing="false" onMouseClicked="#clickHome" prefHeight="56.0" prefWidth="92.0" textFill="WHITE">
+                                       <font>
+                                          <Font name="DejaVu Sans Bold" size="30.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="35.0" fitWidth="146.0" onMouseClicked="#clickHome" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@imagenes/flecha.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children></Pane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </Pane>
+            <ToolBar fx:id="toolbar" layoutX="405.0" layoutY="746.0" prefHeight="68.0" prefWidth="252.0" style="-fx-background-color: none;">
+              <items>
+                  <Button fx:id="btHome" mnemonicParsing="false" onAction="#goHome" prefHeight="56.0">
                      <graphic>
-                        <ImageView fx:id="btWheelchair" fitHeight="80.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="38.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" styleClass="image">
                            <image>
-                              <Image url="@imagenes/100632.png" />
+                              <Image url="@imagenes/house.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="373.0" layoutY="714.0" mnemonicParsing="false" prefHeight="100.0" style="-fx-background-color: white; -fx-border-width: 0;">
+                  <Button fx:id="btLanguage" mnemonicParsing="false" onAction="#clickLanguage" prefHeight="56.0" prefWidth="77.0" style="-fx-border-width: 0;">
                      <graphic>
-                        <ImageView fitHeight="75.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="43.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@imagenes/language.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-               </children>
-            </Pane>
+                  <Button fx:id="btWheelchair" mnemonicParsing="false" onAction="#clickWheelchair" prefHeight="56.0" prefWidth="76.0">
+                     <graphic>
+                        <ImageView fitHeight="47.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagenes/100632.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+              </items>
+            </ToolBar>
          </children>
       </Pane>
-      <Button fx:id="btAccesiblidad" layoutX="537.0" layoutY="879.0" mnemonicParsing="false" onMouseClicked="#clickadoprueba" prefHeight="115.0" prefWidth="114.0" snapToPixel="false" style="-fx-border-radius: 0;">
-         <graphic>
-            <ImageView fitHeight="106.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true" />
-         </graphic>
-      </Button>
+      <HBox fx:id="hardware" alignment="CENTER" layoutY="885.0" prefHeight="115.0" prefWidth="700.0">
+         <children>
+            <Button fx:id="btNFC" mnemonicParsing="false" onMouseClicked="#pagoEfectuado" prefHeight="120.0" prefWidth="120.0">
+               <HBox.margin>
+                  <Insets bottom="12.0" left="60.0" right="60.0" top="12.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/nfc.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btNo" layoutX="329.0" layoutY="55.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0">
+               <HBox.margin>
+                  <Insets bottom="12.0" top="12.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/no.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btYes" layoutX="360.0" layoutY="55.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0">
+               <HBox.margin>
+                  <Insets bottom="12.0" top="12.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/yes.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btNarratorMode" layoutX="391.0" layoutY="55.0" mnemonicParsing="false" onAction="#clickAudioNavigation" prefHeight="120.0" prefWidth="120.0">
+               <HBox.margin>
+                  <Insets bottom="12.0" left="60.0" right="60.0" top="12.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/blind.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </Pane>
