@@ -1,0 +1,12 @@
+REM configurado para arrancar sobre la carpeta:
+   "D:\Portable\PortableApps\REM"
+
+Para configurarlo sobre otra carpeta abrir
+   "D:\Portable\PortableApps\REM\bin\REM_1_2_2.ini"
+Buscar la cadena
+   "D:\Portable\PortableApps\REM"
+Y reemplazarla por la localización del REM.
+
+Además para que pueda localizar la imagen trace.gif de las matrices de trazabilidad 
+En: D:\Portable\PortableApps\REM\xml\default\REM_TraceImage.xsl 
+cambiar el path inicial d: por la localización del REM
