@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> VIZUAL CONTENDER </title>
+
+    <link rel="icon" href="./_imagenes/tab-icon.png">
+
+    <link rel="stylesheet" href="./librerias/w3.css">
+    <link rel="stylesheet" href="./librerias/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="proper-styles.css">
+
+</head>
+
+<body>
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="_imagenes/background.mp4" type="video/mp4">
+        </video>
+    </div>
+
+	<section id="ultimos-aportes">
+		<div class="divisor" style="margin-top: 0; margin-bottom: 0">
+            Últimos aportes
+        </div>
+
+        <div class="aportes">
+
+        </div>
+	</section>
+
+    <script>
+        $.getJSON("./ultimosAportes.json", function (data) {
+            $.each(data.Aportes, function (index, aporte) {
+                var A = document.createElement("a");
+                A.setAttribute("href", aporte.enlace);
+
+                var I = document.createElement("img");
+                I.setAttribute("src", aporte.imgSrc);
+                A.append(I);
+
+                var texto = document.createElement("p");
+                texto.innerHTML = aporte.titulo;
+                A.append(texto);
+
+                $(".aportes").append(
+                    $(document.createElement("figure")).append(A)
+                )
+            });
+        });
+    </script>
+
+</body>
+
+</html>

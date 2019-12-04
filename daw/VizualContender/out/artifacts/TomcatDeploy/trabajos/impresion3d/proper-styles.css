@@ -1,0 +1,173 @@
+.col-lg-6 {
+    padding: 0;
+}
+
+.col-lg-6.texto {
+    padding: 30px;
+}
+
+video, img {
+    max-height: 100%;
+    max-width: 100%;
+
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    margin: auto;
+}
+
+h3 {
+    width: 80%;
+
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: white;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+@media screen and (max-width: 992px) {
+    #first-header {
+        margin: auto !important;
+        text-align: center;
+        font-size: 33px;
+        line-height: 41px;
+    }
+
+    #first-header span {
+        background-color: rgba(0,0,0,0.5);
+    }
+}
+@media screen and (min-width: 993px) {
+    #first-header {
+        margin-left: auto;
+        margin-right: 15px;
+        text-align: right;
+        font-size: 60px;
+    }
+}
+
+/*-------------------------------------------------------------------*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 50;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: auto;
+
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: unset!important;
+    max-width: 95%;
+    max-height: 95%;
+
+    background-color: transparent !important;
+
+    animation-name: zoom;
+    animation-duration: 0.25s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 5;
+
+    cursor: pointer;
+}
+
+@media screen and (max-width: 767px) { .close { font-size: 50px; } }
+@media screen and (min-width: 768px) { .close { font-size: 100px; } }
+
+.close:hover,
+.close:focus {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*-------------------------------------------------------------------*/
+
+a#otrosProyectos .divisor {
+    background-color: #191919;
+
+    transition-duration: 2s;
+    cursor: pointer;
+}
+
+a#otrosProyectos:hover .divisor {
+    background-color: white;
+    color: black !important;
+
+    transition-duration: 2s;
+}
+
+
+#collapseContent .row {
+    width: 100%;
+    margin: 0;
+}
+
+#collapseContent .row .col-lg-4 {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    height: 300px;
+}
+
+#collapseContent .col-lg-4 img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 1;
+    transition-duration: 1s;
+}
+
+#collapseContent .col-lg-4 h2 {
+    opacity: 0;
+    transition-duration: 1s;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: black;
+}
+
+#collapseContent .col-lg-4 a:hover img {
+    opacity: 0.05;
+    transition-duration: 1s;
+}
+
+#collapseContent .col-lg-4 a:hover h2 {
+    opacity: 1;
+    transition-duration: 1s;
+}

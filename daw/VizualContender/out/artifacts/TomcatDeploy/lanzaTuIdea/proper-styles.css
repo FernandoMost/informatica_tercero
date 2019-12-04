@@ -1,0 +1,114 @@
+.divisor {
+    background-color: #131313;
+}
+
+fieldset {
+    border: 3px solid #767676;
+    border-radius: 7px;
+    padding: 0 20px;
+    margin: 25px 0;
+}
+
+legend {
+    font-size: x-large;
+    padding: 0 15px;
+    margin: 0 0 10px 0;
+}
+
+textarea {
+    resize: none;
+}
+
+.btn {
+    display: block;
+
+    width: 220px;
+    margin: 20px auto;
+    padding: 10px 20px !important;
+    border: 0;
+
+    background-color: black;
+
+    font-size: 30px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.btn:hover,
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 0 .2rem rgba(0,0,0,1) !important;
+    border-color: black !important;
+}
+
+/* -------------------------------------------------------- */
+
+.card {
+    animation: animateCards linear 1s;
+    animation-iteration-count: 1;
+
+    border-radius: 15px;
+    margin: 25px 0;
+    background-color: #e6e6e6;
+}
+
+.card h5 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 30px;
+
+}
+
+.card p {
+    font-size: 20px;
+}
+
+hr {
+    height: 2px;
+    background: #c2c2c2;
+
+}
+
+.card img {
+    padding: 15px;
+}
+
+/* -------------------------------------------------------- */
+
+#chat-replies #cargando {
+    animation: animateCards linear 2s;
+    animation-iteration-count: 1;
+
+    text-align: center;
+    margin: 20px auto
+}
+
+.loader {
+    border: 50px solid #bbbbbb; /* Light grey */
+    border-top: 50px solid #373737; /* Blue */
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    animation: spin 1s linear infinite;
+
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes animateCards {
+    0% {
+        opacity:0;
+        transform:  translate(0px,-20px);
+    }
+    100% {
+        opacity:1;
+        transform:  translate(0px,0px);
+    }
+}

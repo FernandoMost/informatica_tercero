@@ -1,0 +1,230 @@
+@font-face { font-family: Quicksand; src: url(./librerias/fuentes/Quicksand/static/Quicksand-Regular.ttf); }
+@font-face { font-family: Lexend Exa; src: url(./librerias/fuentes/Lexend_Exa/LexendExa-Regular.ttf); }
+
+* {
+    font-family: 'Quicksand', sans-serif !important;
+}
+
+body {
+    background-color: lightgray;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+figure {
+    margin: 0;
+}
+
+/* ---------------------------------------- */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 250px;
+    width: 100%;
+    background-color: gray;
+
+    z-index: 20;
+}
+
+@media screen and (max-width: 767px) { header { height: 150px; } }
+@media screen and (min-width: 768px) { header { height: 250px; } }
+
+
+
+header .logo-container {
+    width: 100%;
+    height: 70%;
+}
+
+.logo-container #header-title {
+    text-decoration: none;
+    color: black !important;
+    margin: 0;
+}
+
+.logo-container img {
+    height: 100%;
+    float: left;
+    margin-left: 2.5%;
+}
+
+.logo-container h1 {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+
+    font-family: 'Lexend Exa', sans-serif !important;
+
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 767px) { .logo-container h1 { font-size: 30px; } }
+@media screen and (min-width: 768px) { .logo-container h1 { font-size: 60px; } }
+
+
+
+.navbar-dark .navbar-toggler {
+    color: black !important;
+    border-color: black !important;
+
+    margin: 0 auto;
+}
+
+.navbar-dark * {
+    color: white !important;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url(./_imagenes/toggler.png);
+
+    height: 20px;
+    width: 35px;
+}
+
+
+
+
+header .navbar {
+    position: relative;
+    bottom: 0;
+
+    background-color: black;
+    padding: 0;
+}
+
+@media screen and (max-width: 767px) { header .navbar { height: 45px } }
+@media screen and (min-width: 768px) { header .navbar { height: 75px } }
+
+.navbar .navbar-nav {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar-nav .nav-item {
+    height: 100%;
+}
+
+.nav-item .nav-link,
+.nav-item .dropdown-item {
+    height: 75px;
+    border: 0;
+
+    vertical-align: middle;
+    line-height: 75px;
+
+    padding: 0 15px !important;
+
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: larger;
+
+    background-color: black;
+    color: white;
+
+    overflow: hidden;
+
+    transition-duration: 1s;
+}
+
+
+
+
+
+.nav-item.dropdown .dropdown-menu {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+
+.dropdown-menu .dropdown-item {
+    background-color: black;
+    color: white;
+
+    vertical-align: middle;
+    line-height: 75px;
+    text-align: center;
+}
+
+@media screen and (max-width: 767px) { .dropdown-menu .dropdown-item { line-height: 45px } }
+@media screen and (min-width: 768px) { .dropdown-menu .dropdown-item { line-height: 75px } }
+
+
+/*-----------------------------------------------------*/
+
+/*@media screen and (max-width: 767px) { .dropdown-toggle::after { display: inline; } }
+@media screen and (min-width: 768px) { .dropdown-toggle::after { display:none; } }*/
+
+.nav-item:hover .nav-link,
+.dropdown-item:hover,
+.dropdown-toggle[aria-expanded="true"] {
+    background-color: white;
+    color: black !important;
+
+    transition-duration: 1s;
+}
+
+/*-----------------------------------------------------*/
+
+.animate {
+    animation-duration: 1.15s;
+    animation-fill-mode: both;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-4rem);
+        opacity: 0;
+    }
+    100% {
+        transform:translateY(0rem);
+        opacity: 1;
+    }
+}
+
+.slideIn {
+    animation-name: slideIn;
+}
+
+/*******************************************************************************/
+
+.main-content {
+    position: relative;
+    padding: 0;
+}
+
+@media screen and (max-width: 767px) { .main-content { top: 150px; } }
+@media screen and (min-width: 768px) { .main-content { top: 250px; } }
+
+.content {
+	position: absolute;
+	width: 100%;
+}
+
+@media screen and (max-width: 767px) { .content { top: 150px; } }
+@media screen and (min-width: 768px) { .content { top: 250px; } }
+
+.divisor {
+    width: 100%;
+
+    padding: 30px 15px;
+
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    font-size: 30px;
+    text-transform: uppercase;
+
+    text-align: center;
+
+    clear: both;
+}

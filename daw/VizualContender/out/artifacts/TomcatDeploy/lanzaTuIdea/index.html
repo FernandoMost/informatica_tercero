@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> VIZUAL CONTENDER </title>
+</head>
+
+<body>
+
+	<div class="container-fluid main-content">
+		<div class="divisor"> Lanza Tu Idea </div>
+
+		<div class="container">
+			<form>
+				<fieldset>
+					<legend> Información de contacto </legend>
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputNombre"> Nombre </label>
+							<input type="text" class="form-control" id="inputNombre" placeholder="Nombre" required>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="inputEmail">Email</label>
+							<input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-3">
+							<label for="inputTelefono"> Teléfono </label>
+							<input type="text" class="form-control" id="inputTelefono" placeholder="Teléfono">
+						</div>
+
+						<div class="form-group col-md-9">
+							<label for="inputDireccion"> Dirección completa </label>
+							<input type="text" class="form-control" id="inputDireccion" placeholder="Dirección completa">
+						</div>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend> Desarrolla tu idea </legend>
+
+					<div class="form-group">
+						<label for="inputTitulo"> Título </label>
+						<input type="text" class="form-control" id="inputTitulo" placeholder="Título" required>
+					</div>
+
+					<div class="form-group">
+						<label for="inputAbstract"> Abstract </label>
+						<textarea class="form-control" id="inputAbstract" rows="2" placeholder = "Abstract"></textarea>
+					</div>
+
+					<div class="form-group">
+						<label for="inputIdea"> Idea completa </label>
+						<textarea class="form-control" id="inputIdea" rows="5" placeholder = "Idea completa" required></textarea>
+					</div>
+				</fieldset>
+
+				<div class="form-group">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="checkCondiciones" required>
+						<label class="form-check-label" for="checkCondiciones">
+							He leído y acepto los términos y condiciones.
+						</label>
+					</div>
+				</div>
+
+				<button type="submit" class="btn btn-primary" id="botonEnviar"> Enviar </button>
+			</form>
+		</div>
+
+		<script>
+			$("form").submit(function (e) {
+			//$("#botonEnviar").click(function (e) {
+				e.preventDefault();
+
+				var card = $(document.createElement('div')).addClass("card");
+
+				var cardBody = $(document.createElement('div')).addClass("card-body");
+				card.append(cardBody);
+
+				var titulo = $(document.createElement('h5')).addClass("card-title");
+				titulo.append($("#inputTitulo").val());
+				cardBody.append(titulo);
+
+				cardBody.append($("<hr>"));
+
+				var p1 = $(document.createElement('p')).addClass("card-text");
+				p1.append($("#inputNombre").val());
+				cardBody.append(p1);
+
+				var p2 = $(document.createElement('p')).addClass("card-text");
+				p2.append($("#inputEmail").val());
+				cardBody.append(p2);
+
+				var p3 = $(document.createElement('p')).addClass("card-text");
+				p3.append($("#inputTelefono").val());
+				cardBody.append(p3);
+
+				var p4 = $(document.createElement('p')).addClass("card-text");
+				p4.append($("#inputDireccion").val());
+				cardBody.append(p4);
+
+				cardBody.append($("<hr>"));
+
+				var p5 = $(document.createElement('p')).addClass("card-text");
+				p5.append($("#inputAbstract").val());
+				cardBody.append(p5);
+
+				var p6 = $(document.createElement('p')).addClass("card-text");
+				p6.append($("#inputIdea").val());
+				cardBody.append(p6);
+
+				var p7 = $(document.createElement('p')).addClass("card-text");
+				var small = $(document.createElement('small')).addClass("text-muted");
+
+				var dt = new Date();
+				var time = "Subido el " + dt.getDate() + "/" + (dt.getMonth()+1) + "/" + dt.getFullYear() + " a las " + dt.getHours() + ":" + dt.getMinutes();
+
+				small.append(time);
+				p7.append(small);
+				cardBody.append(p7);
+
+				$("#chat-replies").prepend(card);
+
+				$("input").val('');
+				$("textarea").val('');
+
+				setTimeout(loading_icon, 5000);
+				setTimeout(cargaRespuesta, 10000);
+			});
+		</script>
+
+		<div class="divisor"> Chat/Replies </div>
+
+		<div class="container" id="chat-replies">
+			<div style="min-height: 150px"> </div>
+		</div>
+
+		<script>
+			function loading_icon() {
+				var texto = document.createElement("h1");
+				texto.id = "cargando";
+				texto.innerText = "Cargando respuesta ...";
+
+				var icon = document.createElement("div");
+				$(icon).addClass("loader");
+
+				texto.append(icon);
+
+				$("#chat-replies").prepend(texto);
+			}
+
+			function cargaRespuesta() {
+				var xhttp=new XMLHttpRequest();
+
+				xhttp.onreadystatechange = function() {
+					if(this.readyState===4 && this.status===200) {
+						var xmlDoc = this.responseXML;
+
+						var t = xmlDoc.getElementsByTagName("TITULO");
+						var a = xmlDoc.getElementsByTagName("AUTOR");
+						var c = xmlDoc.getElementsByTagName("CUERPO");
+
+						var indexRespuesta = Math.floor(Math.random() * t.length);
+
+						var card = $(document.createElement('div')).addClass("card");
+						var cardBody = $(document.createElement('div')).addClass("card-body");
+						card.append(cardBody);
+
+						var titulo = $(document.createElement('h5')).addClass("card-title");
+						titulo.append(t[indexRespuesta].childNodes[0].nodeValue);
+						cardBody.append(titulo);
+
+						var p1 = $(document.createElement('p')).addClass("card-text");
+						p1.append(a[indexRespuesta].childNodes[0].nodeValue);
+						cardBody.append(p1);
+
+						cardBody.append($("<hr>"));
+
+						var p6 = $(document.createElement('p')).addClass("card-text");
+						p6.append(c[indexRespuesta].childNodes[0].nodeValue);
+						cardBody.append(p6);
+
+						var p7 = $(document.createElement('p')).addClass("card-text");
+						var small = $(document.createElement('small')).addClass("text-muted");
+
+						var dt = new Date();
+						var time = "Subido el " + dt.getDate() + "/" + (dt.getMonth()+1) + "/" + dt.getFullYear() + " a las " + dt.getHours() + ":" + dt.getMinutes();
+
+						small.append(time);
+						p7.append(small);
+						cardBody.append(p7);
+
+						$(document.getElementById("cargando")).remove();
+
+						$("#chat-replies").prepend(card);
+					}
+				};
+
+				xhttp.open('GET','./lanzaTuIdea/posiblesRespuestas.xml',true);
+				xhttp.send()
+			}
+		</script>
+
+	</div>
+</body>
+
+</html>
