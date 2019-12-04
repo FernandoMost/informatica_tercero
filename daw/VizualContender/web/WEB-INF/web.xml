@@ -3,4 +3,38 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <servlet>
+    <servlet-name>LogInServlet</servlet-name>
+    <servlet-class>LogInServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+    <servlet-name>LogInServlet</servlet-name>
+    <url-pattern>/LogInServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+    <servlet-name>SignInServlet</servlet-name>
+    <servlet-class>SignInServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+    <servlet-name>SignInServlet</servlet-name>
+    <url-pattern>/SignInServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+    <servlet-name>FullSignInServlet</servlet-name>
+    <servlet-class>FullSignInServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+    <servlet-name>FullSignInServlet</servlet-name>
+    <url-pattern>/FullSignInServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

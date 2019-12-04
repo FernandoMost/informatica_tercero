@@ -1,19 +1,13 @@
-import java.io.*;
 import java.sql.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.util.*;
 
 public class ClienteDAO {
     private Connection conectandoBD(String gestor, String servidor, String puerto, String baseDatos, String usuario, String contrasena) {
-        Connection conexion = null;
-
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.jdbc.Driver");
 
             String URL = "jdbc:" + gestor + "://" + servidor + ":" + puerto + "/" + baseDatos;
 
-            return java.sql.DriverManager.getConnection(URL, usuario, contrasena);
+            return DriverManager.getConnection(URL, usuario, contrasena);
         } catch(Exception e) {
             System.out.println(e.getMessage());
         }
@@ -77,7 +71,7 @@ public class ClienteDAO {
     public int insertBDprofe(Cliente cliente) {
         PreparedStatement preparedStatement;
         ResultSet result;
-        int id = -1;
+        int id = -69;
 
         try {
             Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "bd_alumnos", "daw", "daw");
@@ -93,7 +87,6 @@ public class ClienteDAO {
             preparedStatement.executeUpdate();
 
             // ────────────────────────────────────
-
             return getIdBDprofe(cliente.getEmail());
         } catch(Exception e) {
             System.out.println(e.getMessage());
@@ -194,7 +187,7 @@ public class ClienteDAO {
      public int getIdBDprofe(String email) {
          PreparedStatement preparedStatement;
          ResultSet result;
-         int id = -1;
+         int id = -2;
 
          try {
              Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "bd_alumnos", "daw", "daw");
