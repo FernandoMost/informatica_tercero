@@ -1,0 +1,121 @@
+body {
+    background-color: lightgray;
+}
+
+/* --------------------------------------------------------------- */
+
+#infos .col-lg-6 {
+    margin: 0;
+    overflow: hidden;
+}
+
+#infos .col-lg-6 p {
+    width: 80%;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: white;
+}
+
+/* ----------------------------------- */
+
+@media screen and (max-width: 992px) {
+    #info-izq {
+        padding: 22px;
+    }
+
+    #info-izq p {
+        font-size: 35px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #info-der {
+        padding: 10px;
+    }
+
+    #info-der p {
+        font-size: 15px;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 993px) {
+    #info-izq {
+        padding: 35px;
+    }
+
+    #info-izq p {
+        font-size: 50px;
+        margin: 0 10px 0 auto;
+        text-align: right;
+    }
+
+    #info-der {
+        padding: 26px;
+    }
+
+    #info-der p {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        font-size: 35px;
+        margin: auto auto auto 10px;
+        text-align: left;
+    }
+}
+
+/* --------------------------------------------------------------- */
+
+#mapas .col-lg-4 {
+    padding: 0;
+}
+
+#mapas .map-name {
+    height: 150px;
+    padding: 20px;
+}
+
+#mapas h3 {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#mapa1,#mapa2,#mapa3 {
+    width: 100%;
+    padding-top: 100%;
+}
+
+/* --------------------------------------------------------------- */
+
+#redes .col-lg {
+    padding: 30px;
+}
+
+@media screen and (max-width: 992px) {
+    #redes .col-lg {
+        height: 175px;
+    }
+}
+@media screen and (min-width: 993px) {
+    #redes .col-lg {
+        height: 200px;
+    }
+}
+
+#redes img {
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+
+    transition-duration: 1s;
+}
+
+#redes img:hover {
+    filter: invert(100%);
+    transition-duration: 1s;
+}

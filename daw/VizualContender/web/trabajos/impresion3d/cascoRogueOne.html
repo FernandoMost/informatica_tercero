@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> VIZUAL CONTENDER </title>
+</head>
+
+<body>
+
+    <div class="container-fluid main-content">
+
+        <a id="otrosProyectos"
+           style="color: white; text-decoration: none"
+           data-toggle="collapse"
+           role="button"
+           aria-expanded="false"
+           aria-controls="collapseContent">
+            <div class="divisor">
+                Otros proyectos
+            </div>
+        </a>
+
+        <script>
+            $("#otrosProyectos").click(function () {
+                var c = $("#collapseContent");
+
+                if (c.hasClass("show")) {
+                    c.collapse("hide");
+                } else {
+                    c.collapse("show");
+                }
+            })
+        </script>
+
+        <div class="collapse" id="collapseContent" aria-expanded="false">
+            <div class="container-fluid" style="padding: 0">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <a href="">
+                            <img src="./trabajos/_imagenes/metal.jpg" alt="metal">
+                            <h2> Metal </h2>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="">
+                            <img src="./trabajos/_imagenes/madera.jpg" alt="madera">
+                            <h2> Madera </h2>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="../impresion3d/cascoRogueOne.html">
+                            <img src="./trabajos/_imagenes/impresion3d.jpg" alt="impresion3d">
+                            <h2> Impresión 3D </h2>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <a href="">
+                            <img src="./trabajos/_imagenes/textil.jpg" alt="textil">
+                            <h2> Téxtil </h2>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="">
+                            <img src="./trabajos/_imagenes/arduino2.jpg" alt="arduino2">
+                            <h2> Electrónica </h2>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="">
+                            <img src="./trabajos/_imagenes/exterior.jpg" alt="exterior">
+                            <h2> Exteriores </h2>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="divisor" style="background-color: #2e2e2e;margin: 0 auto;">
+            Coastal Defender Stormtrooper Helmet
+        </div>
+
+        <!-- ------------------------------------------------------------------------ -->
+
+        <div class="row" style="background-image: url(_imagenes/01.png); background-size: 100%; background-position-y: 50%">
+            <div class="col-lg-6" style="padding: 30px">
+                <h3 id="first-header">
+                    <span> Este es un texto de prueba para ver como queda en la página </span>
+                </h3>
+            </div>
+
+            <div class="col-lg-6">
+                <img src="./trabajos/impresion3d/_imagenes/00.png" style="height: 90%; display: block;">
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------ -->
+
+        <div class="divisor" style="background-color: #2e2e2e;margin: 0 auto;">
+            Design & Printing
+        </div>
+
+        <div class="row" style="background-color: #c4c4c4">
+            <div class="col-lg-6">
+                <video src="./trabajos/impresion3d/_imagenes/01.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
+            </div>
+
+            <div class="col-lg-6 texto">
+                <h3 style="text-align: left">
+                    Este es un texto de prueba para ver como queda en la página
+                </h3>
+            </div>
+        </div>
+
+        <div class="row" style="background-color: #8d8d8d">
+            <div class="col-lg-6 texto">
+                <h3 style="text-align: right; margin-right: 0; margin-left: auto">
+                    Este es un texto de prueba para ver como queda en la página
+                </h3>
+            </div>
+
+            <div class="col-lg-6">
+                <video src="./trabajos/impresion3d/_imagenes/02.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------ -->
+
+        <div class="row">
+            <div class="col-lg-12" style="background-color: #8f8f8f">
+                <img src="./trabajos/impresion3d/_imagenes/02.png"
+                     style="display: block; max-height: 100%; max-width: 100%; margin: auto; position: relative; top: 50%; transform: translateY(-50%)">
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------ -->
+
+        <div class="divisor" style="background-color: #2e2e2e;margin: 0 auto;">
+            Ensambling & Painting
+        </div>
+
+        <div class="row" style="background-color: #c4c4c4">
+            <div class="col-lg-6">
+                <video src="./trabajos/impresion3d/_imagenes/03.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
+            </div>
+
+            <div class="col-lg-6 texto">
+                <h3 style="text-align: left">
+                    Este es un texto de prueba para ver como queda en la página
+                </h3>
+            </div>
+        </div>
+        <div class="row" style="background-color: #c4c4c4">
+            <div class="col-lg-6">
+                <img src="./trabajos/impresion3d/_imagenes/03.png" onclick="modalFunctionImg(this)">
+            </div>
+
+            <div class="col-lg-6 texto">
+                <h3 style="text-align: left">
+                    Este es un texto de prueba para ver como queda en la página
+                </h3>
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------ -->
+
+        <div class="row">
+            <div class="col-lg-6 texto" style="background-color: #8f8f8f">
+                <h3 style="text-align: right; margin-right: 0; margin-left: auto">
+                    Este es un texto de prueba para ver como queda en la página
+                </h3>
+            </div>
+
+            <div class="col-lg-6" style="background-color: #6a6a6a">
+                <img src="./trabajos/impresion3d/_imagenes/06.png" onclick="modalFunctionImg(this)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 texto" style="background-color: #8f8f8f">
+                <h3 style="text-align: right; margin-right: 0; margin-left: auto">
+                    Este es un texto de prueba para ver como queda en la página
+                </h3>
+            </div>
+
+            <div class="col-lg-6" style="background-color: #6a6a6a">
+                <video src="./trabajos/impresion3d/_imagenes/04.mp4" autoplay muted loop onclick="modalFunctionVideo(this)"> </video>
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------ -->
+
+        <div class="divisor" style="background-color: #2e2e2e;margin: 0 auto;">
+            Details & Wheathering
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="./trabajos/impresion3d/_imagenes/05.png" onclick="modalFunctionImg(this)">
+            </div>
+
+            <div class="col-lg-6">
+                <img src="./trabajos/impresion3d/_imagenes/07.png" onclick="modalFunctionImg(this)">
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------ -->
+
+        <div class="divisor" style="background-color: #2e2e2e;margin: 0 auto;">
+            Final Product
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12" style="background-color: #8f8f8f">
+                <video src="./trabajos/impresion3d/_imagenes/05.mp4" autoplay muted loop> </video>
+            </div>
+        </div>
+
+
+
+        <div class="modal" id="modal01">
+            <span class="close" onclick="closeModal()" >&times;</span>
+            <video class="modal-content" id="modalVideo"></video>
+            <img class="modal-content" id="modalImg">
+        </div>
+
+
+    </div>
+
+    <script>
+        function pauseVideos(bool) {
+            var x = document.getElementsByTagName("video");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                if (bool) {
+                    x[i].pause();
+                } else {
+                    x[i].play();
+                }
+            }
+        }
+
+        function modalFunctionImg(element) {
+            pauseVideos(true);
+
+            document.getElementById("modalImg").src = element.src;
+
+            document.getElementById("modalVideo").style.display = "none";
+            document.getElementById("modalImg").style.display = "block";
+            document.getElementById("modal01").style.display = "block";
+        }
+
+        function modalFunctionVideo(element) {
+            pauseVideos(true);
+
+            var videoModal = document.getElementById("modalVideo");
+
+            videoModal.src = element.src;
+            videoModal.autoplay = true;
+            videoModal.muted = true;
+            videoModal.loop = true;
+
+            document.getElementById("modalImg").style.display = "none";
+            videoModal.style.display = "block";
+            document.getElementById("modal01").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("modal01").style.display = "none";
+            document.getElementById("modalVideo").style.display = "none";
+            document.getElementById("modalImg").style.display = "none";
+
+            pauseVideos(false);
+        }
+    </script>
+</body>
+
+</html>
