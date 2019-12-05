@@ -1,13 +1,13 @@
+package ModeloNegocio;
+
 import java.sql.*;
 
 public class ClienteDAO {
-    private Connection conectandoBD(String gestor, String servidor, String puerto, String baseDatos, String usuario, String contrasena) {
+    private Connection conectandoBD(String baseDatos, String usuario, String contrasena) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String URL = "jdbc:" + gestor + "://" + servidor + ":" + puerto + "/" + baseDatos;
-
-            return DriverManager.getConnection(URL, usuario, contrasena);
+            return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/" + baseDatos, usuario, contrasena);
         } catch(Exception e) {
             System.out.println(e.getMessage());
         }
@@ -22,7 +22,7 @@ public class ClienteDAO {
         ResultSet result;
 
         try {
-            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "mosteiroDelPilar", "1234");
+            Connection connection = conectandoBD("mosteiroDelPilar", "mosteiroDelPilar", "1234");
 
             String query= "SELECT * FROM usuario WHERE email=? AND contrasena=?";
 
@@ -48,7 +48,7 @@ public class ClienteDAO {
         ResultSet result;
 
         try {
-            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "mosteiroDelPilar", "1234");
+            Connection connection = conectandoBD("mosteiroDelPilar", "mosteiroDelPilar", "1234");
 
             String query= "SELECT * FROM usuario WHERE email=?";
 
@@ -74,7 +74,7 @@ public class ClienteDAO {
         int id = -69;
 
         try {
-            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "bd_alumnos", "daw", "daw");
+            Connection connection = conectandoBD("bd_alumnos", "daw", "daw");
 
             String query = "INSERT INTO altadaw (nombre, apellidos, email) VALUES (?,?,?)";
 
@@ -101,7 +101,7 @@ public class ClienteDAO {
         PreparedStatement preparedStatement;
 
         try {
-            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "mosteiroDelPilar", "1234");
+            Connection connection = conectandoBD("mosteiroDelPilar", "mosteiroDelPilar", "1234");
 
             String query = "INSERT INTO usuario VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -142,7 +142,7 @@ public class ClienteDAO {
         Cliente C = null;
 
         try {
-            Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "mosteiroDelPilar", "mosteiroDelPilar", "1234");
+            Connection connection = conectandoBD("mosteiroDelPilar", "mosteiroDelPilar", "1234");
 
             String query = "SELECT * FROM usuario WHERE email=?";
 
@@ -169,8 +169,8 @@ public class ClienteDAO {
                     rs.getBoolean("facturacionIgualEnvio"),
                     rs.getString("metodoPago"),
                     rs.getString("tarjeta"),
-                    rs.getString("caducidad"),
-                    rs.getString("cvv")
+                    rs.getString("caducidadTarjeta"),
+                    rs.getString("codSeguridadTarjeta")
                 );
             }
 
@@ -190,7 +190,7 @@ public class ClienteDAO {
          int id = -2;
 
          try {
-             Connection connection = conectandoBD("mysql", "127.0.0.1", "3306", "bd_alumnos", "daw", "daw");
+             Connection connection = conectandoBD("bd_alumnos", "daw", "daw");
 
              String query = "SELECT id FROM altadaw WHERE email=?";
              preparedStatement = connection.prepareStatement(query);

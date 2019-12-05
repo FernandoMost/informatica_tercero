@@ -6,7 +6,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="VizualContender" />
         </element>
-        <element id="directory" name="lib" />
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="daw" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="VizualContender/web/Web" />
     </root>

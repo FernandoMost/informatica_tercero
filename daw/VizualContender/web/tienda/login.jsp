@@ -61,7 +61,7 @@
 		</div>
 	</div>
 
-	<div class="modal" id="modalSignUp">
+	<div class="modal" id="modalSignUp" style="z-index: 98">
 		<span class="close" onclick="closeModal()" >&times;</span>
 
 		<div class="row" style="position: relative; top: 50%; transform: translateY(-50%);">

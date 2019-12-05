@@ -29,7 +29,7 @@ header {
     width: 100%;
     background-color: gray;
 
-    z-index: 20;
+    z-index: 95;
 }
 
 @media screen and (max-width: 767px) { header { height: 150px; } }

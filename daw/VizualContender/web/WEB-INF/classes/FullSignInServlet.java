@@ -1,11 +1,11 @@
 // Comando de compilación: javac -cp /usr/share/java/servlet-api-3.1.jar servlet.java
 
+import ModeloNegocio.Cliente;
+import ModeloNegocio.ClienteDAO;
+
 import java.io.*;
 import javax.servlet.*;
-import java.sql.*;
 import javax.servlet.http.*;
-import java.util.HashSet;
-import java.util.Set;
 
 public class FullSignInServlet extends HttpServlet {
     private ClienteDAO clienteDAO;
@@ -55,6 +55,12 @@ public class FullSignInServlet extends HttpServlet {
             clienteDAO.insertBDalumno(cli);
 
             sesion.setAttribute("bienvenidaTienda", "Registrado con éxito! Bienvenido/a " + cli.getNombre());
+            sesion.setAttribute("loggedClient", cli);
+
+            Cookie cuqui = new Cookie("mosteiroDelPilar", "mosteiroDelPilar");
+            cuqui.setMaxAge(-1);
+            response.addCookie(cuqui);
+
             response.sendRedirect("/VizualContender/#!tienda");
         } else {
             request.getSession().setAttribute("mensajeId", "Id incorrecto");

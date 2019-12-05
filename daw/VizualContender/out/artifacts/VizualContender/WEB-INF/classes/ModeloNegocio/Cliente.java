@@ -1,8 +1,4 @@
-import java.io.*;
-import java.sql.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.util.*;
+package ModeloNegocio;
 
 public class Cliente {
     // Atributos
@@ -28,13 +24,6 @@ public class Cliente {
     private String cvv;
 
     // ────────────────────────────────────────────────────
-
-    public Cliente(String email, String nombre, String apellidos) {
-        this.email = email;
-        this.contrasena = null;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-    }
 
     public Cliente(String email, String contrasena) {
         this.email = email;

@@ -1,8 +1,10 @@
 // Comando de compilación: javac -cp /usr/share/java/servlet-api-3.1.jar servlet.java
 
+import ModeloNegocio.Cliente;
+import ModeloNegocio.ClienteDAO;
+
 import java.io.*;
 import javax.servlet.*;
-import java.sql.*;
 import javax.servlet.http.*;
 
 public class LogInServlet extends HttpServlet {
@@ -30,6 +32,14 @@ public class LogInServlet extends HttpServlet {
         try {
             if (clienteDAO.validarLogin(c)) {
                 request.getSession().setAttribute("bienvenidaTienda", "Bienvenido/a de nuevo!");
+
+                Cliente cliente = clienteDAO.getClienteBDalumno(c.getEmail());
+                request.getSession().setAttribute("loggedClient", cliente);
+
+                Cookie cuqui = new Cookie("mosteiroDelPilar", "mosteiroDelPilar");
+                cuqui.setMaxAge(-1);
+                response.addCookie(cuqui);
+
                 response.sendRedirect("/VizualContender/#!tienda");
             } else {
                 request.getSession().setAttribute("mensajeLogin", "E-mail y/o contraseña incorrectos");

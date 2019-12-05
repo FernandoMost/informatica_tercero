@@ -1,11 +1,11 @@
 // Comando de compilación: javac -cp /usr/share/java/servlet-api-3.1.jar servlet.java
 
+import ModeloNegocio.Cliente;
+import ModeloNegocio.ClienteDAO;
+
 import java.io.*;
 import javax.servlet.*;
-import java.sql.*;
 import javax.servlet.http.*;
-import java.util.HashSet;
-import java.util.Set;
 
 public class SignInServlet extends HttpServlet {
     private ClienteDAO clienteDAO;

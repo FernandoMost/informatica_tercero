@@ -81,7 +81,7 @@
                         <a class="nav-link" href="#!contacto"> Contacto </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#!login"> Tienda </a>
+                        <a class="nav-link" id="botonTienda" href="#!login"> Tienda </a>
                     </li>
                 </ul>
             </div>
@@ -146,6 +146,10 @@
     <script>
         $('.dropdown-item, .nav-item:not(.dropdown)').on('click', function () {
             $('.navbar-collapse').collapse('hide');
+        });
+
+        $('#botonTienda').on('click', function () {
+
         });
     </script>
 
