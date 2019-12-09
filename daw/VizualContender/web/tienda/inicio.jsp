@@ -41,6 +41,19 @@
         }
 
     </style>
+
+    <script>
+        $(function() {
+            if (getCookie("mosteiroDelPilar") === null) {
+                window.location.href = "#!/login";
+            }
+        });
+
+        $("#logOutButton").on('click', function () {
+            document.cookie = 'mosteiroDelPilar=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            window.location.href = "#!/login";
+        });
+    </script>
 </head>
 
 <body>
@@ -61,7 +74,7 @@
                         <div class="dropdown-menu animate slideIn">
                             <a class="dropdown-item" href=""> Opción 1 </a>
                             <a class="dropdown-item" href=""> Opción 2 </a>
-                            <a class="dropdown-item" href=""> Log out </a>
+                            <a class="dropdown-item" id="logOutButton" href=""> Log out </a>
                         </div>
                     </li>
 

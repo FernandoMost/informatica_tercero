@@ -22,9 +22,20 @@
 			background-color: red !important;
 		}
 	</style>
+
+    <script>
+        $(function() {
+            if (getCookie("mosteiroDelPilar") === "mosteiroDelPilar") {
+                window.location.href = "#!/tienda";
+                // /VizualContender/#!tienda
+            }
+        });
+    </script>
 </head>
 
 <body>
+
+
 	<div class="container-fluid main-content">
 		<div class="row">
 			<div class="col-sm-8 col-md-6 col-lg-4 mx-auto">

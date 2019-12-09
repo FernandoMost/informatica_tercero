@@ -36,7 +36,7 @@ public class LogInServlet extends HttpServlet {
                 Cliente cliente = clienteDAO.getClienteBDalumno(c.getEmail());
                 request.getSession().setAttribute("loggedClient", cliente);
 
-                Cookie cuqui = new Cookie("mosteiroDelPilar", String.valueOf(cliente.getId()));
+                Cookie cuqui = new Cookie("mosteiroDelPilar", "mosteiroDelPilar");
                 cuqui.setMaxAge(-1);
                 response.addCookie(cuqui);
 

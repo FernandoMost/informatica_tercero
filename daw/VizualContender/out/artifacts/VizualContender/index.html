@@ -81,7 +81,7 @@
                         <a class="nav-link" href="#!contacto"> Contacto </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#!login"> Tienda </a>
+                        <a class="nav-link" id="botonTienda" href="#!login"> Tienda </a>
                     </li>
                 </ul>
             </div>
@@ -128,10 +128,6 @@
                     templateUrl : "./tienda/login.jsp",
                     css : "./tienda/proper-styles.css"
                 })
-                .when("/loginFailure", {
-                    templateUrl : "./tienda/loginFailure.jsp",
-                    css : "./tienda/proper-styles.css"
-                })
                 .when("/validarId", {
                     templateUrl : "./tienda/validarId.jsp",
                     css : "./tienda/proper-styles.css"
@@ -147,6 +143,34 @@
         $('.dropdown-item, .nav-item:not(.dropdown)').on('click', function () {
             $('.navbar-collapse').collapse('hide');
         });
+
+        function getCookie(name) {
+            var dc = document.cookie;
+            var prefix = name + "=";
+            var begin = dc.indexOf("; " + prefix);
+            if (begin == -1) {
+                begin = dc.indexOf(prefix);
+                if (begin != 0) return null;
+            } else {
+                begin += 2;
+                var end = document.cookie.indexOf(";", begin);
+                if (end == -1)
+                    end = dc.length;
+            }
+
+            return decodeURI(dc.substring(begin + prefix.length, end));
+        }
+
+        // $('#botonTienda').on('click', function (e) {
+        //     var myCookie = getCookie("mosteiroDelPilar");
+        //
+        //     if (myCookie === "mosteiroDelPilar") {
+        //         window.location.href = "#!/tienda";
+        //         // /VizualContender/#!tienda
+        //     } else {
+        //         window.location.href = "#!/login";
+        //     }
+        // });
     </script>
 
 </body>

@@ -12,18 +12,23 @@
             width: 100%;
             padding: 0 !important;
             z-index: 89;
-            transition-duration: 1s;
         }
 
         #storeBar,
         #storeBar * {
             background-color: gray;
+            transition-duration: 0.3s;
         }
 
         @media screen and (max-width: 767px) { #storeBar li { width: 100% } }
 
-        #storeBar a:hover {
+        #storeBar a:hover,
+        #storeBar a:hover #cartIcon {
             background-color: #a6a6a6;
+        }
+
+        #storeBar a:hover #cartIcon {
+            filter: invert(0%);
         }
 
         #storeBar .navbar-toggler-icon {
@@ -31,7 +36,24 @@
             filter: saturate(0%) contrast(1000%);
         }
 
+        #cartIcon {
+            filter: invert(100%);
+        }
+
     </style>
+
+    <script>
+        $(function() {
+            if (getCookie("mosteiroDelPilar") === null) {
+                window.location.href = "#!/login";
+            }
+        });
+
+        $("#logOutButton").on('click', function () {
+            document.cookie = 'mosteiroDelPilar=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            window.location.href = "#!/login";
+        });
+    </script>
 </head>
 
 <body>
@@ -52,12 +74,15 @@
                         <div class="dropdown-menu animate slideIn">
                             <a class="dropdown-item" href=""> Opción 1 </a>
                             <a class="dropdown-item" href=""> Opción 2 </a>
-                            <a class="dropdown-item" href=""> Log out </a>
+                            <a class="dropdown-item" id="logOutButton" href=""> Log out </a>
                         </div>
                     </li>
 
                     <li class="nav-item   ml-auto">
-                        <a class="nav-link" href="">Carrito</a>
+                        <a class="nav-link" href="">
+                            <img id="cartIcon" src="tienda/_imagenes/cart-symbol.svg" style="height: 65px;"/>
+                            Carrito
+                        </a>
                     </li>
                 </ul>
             </div>
