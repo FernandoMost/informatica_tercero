@@ -1,4 +1,6 @@
-package ModeloNegocio;
+package AccesoBD;
+
+import ModeloNegocio.Usuario;
 
 import java.sql.*;
 

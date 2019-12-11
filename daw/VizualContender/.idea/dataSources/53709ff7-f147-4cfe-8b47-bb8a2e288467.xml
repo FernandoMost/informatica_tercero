@@ -1018,225 +1018,294 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="255" parent="232" name="PRIMARY">
+    <index id="255" parent="232" name="articulo">
+      <ColNames>articulo</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="256" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>pedido
 articulo</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="256" parent="233" name="usuario">
+    <foreign-key id="257" parent="232" name="articuloEnPedido_ibfk_1">
+      <ColNames>pedido</ColNames>
+      <RefTableName>pedido</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="258" parent="232" name="articuloEnPedido_ibfk_2">
+      <ColNames>articulo</ColNames>
+      <RefTableName>articulo</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="259" parent="233" name="usuario">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="233" name="articulo">
+    <column id="260" parent="233" name="articulo">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="233" name="cantidad">
+    <column id="261" parent="233" name="cantidad">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="259" parent="233" name="PRIMARY">
+    <index id="262" parent="233" name="articulo">
+      <ColNames>articulo</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="263" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>usuario
 articulo</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="260" parent="234" name="id">
+    <foreign-key id="264" parent="233" name="carrito_ibfk_1">
+      <ColNames>usuario</ColNames>
+      <RefTableName>usuario</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="265" parent="233" name="carrito_ibfk_2">
+      <ColNames>articulo</ColNames>
+      <RefTableName>articulo</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="266" parent="234" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="234" name="usuario">
+    <column id="267" parent="234" name="usuario">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="234" name="calle">
+    <column id="268" parent="234" name="calle">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="234" name="num">
+    <column id="269" parent="234" name="num">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="234" name="piso">
+    <column id="270" parent="234" name="piso">
       <Position>5</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="234" name="ciudad">
+    <column id="271" parent="234" name="ciudad">
       <Position>6</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="234" name="provincia">
+    <column id="272" parent="234" name="provincia">
       <Position>7</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="267" parent="234" name="codigoPostal">
+    <column id="273" parent="234" name="codigoPostal">
       <Position>8</Position>
       <DataType>char(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="268" parent="234" name="PRIMARY">
+    <index id="274" parent="234" name="usuario">
+      <ColNames>usuario</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="275" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 usuario</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="269" parent="235" name="id">
+    <foreign-key id="276" parent="234" name="direccionEnvio_ibfk_1">
+      <ColNames>usuario</ColNames>
+      <RefTableName>usuario</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="277" parent="235" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="235" name="usuario">
+    <column id="278" parent="235" name="usuario">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="235" name="facturacionIgualEnvio">
+    <column id="279" parent="235" name="facturacionIgualEnvio">
       <Position>3</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="235" name="metodoPago">
+    <column id="280" parent="235" name="metodoPago">
       <Position>4</Position>
       <DataType>varchar(15)|0s</DataType>
       <DefaultExpression>&apos;tarjeta&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="235" name="tarjeta">
+    <column id="281" parent="235" name="tarjeta">
       <Position>5</Position>
       <DataType>char(16)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="235" name="caducidadTarjeta">
+    <column id="282" parent="235" name="caducidadTarjeta">
       <Position>6</Position>
       <DataType>char(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="235" name="codSeguridadTarjeta">
+    <column id="283" parent="235" name="codSeguridadTarjeta">
       <Position>7</Position>
       <DataType>char(3)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="276" parent="235" name="PRIMARY">
+    <index id="284" parent="235" name="usuario">
+      <ColNames>usuario</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="285" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 usuario</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="277" parent="236" name="id">
+    <foreign-key id="286" parent="235" name="metodoPago_ibfk_1">
+      <ColNames>usuario</ColNames>
+      <RefTableName>usuario</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="287" parent="236" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="278" parent="236" name="usuario">
+    <column id="288" parent="236" name="usuario">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="236" name="fecha">
+    <column id="289" parent="236" name="fecha">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="236" name="direccionEnvio">
+    <column id="290" parent="236" name="direccionEnvio">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="236" name="metodoPago">
+    <column id="291" parent="236" name="metodoPago">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="236" name="total">
+    <column id="292" parent="236" name="total">
       <Position>6</Position>
       <DataType>decimal(7,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="283" parent="236" name="PRIMARY">
+    <index id="293" parent="236" name="usuario">
+      <ColNames>usuario</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="294" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 usuario</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="284" parent="237" name="id">
+    <foreign-key id="295" parent="236" name="pedido_ibfk_1">
+      <ColNames>usuario</ColNames>
+      <RefTableName>usuario</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="296" parent="237" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="237" name="nombre">
+    <column id="297" parent="237" name="nombre">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="237" name="apellidos">
+    <column id="298" parent="237" name="apellidos">
       <Position>3</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="237" name="email">
+    <column id="299" parent="237" name="email">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="237" name="dni">
+    <column id="300" parent="237" name="dni">
       <Position>5</Position>
       <DataType>char(9)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="237" name="contrasena">
+    <column id="301" parent="237" name="contrasena">
       <Position>6</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="290" parent="237" name="email">
+    <index id="302" parent="237" name="email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="291" parent="237" name="PRIMARY">
+    <key id="303" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="292" parent="237" name="email">
+    <key id="304" parent="237" name="email">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>

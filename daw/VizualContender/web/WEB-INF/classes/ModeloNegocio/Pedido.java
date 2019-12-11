@@ -1,27 +1,21 @@
 package ModeloNegocio;
 
+import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 
-public class Usuario {
+public class Pedido {
     private int id;
-    private String nombre;
-    private String apellidos;
-    private String email;
-    private String dni;
-    private String contrasena;
+    private int usuario;
+    private Date fecha;
+    private int direccionEnvio;
+    private int metodoPago;
+    private double total;
 
-    private HashSet<Direccion> direcciones;
-    private HashSet<MetodoPago> metodosPago;
-
-    private HashMap<Articulo, Integer> carrito;
-
-    private HashSet<Pedido> pedidos;
+    private HashMap<Articulo, Integer> articulos;
 
     // ────────────────────────────────────────────────────
 
 
 
     // ────────────────────────────────────────────────────
-
 }

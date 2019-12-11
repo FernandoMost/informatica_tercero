@@ -1,7 +1,7 @@
 // Comando de compilación: javac -cp /usr/share/java/servlet-api-3.1.jar servlet.java
 
 import ModeloNegocio.Usuario;
-import ModeloNegocio.UsuarioDAO;
+import AccesoBD.UsuarioDAO;
 
 import java.io.*;
 import javax.servlet.*;

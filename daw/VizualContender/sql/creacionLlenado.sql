@@ -38,7 +38,8 @@ CREATE TABLE direccionEnvio (
     provincia VARCHAR(30) NOT NULL,
     codigoPostal CHAR(5),
 
-    PRIMARY KEY (id, usuario)
+    PRIMARY KEY (id, usuario),
+    FOREIGN KEY (usuario) REFERENCES usuario(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE metodoPago (
@@ -51,8 +52,10 @@ CREATE TABLE metodoPago (
     caducidadTarjeta CHAR(5),
     codSeguridadTarjeta CHAR(3),
 
+    CHECK (metodoPago IN ('paypal', 'tarjeta', 'contrarrembolso')),
+
     PRIMARY KEY (id, usuario),
-    CHECK (metodoPago IN ('paypal', 'tarjeta', 'contrarrembolso'))
+    FOREIGN KEY (usuario) REFERENCES usuario(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE articulo (
@@ -73,7 +76,9 @@ CREATE TABLE carrito (
 
     cantidad INT NOT NULL,
 
-    PRIMARY KEY (usuario, articulo)
+    PRIMARY KEY (usuario, articulo),
+    FOREIGN KEY (usuario) REFERENCES usuario(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (articulo) REFERENCES articulo(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE pedido (
@@ -84,7 +89,8 @@ CREATE TABLE pedido (
     metodoPago INT NOT NULL,
     total DECIMAL(7,2) NOT NULL,
 
-    PRIMARY KEY (id, usuario)
+    PRIMARY KEY (id, usuario),
+    FOREIGN KEY (usuario) REFERENCES usuario(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE articuloEnPedido (
@@ -93,7 +99,9 @@ CREATE TABLE articuloEnPedido (
 
     cantidad INT NOT NULL,
 
-    PRIMARY KEY (pedido, articulo)
+    PRIMARY KEY (pedido, articulo),
+    FOREIGN KEY (pedido) REFERENCES pedido(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (articulo) REFERENCES articulo(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 ALTER TABLE direccionEnvio AUTO_INCREMENT=1000;
