@@ -1,6 +1,9 @@
 package ModeloNegocio;
 
-public class Cliente {
+import java.util.HashMap;
+import java.util.HashSet;
+
+public class Usuario {
     // Atributos
 
     private int id;
@@ -10,27 +13,20 @@ public class Cliente {
     private String dni;
     private String contrasena;
 
-    private String calle;
-    private int num;
-    private String piso;
-    private String ciudad;
-    private String provincia;
-    private String codigoPostal;
+    private HashSet<Direccion> direcciones;
+    private HashSet<MetodoPago> metodosPago;
 
-    private boolean facturacionIgualEnvio;
-    private String metodoPago;
-    private String tarjeta;
-    private String caducidad;
-    private String cvv;
+    //private HashMap<> carrito;
+
 
     // ────────────────────────────────────────────────────
 
-    public Cliente(String email, String contrasena) {
+    public Usuario(String email, String contrasena) {
         this.email = email;
         this.contrasena = contrasena;
     }
 
-    public Cliente(int id, String nombre, String apellidos, String email,
+    public Usuario(int id, String nombre, String apellidos, String email,
                    String dni, String contrasena, String calle, int num,
                    String piso, String ciudad, String provincia, String codigoPostal,
                    boolean facturacionIgualEnvio, String metodoPago,

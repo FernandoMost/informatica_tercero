@@ -1,19 +1,19 @@
 // Comando de compilación: javac -cp /usr/share/java/servlet-api-3.1.jar servlet.java
 
-import ModeloNegocio.Cliente;
-import ModeloNegocio.ClienteDAO;
+import ModeloNegocio.Usuario;
+import ModeloNegocio.UsuarioDAO;
 
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class FullSignInServlet extends HttpServlet {
-    private ClienteDAO clienteDAO;
+    private UsuarioDAO usuarioDAO;
 
     // ────────────────────────────────────────────────────
 
     public void init() {
-        clienteDAO = new ClienteDAO();
+        usuarioDAO = new UsuarioDAO();
     }
 
     // ────────────────────────────────────────────────────
@@ -23,7 +23,7 @@ public class FullSignInServlet extends HttpServlet {
     }
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int idBD = clienteDAO.getIdBDprofe(((String) request.getSession().getAttribute("emailRegistro")));
+        int idBD = usuarioDAO.getIdBDprofe(((String) request.getSession().getAttribute("emailRegistro")));
         int idInput = Integer.parseInt(request.getParameter("validaID"));
         String pass = ((String) request.getParameter("signContrasena"));
 
@@ -33,7 +33,7 @@ public class FullSignInServlet extends HttpServlet {
         if (idBD == idInput) {
             HttpSession sesion = request.getSession();
 
-            Cliente cli = new Cliente(
+            Usuario cli = new Usuario(
                 idBD,                                                    // id
                 ((String) sesion.getAttribute("nombreRegistro")),        // nombre
                 ((String) sesion.getAttribute("apellidosRegistro")),     // apellidos
@@ -52,7 +52,7 @@ public class FullSignInServlet extends HttpServlet {
                 ((String) sesion.getAttribute("caducidadPago")),         // caducidad
                 ((String) sesion.getAttribute("cvvPago")));              // cvv
 
-            clienteDAO.insertBDalumno(cli);
+            usuarioDAO.insertBDalumno(cli);
 
             sesion.setAttribute("bienvenidaTienda", "Registrado con éxito! Bienvenido/a " + cli.getNombre());
             sesion.setAttribute("loggedClient", cli);

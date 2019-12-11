@@ -1,19 +1,19 @@
 // Comando de compilación: javac -cp /usr/share/java/servlet-api-3.1.jar servlet.java
 
-import ModeloNegocio.Cliente;
-import ModeloNegocio.ClienteDAO;
+import ModeloNegocio.Usuario;
+import ModeloNegocio.UsuarioDAO;
 
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class LogInServlet extends HttpServlet {
-    private ClienteDAO clienteDAO;
+    private UsuarioDAO usuarioDAO;
 
     // ────────────────────────────────────────────────────
 
     public void init() {
-        clienteDAO = new ClienteDAO();
+        usuarioDAO = new UsuarioDAO();
     }
 
     // ────────────────────────────────────────────────────
@@ -27,14 +27,14 @@ public class LogInServlet extends HttpServlet {
 
         request.getSession().removeAttribute("mensajeLogin");
         request.getSession().removeAttribute("mensajeSignin");
-        Cliente c = new Cliente(email, pass);
+        Usuario c = new Usuario(email, pass);
 
         try {
-            if (clienteDAO.validarLogin(c)) {
+            if (usuarioDAO.validarLogin(c)) {
                 request.getSession().setAttribute("bienvenidaTienda", "Bienvenido/a de nuevo!");
 
-                Cliente cliente = clienteDAO.getClienteBDalumno(c.getEmail());
-                request.getSession().setAttribute("loggedClient", cliente);
+                Usuario usuario = usuarioDAO.getClienteBDalumno(c.getEmail());
+                request.getSession().setAttribute("loggedClient", usuario);
 
                 Cookie cuqui = new Cookie("mosteiroDelPilar", "mosteiroDelPilar");
                 cuqui.setMaxAge(-1);

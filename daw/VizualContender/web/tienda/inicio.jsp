@@ -1,4 +1,4 @@
-<%@ page import="ModeloNegocio.Cliente" %>
+<%@ page import="ModeloNegocio.Usuario" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
@@ -57,7 +57,7 @@
 </head>
 
 <body>
-    <% Cliente c = (Cliente) request.getSession().getAttribute("loggedClient"); %>
+    <% Usuario c = (Usuario) request.getSession().getAttribute("loggedClient"); %>
 
     <div class="container-fluid main-content">
         <nav class="navbar navbar-expand-lg navbar-dark" id="storeBar">

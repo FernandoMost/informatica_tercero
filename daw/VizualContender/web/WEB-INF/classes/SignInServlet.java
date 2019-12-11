@@ -1,19 +1,19 @@
 // Comando de compilación: javac -cp /usr/share/java/servlet-api-3.1.jar servlet.java
 
-import ModeloNegocio.Cliente;
-import ModeloNegocio.ClienteDAO;
+import ModeloNegocio.Usuario;
+import ModeloNegocio.UsuarioDAO;
 
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class SignInServlet extends HttpServlet {
-    private ClienteDAO clienteDAO;
+    private UsuarioDAO usuarioDAO;
 
     // ────────────────────────────────────────────────────
 
     public void init() {
-        clienteDAO = new ClienteDAO();
+        usuarioDAO = new UsuarioDAO();
     }
 
     // ────────────────────────────────────────────────────
@@ -38,7 +38,7 @@ public class SignInServlet extends HttpServlet {
         else
             numDireccion = Integer.parseInt(request.getParameter("signinNumero"));
 
-        Cliente c = new Cliente(
+        Usuario c = new Usuario(
             0,                                          // id
             request.getParameter("signinNombre"),       // nombre
             request.getParameter("signinApellidos"),    // apellidos
@@ -58,12 +58,12 @@ public class SignInServlet extends HttpServlet {
             request.getParameter("cvvTarjeta"));        // cvv
 
         try {
-            if (clienteDAO.existAlready(c)) {
+            if (usuarioDAO.existAlready(c)) {
                 request.getSession().setAttribute("mensajeSignin", "El correo ya está registrado en otra cuenta");
                 response.sendRedirect("/VizualContender/#!login");
                 return;
             } else {
-                int id = clienteDAO.insertBDprofe(c);
+                int id = usuarioDAO.insertBDprofe(c);
 
                 Cookie c1 = new Cookie("mosteiroDelPilar", String.valueOf(id));
                 c1.setMaxAge(60*5);

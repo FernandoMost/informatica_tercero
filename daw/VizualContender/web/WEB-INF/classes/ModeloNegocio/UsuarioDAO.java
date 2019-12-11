@@ -2,7 +2,7 @@ package ModeloNegocio;
 
 import java.sql.*;
 
-public class ClienteDAO {
+public class UsuarioDAO {
     private Connection conectandoBD(String baseDatos, String usuario, String contrasena) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -17,7 +17,7 @@ public class ClienteDAO {
 
     // ────────────────────────────────────────────────────
     
-    public boolean validarLogin(Cliente cliente) {
+    public boolean validarLogin(Usuario usuario) {
         PreparedStatement preparedStatement;
         ResultSet result;
 
@@ -28,8 +28,8 @@ public class ClienteDAO {
 
             preparedStatement = connection.prepareStatement(query);
 
-            preparedStatement.setString(1, cliente.getEmail());
-            preparedStatement.setString(2, cliente.getContrasena());
+            preparedStatement.setString(1, usuario.getEmail());
+            preparedStatement.setString(2, usuario.getContrasena());
 
             result = preparedStatement.executeQuery();
 
@@ -43,7 +43,7 @@ public class ClienteDAO {
 
     // ────────────────────────────────────────────────────
 
-    public boolean existAlready(Cliente cliente) {
+    public boolean existAlready(Usuario usuario) {
         PreparedStatement preparedStatement;
         ResultSet result;
 
@@ -54,7 +54,7 @@ public class ClienteDAO {
 
             preparedStatement = connection.prepareStatement(query);
 
-            preparedStatement.setString(1, cliente.getEmail());
+            preparedStatement.setString(1, usuario.getEmail());
 
             result = preparedStatement.executeQuery();
 
@@ -68,7 +68,7 @@ public class ClienteDAO {
 
     // ────────────────────────────────────────────────────
 
-    public int insertBDprofe(Cliente cliente) {
+    public int insertBDprofe(Usuario usuario) {
         PreparedStatement preparedStatement;
         ResultSet result;
         int id = -69;
@@ -80,14 +80,14 @@ public class ClienteDAO {
 
             preparedStatement = connection.prepareStatement(query);
 
-            preparedStatement.setString(1, cliente.getNombre());
-            preparedStatement.setString(2, cliente.getApellidos());
-            preparedStatement.setString(3, cliente.getEmail());
+            preparedStatement.setString(1, usuario.getNombre());
+            preparedStatement.setString(2, usuario.getApellidos());
+            preparedStatement.setString(3, usuario.getEmail());
 
             preparedStatement.executeUpdate();
 
             // ────────────────────────────────────
-            return getIdBDprofe(cliente.getEmail());
+            return getIdBDprofe(usuario.getEmail());
         } catch(Exception e) {
             System.out.println(e.getMessage());
         }
@@ -97,7 +97,7 @@ public class ClienteDAO {
 
     // ────────────────────────────────────────────────────
 
-    public void insertBDalumno(Cliente cliente) {
+    public void insertBDalumno(Usuario usuario) {
         PreparedStatement preparedStatement;
 
         try {
@@ -107,25 +107,25 @@ public class ClienteDAO {
 
             preparedStatement = connection.prepareStatement(query);
 
-            preparedStatement.setInt(1,  cliente.getId());
-            preparedStatement.setString(2,  cliente.getNombre());
-            preparedStatement.setString(3,  cliente.getApellidos());
-            preparedStatement.setString(4,  cliente.getEmail());
-            preparedStatement.setString(5,  cliente.getDni());
-            preparedStatement.setString(6,  cliente.getContrasena());
+            preparedStatement.setInt(1,  usuario.getId());
+            preparedStatement.setString(2,  usuario.getNombre());
+            preparedStatement.setString(3,  usuario.getApellidos());
+            preparedStatement.setString(4,  usuario.getEmail());
+            preparedStatement.setString(5,  usuario.getDni());
+            preparedStatement.setString(6,  usuario.getContrasena());
 
-            preparedStatement.setString(7,  cliente.getCalle());
-            preparedStatement.setInt(8,  cliente.getNum());
-            preparedStatement.setString(9,  cliente.getPiso());
-            preparedStatement.setString(10, cliente.getCiudad());
-            preparedStatement.setString(11, cliente.getProvincia());
-            preparedStatement.setString(12, cliente.getCodigoPostal());
+            preparedStatement.setString(7,  usuario.getCalle());
+            preparedStatement.setInt(8,  usuario.getNum());
+            preparedStatement.setString(9,  usuario.getPiso());
+            preparedStatement.setString(10, usuario.getCiudad());
+            preparedStatement.setString(11, usuario.getProvincia());
+            preparedStatement.setString(12, usuario.getCodigoPostal());
 
-            preparedStatement.setBoolean(13, cliente.isFacturacionIgualEnvio());
-            preparedStatement.setString(14, cliente.getMetodoPago());
-            preparedStatement.setString(15, cliente.getTarjeta());
-            preparedStatement.setString(16, cliente.getCaducidad());
-            preparedStatement.setString(17, cliente.getCvv());
+            preparedStatement.setBoolean(13, usuario.isFacturacionIgualEnvio());
+            preparedStatement.setString(14, usuario.getMetodoPago());
+            preparedStatement.setString(15, usuario.getTarjeta());
+            preparedStatement.setString(16, usuario.getCaducidad());
+            preparedStatement.setString(17, usuario.getCvv());
 
             preparedStatement.executeUpdate();
         } catch(Exception e) {
@@ -135,11 +135,11 @@ public class ClienteDAO {
 
     // ────────────────────────────────────────────────────
 
-    public Cliente getClienteBDalumno(String email) {
+    public Usuario getClienteBDalumno(String email) {
         PreparedStatement preparedStatement;
         ResultSet rs;
 
-        Cliente C = null;
+        Usuario C = null;
 
         try {
             Connection connection = conectandoBD("mosteiroDelPilar", "mosteiroDelPilar", "1234");
@@ -153,7 +153,7 @@ public class ClienteDAO {
             rs = preparedStatement.executeQuery();
 
             if (rs.next()) {
-                C = new Cliente(
+                C = new Usuario(
                     rs.getInt("id"),
                     rs.getString("nombre"),
                     rs.getString("apellidos"),
