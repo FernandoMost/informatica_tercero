@@ -986,248 +986,257 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="249" parent="231" name="PRIMARY">
+    <index id="249" parent="231" name="nombre">
+      <ColNames>nombre</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="250" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="250" parent="232" name="pedido">
+    <key id="251" parent="231" name="nombre">
+      <ColNames>nombre</ColNames>
+      <UnderlyingIndexName>nombre</UnderlyingIndexName>
+    </key>
+    <column id="252" parent="232" name="pedido">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="232" name="articulo">
+    <column id="253" parent="232" name="articulo">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="232" name="cantidad">
+    <column id="254" parent="232" name="cantidad">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="253" parent="232" name="PRIMARY">
+    <key id="255" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>pedido
 articulo</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="254" parent="233" name="usuario">
+    <column id="256" parent="233" name="usuario">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="233" name="articulo">
+    <column id="257" parent="233" name="articulo">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="233" name="cantidad">
+    <column id="258" parent="233" name="cantidad">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="257" parent="233" name="PRIMARY">
+    <key id="259" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>usuario
 articulo</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="258" parent="234" name="id">
+    <column id="260" parent="234" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="234" name="usuario">
+    <column id="261" parent="234" name="usuario">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="234" name="calle">
+    <column id="262" parent="234" name="calle">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="234" name="num">
+    <column id="263" parent="234" name="num">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="234" name="piso">
+    <column id="264" parent="234" name="piso">
       <Position>5</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="234" name="ciudad">
+    <column id="265" parent="234" name="ciudad">
       <Position>6</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="234" name="provincia">
+    <column id="266" parent="234" name="provincia">
       <Position>7</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="234" name="codigoPostal">
+    <column id="267" parent="234" name="codigoPostal">
       <Position>8</Position>
       <DataType>char(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="266" parent="234" name="PRIMARY">
+    <key id="268" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 usuario</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="267" parent="235" name="id">
+    <column id="269" parent="235" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="268" parent="235" name="usuario">
+    <column id="270" parent="235" name="usuario">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="235" name="facturacionIgualEnvio">
+    <column id="271" parent="235" name="facturacionIgualEnvio">
       <Position>3</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="235" name="metodoPago">
+    <column id="272" parent="235" name="metodoPago">
       <Position>4</Position>
       <DataType>varchar(15)|0s</DataType>
       <DefaultExpression>&apos;tarjeta&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="235" name="tarjeta">
+    <column id="273" parent="235" name="tarjeta">
       <Position>5</Position>
       <DataType>char(16)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="235" name="caducidadTarjeta">
+    <column id="274" parent="235" name="caducidadTarjeta">
       <Position>6</Position>
       <DataType>char(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="235" name="codSeguridadTarjeta">
+    <column id="275" parent="235" name="codSeguridadTarjeta">
       <Position>7</Position>
       <DataType>char(3)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="274" parent="235" name="PRIMARY">
+    <key id="276" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 usuario</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="275" parent="236" name="id">
+    <column id="277" parent="236" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="236" name="usuario">
+    <column id="278" parent="236" name="usuario">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="277" parent="236" name="fecha">
+    <column id="279" parent="236" name="fecha">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="278" parent="236" name="direccionEnvio">
+    <column id="280" parent="236" name="direccionEnvio">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="236" name="metodoPago">
+    <column id="281" parent="236" name="metodoPago">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="236" name="total">
+    <column id="282" parent="236" name="total">
       <Position>6</Position>
       <DataType>decimal(7,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="281" parent="236" name="PRIMARY">
+    <key id="283" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 usuario</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="282" parent="237" name="id">
+    <column id="284" parent="237" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="237" name="nombre">
+    <column id="285" parent="237" name="nombre">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="237" name="apellidos">
+    <column id="286" parent="237" name="apellidos">
       <Position>3</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="237" name="email">
+    <column id="287" parent="237" name="email">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="237" name="dni">
+    <column id="288" parent="237" name="dni">
       <Position>5</Position>
       <DataType>char(9)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="237" name="contrasena">
+    <column id="289" parent="237" name="contrasena">
       <Position>6</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="288" parent="237" name="email">
+    <index id="290" parent="237" name="email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="289" parent="237" name="PRIMARY">
+    <key id="291" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="290" parent="237" name="email">
+    <key id="292" parent="237" name="email">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>
