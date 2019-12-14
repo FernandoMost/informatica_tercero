@@ -1,19 +1,17 @@
-// Comando de compilación: javac -cp /usr/share/java/servlet-api-3.1.jar servlet.java
-
-import ModeloNegocio.Cliente;
-import ModeloNegocio.ClienteDAO;
+import AccesoBD.FachadaBD;
+import ModeloNegocio.Usuario;
 
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class LogInServlet extends HttpServlet {
-    private ClienteDAO clienteDAO;
+    private FachadaBD fachadaBD;
 
     // ────────────────────────────────────────────────────
 
     public void init() {
-        clienteDAO = new ClienteDAO();
+        fachadaBD = new FachadaBD();
     }
 
     // ────────────────────────────────────────────────────
@@ -27,23 +25,22 @@ public class LogInServlet extends HttpServlet {
 
         request.getSession().removeAttribute("mensajeLogin");
         request.getSession().removeAttribute("mensajeSignin");
-        Cliente c = new Cliente(email, pass);
 
         try {
-            if (clienteDAO.validarLogin(c)) {
+            if (fachadaBD.validarLogin(email, pass)) {
                 request.getSession().setAttribute("bienvenidaTienda", "Bienvenido/a de nuevo!");
 
-                Cliente cliente = clienteDAO.getClienteBDalumno(c.getEmail());
-                request.getSession().setAttribute("loggedClient", cliente);
+                Usuario usuario = fachadaBD.getUsuarioBD(email);
+                request.getSession().setAttribute("loggedClient", usuario);
 
                 Cookie cuqui = new Cookie("mosteiroDelPilar", "mosteiroDelPilar");
                 cuqui.setMaxAge(-1);
                 response.addCookie(cuqui);
 
-                response.sendRedirect("/VizualContender/#!tienda");
+                response.sendRedirect("/mosteiroDelPilar/#!tienda");
             } else {
                 request.getSession().setAttribute("mensajeLogin", "E-mail y/o contraseña incorrectos");
-                response.sendRedirect("/VizualContender/#!login");
+                response.sendRedirect("/mosteiroDelPilar/#!login");
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
