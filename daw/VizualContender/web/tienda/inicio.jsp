@@ -171,8 +171,8 @@
                             <%= c.getNombre() %>
                         </a>
                         <div class="dropdown-menu animate slideIn">
-                            <a class="dropdown-item" href=""> Opción 1 </a>
-                            <a class="dropdown-item" href=""> Opción 2 </a>
+                            <a class="dropdown-item" href=""> Mi perfil </a>
+                            <a class="dropdown-item" href=""> Mis pedidos </a>
                             <a class="dropdown-item" id="logOutButton" href=""> Log out </a>
                         </div>
                     </li>

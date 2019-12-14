@@ -152,91 +152,91 @@ INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'After making their debut on the Fall / Winter 2019 runway in Paris Fashion Week, Nike and Sacai deliver a familiar silhouette in new fashion with the Sacai Nike LD Waffle Black, now available on StockX. The LD Waffle took the sneaker world by storm when they originally debuted in Sacai’s Spring / Summer 2019 show alongside a Nike Blazer collaboration. Out of the two sneakers they worked on together, the Waffle stood out most and acquired an aftermarket hype that hasn’t showed any signs of slowing down. It only made sense for the two companies to keep this model alive, but present it in new colorways.',
     440.00,
     105,
-    'waffleblack.jpg');
+    'waffleblack.png');
 
 INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'Nike LD Waffle sacai Pine Green',
     'After making their debut on the Fall / Winter 2019 runway in Paris Fashion Week, Nike and Sacai deliver a familiar silhouette in new fashion with the Sacai Nike LD Waffle Pine Green, now available on StockX. The LD Waffle took the sneaker world by storm when they originally debuted in Sacai’s Spring / Summer 2019 show alongside a Nike Blazer collaboration. Out of the two sneakers they worked on together, the Waffle stood out most and acquired an aftermarket hype that hasn’t showed any signs of slowing down. It only made sense for the two companies to keep this model alive, but present it in new colorways.',
     271.00,
     95,
-    'wafflePineGreen.jpg');
+    'wafflePineGreen.png');
 
 INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'Nike Waffle Racer Off-White Vivid Sky',
     'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
     185.00,
     200,
-    'waffleRacerVividSky.jpg');
+    'waffleRacerVividSky.png');
 
 INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'Nike Waffle Racer Off-White Black',
     'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
     212.00,
     10,
-    'waffleRacerBlack.jpg');
+    'waffleRacerBlack.png');
 
 INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'adidas Yeezy Boost 380 Alien',
     'Yeezy has introduced a new silhouette to their product line with the adidas Yeezy Boost 380 Alien, now available on StockX. This model was originally known to be the Yeezy Boost 350 V3, but upon release it was given its own name. ',
     458.00,
     63,
-    'alien.jpg');
+    'alien.png');
 
 INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'Nike React Element 55 Kendrick Lamar',
     'Kendrick Lamar and Nike expanded their collaborative efforts once again with the Nike React Element 55 Kendrick Lamar, now available on StockX. In 2018, Kendrick announced his partnership with Nike via Instagram by previewing his first signature Cortez. Two years and several sneakers later, it’s full steam ahead for this dominant partnership.',
     135.00,
     74,
-    'kendrick.jpg');
+    'kendrick.png');
 
 INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'adidas Yeezy Boost 700 V2 Vanta',
     'Make a statement with the adidas Yeezy Boost 700 V2 Vanta on your feet. This Yeezy Boost 700 V2 comes with a black upper, black midsole, and a black sole. These sneakers released in June 2019 and retailed for $300. Provide the world with some Yeezy vibes after grabbing these on StockX.',
     347.00,
     50,
-    'vanta.jpg');
+    'vanta.png');
 
 INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'Air Fear Of God 1 Frosted Spruce',
     'Note: Only select retailers included a dust bag with the Air Fear of God 1s during their initial release. As such we can not guarantee one will be included with your purchase.',
     522.00,
     42,
-    'frostedSpruce.jpg');
+    'frostedSpruce.png');
 
 INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'Air Fear Of God 1 Orange Pulse',
     'Note: Only select retailers included a dust bag with the Air Fear of God 1s during their initial release. As such we can not guarantee one will be included with your purchase.',
     546.00,
     39,
-    'orangePulse.jpg');
+    'orangePulse.png');
 
 INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'Nike Daybreak Undercover Blue Jay',
     'Take a break from destroying the sneaker community and buy the Nike Daybreak Undercover Blue Jay. This Nike Daybreak comes with a blue upper plus white and black accents, white Nike “Swoosh”, grey midsole, and a black sole. These sneakers released in June 2019 and retailed for $160. Grab these on StockX today.',
     153.00,
     72,
-    'undercoverBlue.jpg');
+    'undercoverBlue.png');
 
 INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'Air Presto Off-White',
     'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
     1622.00,
     69,
-    'prestos.jpg');
+    'prestos.png');
 
 INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'adidas Yeezy 700 V2 Static',
     'Ignore the static, adidas and Kanye are teaming up to release the adidas Yeezy 700 V2 Static. This Yeezy 700 comes with a grey upper with white accents, white midsole, and a black sole. These sneakers released in December 2018 and retailed for $300. The 700’s have been one of the hottest adidas silhouette this year so place a Bid on these today.',
     478.00,
     182,
-    '700v2static.jpg');
+    '700v2static.png');
 
 INSERT INTO articulo (nombre, descripcion, precio, stock, imagen) VALUES (
     'Air Fear Of God 1 Light Bone',
     'Step into the bright lights while wearing the Air Fear Of God 1 Light Bone. This FOG1 comes with a grey upper, black Nike “Swoosh”, white midsole, and a translucent sole.',
     635.00,
     129,
-    'lightBone.jpg');
+    'lightBone.png');
 
 
 
