@@ -114,3 +114,35 @@ hr {
     cursor: pointer;
 }
 
+#storeBar {
+    position: fixed;
+    width: 100%;
+    padding: 0 !important;
+    z-index: 89;
+}
+
+#storeBar,
+#storeBar * {
+    background-color: gray;
+    transition-duration: 0.3s;
+}
+
+@media screen and (max-width: 992px) { #storeBar li { width: 100% } }
+
+#storeBar a:hover,
+#storeBar a:hover #cartIcon {
+    background-color: #a6a6a6;
+}
+
+#storeBar a:hover #cartIcon {
+    filter: invert(0%);
+}
+
+#storeBar .navbar-toggler-icon {
+    background-image: url(./_imagenes/toggler.png);
+    filter: saturate(0%) contrast(1000%);
+}
+
+#cartIcon {
+    filter: invert(100%);
+}

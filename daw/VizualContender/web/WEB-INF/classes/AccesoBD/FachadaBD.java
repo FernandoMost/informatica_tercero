@@ -13,6 +13,7 @@ public class FachadaBD {
     private DAODireccion daoDireccion;
     private DAOMetodoPago daoMetodoPago;
     private DAOArticulo daoArticulo;
+    private DAOCarrito daoCarrito;
     private DAOPedido daoPedido;
 
     // ───────────────────────────────────────────────────────
@@ -27,6 +28,7 @@ public class FachadaBD {
             this.daoDireccion = new DAODireccion(this.conexion, this);
             this.daoMetodoPago = new DAOMetodoPago(this.conexion, this);
             this.daoArticulo = new DAOArticulo(this.conexion, this);
+            this.daoCarrito = new DAOCarrito(this.conexion, this);
             this.daoPedido = new DAOPedido(this.conexion, this);
         } catch(Exception e) {
             System.out.println(e.getMessage());
@@ -39,6 +41,10 @@ public class FachadaBD {
     public void insertDireccion(Direccion direccion) { daoDireccion.insertDireccion(direccion); }
     public void insertMetodoPago(MetodoPago metodoPago) { daoMetodoPago.insertMetodoPago(metodoPago); }
 
+    public void insertCarrito(Usuario usuario) { daoCarrito.insertCarrito(usuario); }
+    public void insertPedido(Usuario usuario, int direccionEnvio, int metodoPago) { daoPedido.insertPedido(usuario, direccionEnvio, metodoPago); }
+    public void retirarStock(Articulo articulo, int cantidad) { daoArticulo.retirarStock(articulo, cantidad); }
+
     // ───────────────────────────────────────────────────────
 
     public int getIdBDprofe(String email) { return daoUsuario.getIdBDprofe(email); }
@@ -48,9 +54,12 @@ public class FachadaBD {
 
     // ───────────────────────────────────────────────────────
 
+    public Connection getConexion() { return conexion; }
+
     public Usuario getUsuarioBD(String email) { return daoUsuario.getUsuarioBD(email); }
     public HashSet<Direccion> getDirecciones(Usuario usuario) { return daoDireccion.getDirecciones(usuario); }
     public HashSet<MetodoPago> getMetodosPago(Usuario usuario) { return daoMetodoPago.getMetodosPago(usuario); }
     public Articulo getArticulo(int id) { return daoArticulo.getArticulo(id); }
+    public Carrito getCarrito(Usuario usuario) { return daoCarrito.getCarrito(usuario); }
     public HashSet<Pedido> getPedidos(Usuario usuario) { return daoPedido.getPedidos(usuario); }
 }

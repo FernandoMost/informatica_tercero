@@ -166,35 +166,27 @@ public class DAOUsuario extends AbstractDAO {
     public Usuario getUsuarioBD(String email) {
         PreparedStatement preparedStatement;
         ResultSet rs;
-
         Usuario usuario = null;
 
         try {
-            Connection connection = this.getConexion();
+            String query = "SELECT * FROM usuario WHERE email=?";   // consulta sql
 
-            String query = "SELECT * FROM usuario WHERE email=?";
-
-            preparedStatement = connection.prepareStatement(query);
-
+            preparedStatement = this.getConexion().prepareStatement(query);
             preparedStatement.setString(1, email);
-
             rs = preparedStatement.executeQuery();
 
             if (rs.next()) {
-                usuario = new Usuario(
-                    rs.getInt("id"),
-                    rs.getString("nombre"),
-                    rs.getString("apellidos"),
-                    rs.getString("email"),
-                    rs.getString("dni"),
+                // crear usuario
+                usuario = new Usuario(rs.getInt("id"),
+                    rs.getString("nombre"), rs.getString("apellidos"),
+                    rs.getString("email"), rs.getString("dni"),
                     rs.getString("contrasena")
                 );
 
+                // obtener el resto de información
                 usuario.setDirecciones(getFachadaBD().getDirecciones(usuario));
                 usuario.setMetodosPago(getFachadaBD().getMetodosPago(usuario));
-
-                usuario.setCarrito(getCarrito(usuario));
-
+                usuario.setCarrito(getFachadaBD().getCarrito(usuario));
                 usuario.setPedidos(getFachadaBD().getPedidos(usuario));
             }
 

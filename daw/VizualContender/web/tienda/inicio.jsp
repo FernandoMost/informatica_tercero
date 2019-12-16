@@ -12,39 +12,6 @@
     <title> VIZUAL CONTENDER </title>
 
     <style>
-        #storeBar {
-            position: fixed;
-            width: 100%;
-            padding: 0 !important;
-            z-index: 89;
-        }
-
-        #storeBar,
-        #storeBar * {
-            background-color: gray;
-            transition-duration: 0.3s;
-        }
-
-        @media screen and (max-width: 767px) { #storeBar li { width: 100% } }
-
-        #storeBar a:hover,
-        #storeBar a:hover #cartIcon {
-            background-color: #a6a6a6;
-        }
-
-        #storeBar a:hover #cartIcon {
-            filter: invert(0%);
-        }
-
-        #storeBar .navbar-toggler-icon {
-            background-image: url(./_imagenes/toggler.png);
-            filter: saturate(0%) contrast(1000%);
-        }
-
-        #cartIcon {
-            filter: invert(100%);
-        }
-
         .articulo {
             margin: 40px 0 40px 0;
             background-color: #b9b9b9;
@@ -118,12 +85,24 @@
             color: black;
             background-color: white;
         }
+
+        #modalMensaje button {
+            width: 90%;
+            padding: 10px;
+            font-size: 19px;
+            text-transform: uppercase;
+            transition-duration: 0.5s;
+        }
     </style>
 
     <script>
         $(function() {
             if (getCookie("mosteiroDelPilar") === null) {
                 window.location.href = "#!/login";
+            }
+
+            if (getCookie("mostrarMensaje") === 'true') {
+                $("#modalMensaje").show();
             }
         });
 
@@ -152,7 +131,7 @@
 </head>
 
 <body>
-    <% Usuario c = (Usuario) request.getSession().getAttribute("loggedClient"); %>
+    <% Usuario c = (Usuario) request.getSession().getAttribute("loggedUsuario"); %>
     <sql:setDataSource var="BaseDatos" driver="com.mysql.jdbc.Driver" url= "jdbc:mysql://localhost:3306/mosteiroDelPilar"
                        user= "mosteiroDelPilar" password= "1234" />
 
@@ -171,14 +150,14 @@
                             <%= c.getNombre() %>
                         </a>
                         <div class="dropdown-menu animate slideIn">
-                            <a class="dropdown-item" href=""> Mi perfil </a>
-                            <a class="dropdown-item" href=""> Mis pedidos </a>
+                            <a class="dropdown-item" href="#!perfil"> Mi perfil </a>
+                            <a class="dropdown-item" href="#!pedidos"> Mis pedidos </a>
                             <a class="dropdown-item" id="logOutButton" href=""> Log out </a>
                         </div>
                     </li>
 
                     <li class="nav-item   ml-auto">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="#!carrito">
                             <img id="cartIcon" src="tienda/_imagenes/cart-symbol.svg" style="height: 65px;"/>
                             Carrito
                         </a>
@@ -214,14 +193,15 @@
                                     </c:otherwise>
                                 </c:choose>
 
-                                <form>
-                                    <input class="idProducto" name="idProducto" type="hidden" value="${articulo.id}">
+                                <form action="${pageContext.request.contextPath}/CarritoServlet" method="post">
+                                    <input class="idProducto" name="idArticulo" type="hidden" value="${articulo.id}">
+                                    <input name="tipo" type="hidden" value="anhadirUnidades">
 
-                                    <button class="cambiarCantidad menos"> ─ </button>
-                                    <input class="cantidad" type="text" value="1">
-                                    <button class="cambiarCantidad mas"> + </button>
+                                    <button class="cambiarCantidad menos" type="button"> ─ </button>
+                                    <input class="cantidad" name="cantidad" type="text" value="1">
+                                    <button class="cambiarCantidad mas" type="button"> + </button>
 
-                                    <button class="añadirCesta"> Añadir a la cesta </button>
+                                    <button class="añadirCesta" type="submit"> Añadir a la cesta </button>
                                 </form>
                             </div>
                         </div>
@@ -234,5 +214,42 @@
         </div>
 
     </div>
+
+    <div class="modal" id="modalMensaje" style="z-index: 98">
+        <span class="close" onclick="closeModal()" >&times;</span>
+
+        <div class="row" style="position: relative; top: 50%; transform: translateY(-50%);">
+            <div class="col-sm-10 col-md-8 col-lg-6 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <p style="margin: 15px 20px;font-size: 32px;text-align: center;"> Artículo añadido con éxito! </p>
+
+                        <div class="row" style="text-align: center">
+                            <div class="col-lg-6">
+                                <button onclick="closeModal()"> Seguir comprando </button>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <form action="#!carrito">
+                                <button> Ver carrito </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("modalMensaje").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("modalMensaje").style.display = "none";
+        }
+    </script>
+
 </body>
 </html>

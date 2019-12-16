@@ -54,6 +54,7 @@ public class DAOArticulo extends AbstractDAO {
 
             Connection connection = this.getConexion();
             preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
             rs = preparedStatement.executeQuery();
 
             if (rs.next()) {
@@ -88,6 +89,23 @@ public class DAOArticulo extends AbstractDAO {
             preparedStatement.setDouble(3, articulo.getPrecio());
             preparedStatement.setInt(4, articulo.getStock());
             preparedStatement.setString(5, articulo.getImagen());
+
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void retirarStock(Articulo articulo, int cantidad) {
+        PreparedStatement preparedStatement;
+
+        try {
+            String query = "UPDATE articulo SET stock=stock-? WHERE id=?";
+
+            preparedStatement = this.getConexion().prepareStatement(query);
+
+            preparedStatement.setInt(1, cantidad);
+            preparedStatement.setInt(2, articulo.getId());
 
             preparedStatement.executeUpdate();
         } catch (Exception e) {

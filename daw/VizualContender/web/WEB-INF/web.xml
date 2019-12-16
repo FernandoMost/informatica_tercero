@@ -4,6 +4,34 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <context-param>
+        <param-name>nombre</param-name>
+        <param-value> VIZUAL CONTENDER </param-value>
+    </context-param>
+
+    <context-param>
+        <param-name> telefono</param-name>
+        <param-value> (+34) 698 19 25 38 </param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>direccion</param-name>
+        <param-value>
+            Calle de República de Argentina, N. 37
+            Santiago de Compostela, A Coruña
+            15701
+        </param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>email</param-name>
+        <param-value> contacto@vizualContender.com </param-value>
+    </context-param>
+
+
+
+
+
     <servlet>
     <servlet-name>LogInServlet</servlet-name>
     <servlet-class>LogInServlet</servlet-class>
@@ -36,5 +64,29 @@
     <servlet-mapping>
     <servlet-name>FullSignInServlet</servlet-name>
     <url-pattern>/FullSignInServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>CarritoServlet</servlet-name>
+        <servlet-class>CarritoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CarritoServlet</servlet-name>
+        <url-pattern>/CarritoServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>PedidoServlet</servlet-name>
+        <servlet-class>PedidoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PedidoServlet</servlet-name>
+        <url-pattern>/PedidoServlet</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -31,7 +31,7 @@ public class LogInServlet extends HttpServlet {
                 request.getSession().setAttribute("bienvenidaTienda", "Bienvenido/a de nuevo!");
 
                 Usuario usuario = fachadaBD.getUsuarioBD(email);
-                request.getSession().setAttribute("loggedClient", usuario);
+                request.getSession().setAttribute("loggedUsuario", usuario);
 
                 Cookie cuqui = new Cookie("mosteiroDelPilar", "mosteiroDelPilar");
                 cuqui.setMaxAge(-1);

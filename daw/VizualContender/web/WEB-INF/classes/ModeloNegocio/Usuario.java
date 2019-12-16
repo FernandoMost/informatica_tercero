@@ -14,7 +14,7 @@ public class Usuario {
     private HashSet<Direccion> direcciones;
     private HashSet<MetodoPago> metodosPago;
 
-    private HashMap<Articulo, Integer> carrito;
+    private Carrito carrito;
 
     private HashSet<Pedido> pedidos;
 
@@ -30,7 +30,7 @@ public class Usuario {
 
         this.direcciones = new HashSet<>();
         this.metodosPago = new HashSet<>();
-        this.carrito = new HashMap<>();
+        this.carrito = new Carrito();
         this.pedidos = new HashSet<>();
     }
 
@@ -46,7 +46,7 @@ public class Usuario {
     public HashSet<Direccion> getDirecciones() { return direcciones; }
     public HashSet<MetodoPago> getMetodosPago() { return metodosPago; }
 
-    public HashMap<Articulo, Integer> getCarrito() { return carrito; }
+    public Carrito getCarrito() { return carrito; }
     public HashSet<Pedido> getPedidos() { return pedidos; }
 
     // ────────────────────────────────────────────────────
@@ -59,7 +59,7 @@ public class Usuario {
     public void setContrasena(String contrasena) { this.contrasena = contrasena; }
     public void setDirecciones(HashSet<Direccion> direcciones) { this.direcciones = direcciones; }
     public void setMetodosPago(HashSet<MetodoPago> metodosPago) { this.metodosPago = metodosPago; }
-    public void setCarrito(HashMap<Articulo, Integer> carrito) { this.carrito = carrito; }
+    public void setCarrito(Carrito carrito) { this.carrito = carrito; }
     public void setPedidos(HashSet<Pedido> pedidos) { this.pedidos = pedidos; }
 
     // ────────────────────────────────────────────────────
@@ -69,47 +69,17 @@ public class Usuario {
         d.setUsuario(this);
     }
 
-    public void removeDireccion(Direccion d) { this.direcciones.remove(d); }
-
     public void addMetodoPago(MetodoPago mp) {
         this.metodosPago.add(mp);
         mp.setUsuario(this);
     }
 
-    public void removeMetodoPago(MetodoPago mp) { this.metodosPago.remove(mp); }
-
     public void addPedido(Pedido p) {
         this.pedidos.add(p);
         p.setUsuario(this);
     }
+
+    public void removeDireccion(Direccion d) { this.direcciones.remove(d); }
+    public void removeMetodoPago(MetodoPago mp) { this.metodosPago.remove(mp); }
     public void removePedido(Pedido p) { this.pedidos.remove(p); }
-
-    // ────────────────────────────────────────────────────
-
-    public void add1ToCarrito(Articulo articulo) {
-        this.carrito.put(articulo, 1);
-    }
-
-    public void addToCarrito(Articulo articulo, int cantidad) {
-        this.carrito.put(articulo, cantidad);
-    }
-
-    public void remove1FromCarrito(Articulo articulo) {
-        if (this.carrito.containsKey(articulo)) {
-            int cantidad = this.carrito.get(articulo) - 1;
-
-            if (cantidad <= 0)
-                this.carrito.remove(articulo);
-            else
-                this.carrito.put(articulo, cantidad);
-        }
-    }
-
-    public void removeAllFromCarrito(Articulo articulo) {
-        this.carrito.remove(articulo);
-    }
-
-    public void resetCarrito() {
-        this.carrito.clear();
-    }
 }

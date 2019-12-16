@@ -67,7 +67,7 @@ public class FullSignInServlet extends HttpServlet {
             fachadaBD.insertUsuarioBD(cli);
 
             sesion.setAttribute("bienvenidaTienda", "Registrado con éxito! Bienvenido/a " + cli.getNombre());
-            sesion.setAttribute("loggedClient", cli);
+            sesion.setAttribute("loggedUsuario", cli);
 
             Cookie cuqui = new Cookie("mosteiroDelPilar", "mosteiroDelPilar");
             cuqui.setMaxAge(-1);

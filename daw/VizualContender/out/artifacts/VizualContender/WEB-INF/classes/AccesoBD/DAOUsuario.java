@@ -193,7 +193,7 @@ public class DAOUsuario extends AbstractDAO {
                 usuario.setDirecciones(getFachadaBD().getDirecciones(usuario));
                 usuario.setMetodosPago(getFachadaBD().getMetodosPago(usuario));
 
-                usuario.setCarrito(getCarrito(usuario));
+                usuario.setCarrito(getFachadaBD().getCarrito(usuario));
 
                 usuario.setPedidos(getFachadaBD().getPedidos(usuario));
             }
