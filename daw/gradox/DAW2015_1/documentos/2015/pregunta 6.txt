@@ -1,0 +1,5 @@
+Pregunta 6) -> 1,2 ptos.
+
+Se desea crear un segundo servlet que permita leer los datos de usuario e ID de la tabla denominada "personal" perteneciente a la base de datos y crear un mapa denominado "users" que utilice como clave el ID de cada usuario y como valor su nombre. Dicho mapa será enviado a un jsp que servirá de vista, donde se visualizarán en formato tabla los valores de cada usuario y cada ID según la figura 3.
+
+Fichero verUsuarios.jsp

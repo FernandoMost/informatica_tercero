@@ -1,0 +1,17 @@
+
+eran 7 preguntas, valían todas 1.5 puntos excepto la cuarta (crear cookies), que solo valía 1 punto.
+
+
+1. Cual es la utilidad del siguiente codigo? Para que sirve? Codigo: synchronized(getServletContext)...
+
+2. Codigo necesario para saber si en un servlet hay una sesion creada.
+
+3. Pasar de codigo java a EL.
+
+4. Codigo necesario para crear una cookie con nombre asignatura y valor DAW, con una validez de 15 minutos.
+
+5. Codigo para invocar jsp desde servlet.
+
+6. Dado un codigo ¿java? completa las clases java Persona y ¿Cliente?, y escribe un javabean para...
+
+7. Crear una libreria de taglibs.

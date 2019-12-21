@@ -1,0 +1,22 @@
+<web-app>
+	<context-param>
+		<param-name>masterEmail</param-name>
+		<param-value>_____</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>Registro de usuario</servlet-name>
+		<servlet-class>_____</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Consulta de usuario</servlet-name>
+		<servlet-class>registro.consultarJava</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>_____</servlet-name>
+		<url-pattern>_____</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Consulta de usuario</servlet-name>
+		<url-pattern>/consultar</url-pattern>
+	</servlet-mapping>
+</web-app>

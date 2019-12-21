@@ -1,0 +1,57 @@
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+
+Pregunta 2) -> 0,2 ptos.
+
+Escribe dos nombres de usuarios válidos diferentes, con las siguientes salvadades: 
+i) no pueden empezar con los dos mismos primeros caracteres, 
+ii) no se pueden utilizar los dos primeros caracteres en orden alterno (ej.- si ab, no ba) ESTA NO 
+y iii) la longitud debe ser diferente.
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+
+Pregunta 3) -> 0,2 ptos.
+
+Se instala la aplicación, que es denominada "etseDAW", en una máquina que corre Windows 7, 
+cuya IP es: 193.144.75.11. La máquina tiene instalado el Java Development Kit 1.6.0 en la 
+carpeta java que cuelga directamente del disco C y no se ha definido en la variable de entorno path 
+la ruta del ejecutable. Se necesita recopilar el fichero registrarJava.java in-situ y contruir 
+el fichero .war para el despliegue automático de la aplicación en el servidor. Para ello no se 
+dispone más que de la línea de comandos.
+
+a) ¿Qué deberemos teclear para construir el fichero .war? 
+b) ¿Qué debemos teclear en el navegador, para invocar el servlet? 
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+
+Pregunta 4) -> 0,2 ptos.
+
+Escribe el código necesario para que la función cPie() del fichero cambiaPie.js permita 
+transformar el color del texto correspondiente al pie en azul, cuando se pasa el ratón por 
+encima del mismo.
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+
+Pregunta 5) -> 0,2 ptos.
+
+Escribe, mediante EL, el código JSP necesario para que en el pie de la página inicial no aparezca 
+el texto: "Servicios Informáticos de DAw", sino el e-mail del webmaster tal y como aparece en la 
+figura 2. (webmaster email: webMasterDAW@usc.es)
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+
+Pregunta 5) -> 0,2 ptos. (Pues sí, hay otra pregunta 5)
+
+Teniendo en cuenta que el conector utilizado para enlazar con el gestor de la base de datos 
+utilizada; se llama: mysql-conector-java-5.04-bin.jar, Dibuja cual debería ser la estructura 
+de carpetas y ficheros completa de la aplicación, una vez desplegada, para su correcto 
+funcionamiento.
+Utiliza los símbolos:
+/ -> root
+(dibujo de una carpeta) -> carpeta
+(dibujo de un fichero) -> fichero

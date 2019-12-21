@@ -1,0 +1,18 @@
+
+eran 8 preguntas, dos de ellas valian 2 puntos y el resto 1 punto.
+
+
+1. que quiere decir que html5 tiene etiquetas semanticas? Di tres etiquetas y para que sirven.
+
+2. escribe el codigo de una lista de definicion. ¿como se visualiza en el navegador?
+
+-. ¿cual es la diferencia entre posicion relativa y flotante?
+
+-. ¿en que lenguaje esta escrito el siguiente codigo? ¿que hace?
+$(document).ready...
+$(button).onclick(switch)...
+
+-. escribe el codigo css necesario para que el texto aparezca en negrita y cursiva.
+<h2> Desarrollo de Aplicaciones Web </h2>
+
+-. 

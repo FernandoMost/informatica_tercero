@@ -1,0 +1,13 @@
+De cara al examen de la asignatura que tendrá lugar el próximo lunes día 18 de enero, se informa a los alumnos que consistirá en un supuesto práctico. Para ello se proporcionará al alumno un anexo con el código completo correspondiente, si bien parte no será visible.
+
+El examen consistirá en preguntas relativas a:
+
+- Escritura de código no visible en el anexo.
+
+- Modificación de código del anexo para realizar otra funcionalidad.
+
+- Despliegue de la aplicación.
+
+- Preguntas ad-doc sobre el supuesto propuesto.
+
+La nota máxima del examen será de 4 puntos que se sumarán a la nota que el alumno tiene en la actualidad (prácticas + proyecto), para así conformar la nota final de la asignatura.

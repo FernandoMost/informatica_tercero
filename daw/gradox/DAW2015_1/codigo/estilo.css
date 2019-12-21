@@ -1,0 +1,113 @@
+
+body {
+	text-align:center;
+	margin:0 auto;
+	background-color:#ECECEC;
+}
+
+* {
+	font-size: 10pt;
+	text-aling: justify;
+	font-family: Tahoma, Verdana, sans-serif;
+	color: #000000;
+}
+
+#contenido {
+	width: 700px;
+	height: 450px;
+	background-image:url(imagenes/estilo/fondo2.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-top: 10px;
+	margin-left: -350px;
+}
+
+#logo {
+	float: right;
+	height: 177px;
+	width: 190px;
+	background:url(imagenes/estilo/logo.gif);
+}
+
+#submenu2 {
+	float: left;
+	height: 38px;
+	width: 400px;
+	background-image: url(imagenes/estilo/submenu.gif);
+	background-repeat: no-repeat;
+	margin-top: 15px;
+	margin-left: 40px;
+	font-weight: bold;
+}
+
+.titulo {
+	padding: 2px 20px 0px 30px ;
+	margin-top: 7px;
+	color: #ffffff;
+	font-size: 125%;
+}
+
+.textogrande {
+	height: 200px;
+	overflow: auto;
+	padding-right: 10px;
+	padding-top: 0px;
+	color: #000000
+}
+
+.textogrnade p {
+	line-height: 1.5em;
+}
+
+.textogrande h2 {
+	padding: 0px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+	line-height: 100%;
+}
+
+.pie {
+	font-size: 80%;
+	color:#000000;
+	text-align: right;
+}
+
+table {
+	margin-left: 50px;
+}
+
+caption {
+	font-weight: bold;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+table, th, td {
+	border: 3px solid black;
+	border-collapse: collapse;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+th {
+	font-weight: bold;
+}
+
+th, td {
+	background-color: #noconsigoverloasiqueverde;
+}
+
+
+
+
+
+
+
+
+
+
