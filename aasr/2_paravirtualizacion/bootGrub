@@ -1,0 +1,7 @@
+title Xen 2.0 / XenLinux 2.4
+kernel /boot/xen-2.0.gz dom0_mem=131072
+module /boot/vmlinuz-2.4-xen0 root=/dev/hda1 ro console=tty0
+
+title Xen 2.0 / XenLinux 2.6
+kernel /boot/xen-2.0.gz dom0_mem=131072
+module /boot/vmlinuz-2.6-xen0 root=/dev/hda1 ro console=tty0
