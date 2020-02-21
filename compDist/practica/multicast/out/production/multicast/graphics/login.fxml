@@ -48,7 +48,7 @@
                         <Font name="System Bold" size="23.0" />
                      </font>
                   </Label>
-                  <JFXTextField alignment="CENTER" text="224.0.0.100">
+                  <JFXTextField fx:id="ipTextField" alignment="CENTER" text="224.0.0.100">
                      <VBox.margin>
                         <Insets bottom="30.0" left="50.0" right="50.0" />
                      </VBox.margin>
@@ -64,7 +64,7 @@
                         <Font name="System Bold" size="23.0" />
                      </font>
                   </Label>
-                  <JFXTextField alignment="CENTER" layoutX="10.0" layoutY="161.0" text="6703">
+                  <JFXTextField fx:id="portTextField" alignment="CENTER" layoutX="10.0" layoutY="161.0" text="6703">
                      <VBox.margin>
                         <Insets bottom="30.0" left="50.0" right="50.0" />
                      </VBox.margin>
@@ -80,7 +80,7 @@
    <bottom>
       <StackPane prefHeight="100.0" prefWidth="453.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton style="-fx-background-color: rgb(124,255,119);" text="Access">
+            <JFXButton onAction="#accessAction" style="-fx-background-color: rgb(124,255,119);" text="Access">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
