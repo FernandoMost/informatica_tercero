@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="primaryStageLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="397.0" prefWidth="413.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
+<BorderPane fx:id="primaryStageLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="397.0" prefWidth="413.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.controllers.LoginController">
    <top>
       <StackPane prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <HBox fx:id="topBar" alignment="CENTER_RIGHT" onMouseDragged="#moveWindow" onMousePressed="#takeWindowOffset" prefHeight="0.0" prefWidth="600.0">
                <children>
-                  <JFXButton fx:id="minimizarButton" onMouseClicked="#minimizar" text="_">
+                  <JFXButton fx:id="minimizarButton" onAction="#minimizar" text="_">
                      <font>
                         <Font size="14.0" />
                      </font>
