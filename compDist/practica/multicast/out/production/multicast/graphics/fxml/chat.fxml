@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextArea?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
+<?import java.lang.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.controllers.ChatController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="445.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.controllers.ChatController">
    <top>
       <StackPane prefHeight="38.0" prefWidth="700.0" BorderPane.alignment="CENTER">
          <children>
@@ -39,16 +33,19 @@
       </StackPane>
    </top>
    <bottom>
-      <StackPane prefHeight="75.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+      <StackPane prefHeight="44.0" prefWidth="445.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" StackPane.alignment="CENTER">
+            <HBox prefHeight="34.0" prefWidth="445.0" StackPane.alignment="CENTER">
                <children>
-                  <JFXTextArea fx:id="messageTextArea" prefHeight="51.0" prefWidth="567.0" onKeyPressed="#onEnterPressed">
+                  <JFXTextArea fx:id="messageTextArea" onKeyPressed="#onEnterPressed" prefHeight="51.0" prefWidth="356.0">
                      <HBox.margin>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="22.0" />
+                     </font>
                   </JFXTextArea>
-                  <JFXButton alignment="CENTER_RIGHT" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#sendAction" style="-fx-background-color: lime;">
+                  <JFXButton alignment="CENTER_RIGHT" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#sendAction">
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
@@ -70,32 +67,10 @@
          <children>
             <ScrollPane fx:id="chatScrollPane" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
                <content>
-                  <VBox fx:id="chatVBox" alignment="TOP_CENTER">
+                  <VBox fx:id="chatVBox" alignment="TOP_CENTER" spacing="3.0">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
-                     <children>
-                        <HBox alignment="CENTER_RIGHT" layoutX="25.0" layoutY="91.0" prefHeight="60.0" prefWidth="648.0">
-                           <children>
-                              <TextFlow prefHeight="52.0" prefWidth="68.0" textAlignment="RIGHT">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="vale" />
-                                 </children>
-                                 <padding>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                 </padding>
-                              </TextFlow>
-                           </children>
-                        </HBox>
-                        <HBox alignment="TOP_RIGHT" layoutX="25.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="vale" textAlignment="RIGHT" />
-                           </children>
-                           <padding>
-                              <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
-                           </padding>
-                        </HBox>
-                     </children>
                   </VBox>
                </content>
             </ScrollPane>

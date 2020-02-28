@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
@@ -10,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="primaryStageLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="397.0" prefWidth="413.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.controllers.LoginController">
+<BorderPane fx:id="primaryStageLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="397.0" prefWidth="413.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.controllers.LoginController">
    <top>
       <StackPane prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -44,7 +50,7 @@
                         <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="23.0" />
+                        <Font name="System Bold" size="31.0" />
                      </font>
                   </Label>
                   <JFXTextField fx:id="ipTextField" alignment="CENTER" text="224.0.0.100">
@@ -52,7 +58,7 @@
                         <Insets bottom="30.0" left="50.0" right="50.0" />
                      </VBox.margin>
                      <font>
-                        <Font size="19.0" />
+                        <Font size="18.0" />
                      </font>
                   </JFXTextField>
                   <Label layoutX="292.0" layoutY="151.0" text="Port number">
@@ -60,7 +66,7 @@
                         <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="23.0" />
+                        <Font name="System Bold" size="31.0" />
                      </font>
                   </Label>
                   <JFXTextField fx:id="portTextField" alignment="CENTER" layoutX="10.0" layoutY="161.0" text="6703">
@@ -68,7 +74,7 @@
                         <Insets bottom="30.0" left="50.0" right="50.0" />
                      </VBox.margin>
                      <font>
-                        <Font size="19.0" />
+                        <Font size="18.0" />
                      </font>
                   </JFXTextField>
                </children>
@@ -81,7 +87,7 @@
          <children>
             <JFXButton onAction="#accessAction" style="-fx-background-color: rgb(124,255,119);" text="Access">
                <font>
-                  <Font name="System Bold" size="21.0" />
+                  <Font name="System Bold" size="22.0" />
                </font>
                <padding>
                   <Insets bottom="12.0" left="25.0" right="25.0" top="12.0" />

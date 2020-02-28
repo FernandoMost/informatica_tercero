@@ -1,3 +1,5 @@
+package myMulticast;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("graphics/fxml/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../graphics/fxml/login.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(new Scene(root, 413, 397));
         primaryStage.show();
