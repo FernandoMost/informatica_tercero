@@ -23,9 +23,9 @@ public class MontecarloServer  {
             MontecarloImpl exportedObject = new MontecarloImpl();
             Naming.rebind(registryURL, exportedObject);
 
-            System.out.println("Server registered.  Registry currently contains:");
+            System.out.println("Server registered, registry currently contains:");
             listRegistry(registryURL);      // list names currently in the registry
-            System.out.println("Hello Server ready.");
+            System.out.println("Montecarlo Server is READY.");
         } catch (Exception re) {
             System.out.println("Exception in HelloServer.main: " + re);
         }
@@ -39,7 +39,7 @@ public class MontecarloServer  {
             registry = LocateRegistry.getRegistry(RMIPortNum);
             registry.list( );               // Will throw an exception if it doesn't already exist
         } catch (RemoteException e) {       // No valid registry at that port.
-            System.out.println("RMI registry is not located at port " + RMIPortNum);
+            System.out.println("RMI registry does not exists at port " + RMIPortNum);
             registry = LocateRegistry.createRegistry(RMIPortNum);
             System.out.println("RMI registry created at port " + RMIPortNum);
         }
@@ -47,8 +47,7 @@ public class MontecarloServer  {
 
     // This method lists the names registered with a Registry object
     private static void listRegistry(String registryURL) throws RemoteException, MalformedURLException {
-        System.out.println("Registry " + registryURL + " contains: ");
-        String [ ] names = Naming.list(registryURL);
-        for (String name : names) System.out.println(name);
+        String[] names = Naming.list(registryURL);
+        for (String name : names) System.out.println("\t"+name);
     }
 }

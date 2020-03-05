@@ -18,8 +18,11 @@ public class MontecarloClient {
             MontecarloInterface h = (MontecarloInterface) Naming.lookup(registryURL);
             System.out.println("Lookup completed " );
 
-            String message = h.sayHello("Donald Duck");
-            System.out.println("HelloClient: " + message);
+            int m = h.doTheMonthecarloMethod(1000000);
+            double piCuartos = (double) m / 1000000;
+
+
+            System.out.println("MontecarloClient: " + piCuartos*4.0);
         } catch (Exception e) {
             System.out.println("Exception in HelloClient: " + e);
         }
