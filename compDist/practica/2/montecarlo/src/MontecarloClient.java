@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.rmi.Naming;
 import java.util.concurrent.Callable;
 
@@ -25,16 +27,24 @@ public class MontecarloClient {
 
     public static void main(String[] args) {
         try {
-            //InputStreamReader is = new InputStreamReader(System.in);
-            //BufferedReader br = new BufferedReader(is);
-            //System.out.println("Enter the RMIRegistry host namer:");
-            //hostName = br.readLine();
-            //System.out.println("Enter the RMIregistry port number:");
-            //String portNum = br.readLine();
+            String hostName, portNumber, threadNumber, iterationsNumber;
 
-            String hostName = "localhost";
-            String portNum = "1099";
-            String registryURL = "rmi://" + hostName+ ":" + portNum + "/montecarlo";
+            InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            System.out.println("Enter the RMIRegistry host namer:");
+            hostName = bufferedReader.readLine();
+
+            System.out.println("Enter the RMIregistry port number:");
+            portNumber = bufferedReader.readLine();
+
+            String registryURL = "rmi://" + hostName+ ":" + portNumber + "/montecarlo";
+
+            System.out.println("Enter the number of threads:");
+            threadNumber = bufferedReader.readLine();
+
+            System.out.println("Enter the number of iterations per thread:");
+            iterationsNumber = bufferedReader.readLine();
 
             final int NUM_HILOS = 8;
             final int NUM_ITERACIONES = 50000000;
