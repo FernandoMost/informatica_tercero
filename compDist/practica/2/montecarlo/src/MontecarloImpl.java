@@ -4,11 +4,11 @@ import java.util.Date;
 import java.util.Random;
 
 public class MontecarloImpl extends UnicastRemoteObject implements MontecarloInterface {
-    public MontecarloImpl() throws RemoteException {
+    MontecarloImpl() throws RemoteException {
         super();
     }
 
-    public int doTheMonthecarloMethod(int n) throws RemoteException {
+    public int doTheMonthecarloMethod(int n) {
         int laCumplen = 0;
         float x,y;
         Random random = new Random();

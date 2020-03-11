@@ -1,5 +1,4 @@
 import java.rmi.Naming;
-import java.util.concurrent.Callable;
 
 public class MontecarloClient {
     private static int[] laCumplen;
