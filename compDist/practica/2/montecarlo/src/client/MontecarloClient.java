@@ -9,8 +9,8 @@ public class MontecarloClient {
 
     // Clase hilo que ejecuta el método montecarlo a través de la interfaz
     public static class MontecarloClientThread extends Thread {
-        MontecarloInterface montecarloInterface;
-        int iteraciones;
+        private MontecarloInterface montecarloInterface;
+        private int iteraciones;
 
         MontecarloClientThread(MontecarloInterface montecarloInterface, int iteraciones) {
             this.montecarloInterface = montecarloInterface;
@@ -20,9 +20,10 @@ public class MontecarloClient {
         @Override
         public void run() {
             try {
-                cumplenCondicion[Integer.parseInt(this.getName())] = montecarloInterface.doTheMonthecarloMethod(iteraciones);
+                int id = Integer.parseInt(this.getName());
+                cumplenCondicion[id] = this.montecarloInterface.doTheMonthecarloMethod(this.iteraciones);
             } catch (Exception e) {
-                System.out.println("Exception in MontecarloClient: " + e);
+                System.out.println("Exception in MontecarloClientThread: " + e);
             }
         }
     }
@@ -43,7 +44,7 @@ public class MontecarloClient {
             String registryURL = "rmi://" + hostName+ ":" + portNumber + "/montecarlo";
             MontecarloInterface anInterface = null;
 
-            try {
+            try {           // Look up en el URL para comprobar que sea válida
                 anInterface = (MontecarloInterface) Naming.lookup(registryURL);
                 System.out.println("Lookup completed!");
             } catch (ConnectException e) {
@@ -58,45 +59,45 @@ public class MontecarloClient {
             iterationsNumber = bufferedReader.readLine();
 
             int num_hilos = Integer.parseInt(threadNumber), num_iteraciones = Integer.parseInt(iterationsNumber);
+            double totalIteraciones = num_hilos*num_iteraciones;
 
-            cumplenCondicion = new int[num_hilos];
-            MontecarloClientThread[] hilos = new MontecarloClientThread[num_hilos];
+            MontecarloClientThread[] hilos = new MontecarloClientThread[num_hilos];     // Array con los hilos totales
 
-            for (int i = 0; i < num_hilos; i++) {
+            for (int i = 0; i < num_hilos; i++) {       // Creación y setup de los hilos
                 hilos[i] = new MontecarloClientThread(anInterface, num_iteraciones);
                 hilos[i].setName(String.valueOf(i));
             }
 
+            cumplenCondicion = new int[num_hilos];      // Array con los valores de iteraciones que cumplen la condición, por cada hilo
             int totalCumplenCondicion = 0;
-            double totalIteraciones = num_hilos*num_iteraciones;
 
-            System.out.println("Starting the multithreading montercarlo method...");
+            System.out.println("Starting the multithreaded montercarlo method...");
 
             long startTime = System.nanoTime();     // --------------------------- INICIO ------------------------------
 
-            for (int i = 0; i < num_hilos; i++)
+            for (int i = 0; i < num_hilos; i++)     // comienzo de los hilos
                 hilos[i].start();
 
-            for (int i = 0; i < num_hilos; i++)
+            for (int i = 0; i < num_hilos; i++)     // espera a que acaben los hilos, para coordinar el programa
                 hilos[i].join();
 
             for (int valor : cumplenCondicion)
-                totalCumplenCondicion += valor;
+                totalCumplenCondicion += valor;     // suma de los resultados de los hilos
 
-            double piCuartos = (double) totalCumplenCondicion / totalIteraciones;
+            double piCuartos = (double) totalCumplenCondicion / totalIteraciones;       // obtención del rateo pi/4 según el método montecarlo
 
             long endTime = System.nanoTime();       // ----------------------------- FIN -------------------------------
 
-            System.out.println("Multithreading montercarlo method just finished!");
-            double seconds = (double)(endTime - startTime) / 1_000_000_000.0;
+            System.out.println("Multithreaded montercarlo method just finished!");
+            double seconds = (double)(endTime - startTime) / 1_000_000_000.0;           // nanosegundos -> segundos
 
             System.out.println(
                     "\nNumber of threads\t\t" +   num_hilos +
-                    "\nIterations per thread\t" + num_iteraciones +
+                    "\nIterations per thread\t\t" + num_iteraciones +
                     "\nTotal iterations\t\t" +    totalIteraciones +
                     "\nRatio obtained\t\t\t" +    piCuartos +
-                    "\nPi obtained\t\t\t\t" +     (piCuartos*4.0) +
-                    "\nACTUAL Pi\t\t\t\t" +       "3.14159265358979323846264" +
+                    "\nPi obtained\t\t\t" +     (piCuartos*4.0) +
+                    "\nACTUAL Pi\t\t\t" +       "3.1415926535897932" +
                     "\nExecution time (s)\t\t" +  seconds);
         } catch (Exception e) {
             System.out.println("Exception in MontecarloClient: " + e);

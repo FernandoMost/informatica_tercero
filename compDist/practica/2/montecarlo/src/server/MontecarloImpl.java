@@ -13,12 +13,12 @@ public class MontecarloImpl extends UnicastRemoteObject implements MontecarloInt
         float x,y;
         Random random = new Random();
 
-        random.setSeed((new Date()).getTime());
+        random.setSeed((new Date()).getTime());     // Semilla para generar números aleatorios
 
         for (int i = 0; i < n; i++) {
-            x = random.nextFloat(); y = random.nextFloat();
+            x = random.nextFloat(); y = random.nextFloat();     // X e Y aleatorias
 
-            if ((x*x + y*y) <= 1)
+            if ((x*x + y*y) <= 1)                   // condición de montecarlo
                 laCumplen++;
         }
 
