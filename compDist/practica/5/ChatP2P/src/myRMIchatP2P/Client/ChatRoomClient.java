@@ -1,4 +1,4 @@
-package MyPublishSubscribe;
+package myRMIchatP2P.Client;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,12 +7,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.rmi.Naming;
-
-public class HeartRateClient extends Application {
+public class ChatRoomClient extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("HeartRateClientGraphics/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/resources/login.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

@@ -1,26 +1,19 @@
-package MyPublishSubscribe;
+package myRMIchatP2P.Server;
 
 import java.rmi.*;
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
-import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class HeartRateServer {
-    public static void main(String args[]) {
-        InputStreamReader is = new InputStreamReader(System.in);
-        BufferedReader br = new BufferedReader(is), lineReader;
-        String portNum, registryURL;
+public class ChatRoomServer {
+    public static void main(String[] args) {
+        String registryURL = "rmi://localhost:1099/ChatRoom";
         
-        try{     
-            System.out.print("Introduzca el puerto para el registro RMI: ");
-            portNum = (br.readLine()).trim();
-            int RMIPortNum = Integer.parseInt(portNum);
-            registryURL = "rmi://localhost:" + portNum + "/HeartRate";
-            
-            startRegistry(RMIPortNum);
+        try{
+            startRegistry(1099);
 
+            /*
             System.out.print("Introduzca el directorio del fichero a leer, siendo [ . = " + System.getProperty("user.dir") + "]: ");
 
             while(true) {
@@ -33,14 +26,15 @@ public class HeartRateServer {
                     System.out.print("Directorio no válido, vuelva a intertarlo: ");
                 }
             }
+            */
 
-            HeartRateServerImpl exportedObj = new HeartRateServerImpl(lineReader);
+            ChatRoomServerImpl exportedObj = new ChatRoomServerImpl();
             System.setProperty("java.rmi.server.hostname","192.168.0.12");
             Naming.rebind(registryURL, exportedObj);
 
-            System.out.println("\t[ " + new SimpleDateFormat("HH:mm:ss").format(new Date()) + " ] HeartRate Server LISTO y TRANSMITIENDO!");
+            System.out.println("\t[ " + new SimpleDateFormat("HH:mm:ss").format(new Date()) + " ] Chat Room Server LISTO!");
         } catch (Exception re) {
-            System.out.println("Exception in HeartRateServer.main: " + re);
+            System.out.println("Exception in ChatRoomServer.main: " + re);
         }
     }
 
