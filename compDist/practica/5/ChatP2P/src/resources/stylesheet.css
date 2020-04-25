@@ -1,0 +1,52 @@
+.section {
+    -fx-background-color: 246, 246, 246;
+    -fx-border-width: 0;
+    -fx-border-color: rgba(0, 0, 0, 0);
+}
+
+.bloque_amigo_conectado {
+    -fx-background-color: rgb(117, 220, 119);
+    -fx-font-family: "Lato Light";
+    -fx-font-size: 18;
+}
+
+.bloque_amigo_desconectado {
+    -fx-background-color: rgb(220, 220, 220);
+    -fx-font-family: "Lato Light";
+    -fx-font-size: 18;
+}
+
+.bloque_solicitud_amistad {
+    -fx-background-color: rgba(207, 246, 255, 1);
+    -fx-font-family: "Lato Light";
+}
+
+.titulo_solicitud_amistad {
+    -fx-font-size: 18px;
+}
+
+.nombre_solicitud_amistad {
+    -fx-font-family: "Lato Black";
+    -fx-font-size: 25px;
+}
+
+.botonAceptar_solicitud_amistad {
+    -fx-background-color: lime;
+
+    -fx-background-image: url(images/accept.png);
+    -fx-background-size: 30px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+
+}
+
+.botonRechazar_solicitud_amistad {
+    -fx-background-color: red;
+
+    -fx-background-image: url(images/deny.png);
+    -fx-background-size: 30px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+

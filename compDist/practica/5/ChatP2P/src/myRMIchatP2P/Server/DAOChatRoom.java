@@ -167,7 +167,7 @@ public class DAOChatRoom {
 
         if (!existeAmistad(origen, destino)) {
             try {
-                String query = "INSERT INTO amistad VALUES (?,?)";
+                String query = "INSERT INTO solicitudPendiente VALUES (?,?)";
 
                 preparedStatement = this.getConexion().prepareStatement(query);
                 preparedStatement.setString(1, origen);
@@ -243,6 +243,28 @@ public class DAOChatRoom {
                 System.out.println(e.getMessage());
             }
         }
+    }
 
+    public boolean existeYaUnaSolicitud(String amigo1, String amigo2) {
+        PreparedStatement preparedStatement;
+        ResultSet rs;
+
+        try {
+            String query = "SELECT * from solicitudPendiente where (origen=? AND destino=?) OR (destino=? AND origen=?)";
+
+            preparedStatement = this.getConexion().prepareStatement(query);
+            preparedStatement.setString(1, amigo1);
+            preparedStatement.setString(2, amigo2);
+            preparedStatement.setString(3, amigo1);
+            preparedStatement.setString(4, amigo2);
+            rs = preparedStatement.executeQuery();
+
+            if (rs.next())
+                return true;
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return false;
     }
 }

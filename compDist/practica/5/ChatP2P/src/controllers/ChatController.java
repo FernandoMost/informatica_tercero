@@ -1,19 +1,24 @@
 package controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import myRMIchatP2P.Client.ChatRoomClientImpl;
+import myRMIchatP2P.Client.ChatRoomClientInterfaceForClients;
 import myRMIchatP2P.Server.ChatRoomServerInterface;
 
 import java.io.IOException;
@@ -21,20 +26,26 @@ import java.net.DatagramPacket;
 import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.HashSet;
+import java.util.Vector;
 
 public class ChatController extends CommonController {
     private ChatRoomClientImpl chatRoomClient;
     private ChatRoomServerInterface chatRoomServer;
+    private Vector<ChatRoomClientInterfaceForClients> amigosConectados;
 
     private DateFormat dateFormat = new SimpleDateFormat("HH:mm");
 
     @FXML private JFXTextArea messageTextArea;
     @FXML private VBox chatVBox;
+    @FXML private VBox amigosVBox;
     @FXML private ScrollPane chatScrollPane;
+    @FXML private Label amigosEmpty;
+    @FXML private Label chatsOwnerLabel;
 
     public void createChatRoom(String nombre, String contrasena, ChatRoomServerInterface chatRoomServer) throws Exception {
         this.chatRoomServer = chatRoomServer;
+        amigosConectados = new Vector<>();
 
         if (!this.chatRoomServer.existeUsuario(nombre))
             throw new Exception("El nombre de usuario no existe. Regístrate!");
@@ -44,12 +55,66 @@ public class ChatController extends CommonController {
 
         try {
             chatRoomClient = new ChatRoomClientImpl(nombre, contrasena, this);
-            this.chatRoomServer = chatRoomServer;
+            chatRoomServer.logInChatRoom(chatRoomClient, chatRoomClient);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
 
+        actualizarSolicitudesAmistad();
+        chatsOwnerLabel.setText(nombre);
         messageTextArea.requestFocus();
+    }
+
+    public void actualizarListaAmigos() {
+        HashSet<String> nombresAmigos;
+
+        try {
+            nombresAmigos = chatRoomServer.getAmigos(chatRoomClient);
+
+            Platform.runLater(() -> {
+                amigosVBox.getChildren().removeAll(amigosVBox.getChildren());
+            });
+
+            if (nombresAmigos == null || nombresAmigos.isEmpty()) {
+                Platform.runLater(() -> {
+                    amigosVBox.getChildren().add(amigosEmpty);
+                });
+            } else {
+                Platform.runLater(() -> {
+                    amigosVBox.getChildren().remove(amigosEmpty);
+                });
+
+                amigosConectados = chatRoomServer.getAmigosConectados(chatRoomClient);
+
+                HashSet<String> nombresConectados = new HashSet<>();
+
+                for (ChatRoomClientInterfaceForClients amigo : amigosConectados) {
+                    nombresConectados.add(amigo.getNombre());
+                    JFXButton botonAmigo = new JFXButton();
+                    botonAmigo.getStyleClass().add("bloque_amigo_conectado");
+                    botonAmigo.setMaxWidth(Double.MAX_VALUE);
+                    botonAmigo.setText(amigo.getNombre());
+
+                    Platform.runLater(() -> {
+                        amigosVBox.getChildren().add(botonAmigo);
+                    });
+                }
+
+                for (String nombre : nombresAmigos) {
+                    if (!nombresConectados.contains(nombre)) {
+                        JFXButton botonAmigo = new JFXButton();
+                        botonAmigo.getStyleClass().add("bloque_amigo_desconectado");
+                        botonAmigo.setMaxWidth(Double.MAX_VALUE);
+                        botonAmigo.setText(nombre);
+                        botonAmigo.setDisable(true);
+
+                        Platform.runLater(() -> {
+                            amigosVBox.getChildren().add(botonAmigo);
+                        });
+                    }
+                }
+            }
+        } catch (Exception e) { e.printStackTrace(); }
     }
 
     @Override public void cerrar(ActionEvent e) {
@@ -134,5 +199,85 @@ public class ChatController extends CommonController {
         hBox.getChildren().add(vBox);
         hBox.getChildren().add(time);
         chatVBox.getChildren().add(hBox);*/
+    }
+
+    public void nuevoAmigoPressed(ActionEvent e) {
+        try {
+            Stage nuevoAmigoStage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resources/nuevaAmistad.fxml"));
+            nuevoAmigoStage.initStyle(StageStyle.UNDECORATED);
+            nuevoAmigoStage.setScene(new Scene(fxmlLoader.load()));
+            nuevoAmigoStage.show();
+
+            NuevaAmistadController nuevaAmistadController = fxmlLoader.getController();
+            nuevaAmistadController.setServerInterface(chatRoomServer);
+            nuevaAmistadController.setClient(chatRoomClient);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void printSolicitudAmistad(String usuario) {
+        VBox divSolicitud = new VBox();
+        divSolicitud.getStyleClass().add("bloque_solicitud_amistad");
+        divSolicitud.setAlignment(Pos.CENTER);
+        divSolicitud.setSpacing(15.0);
+        divSolicitud.setPadding(new Insets(15,15,15,15));
+
+        Label titulo = new Label("Solicitud de amistad");
+        titulo.getStyleClass().add("titulo_solicitud_amistad");
+
+        Label nombre = new Label(usuario);
+        nombre.getStyleClass().add("nombre_solicitud_amistad");
+
+        HBox divBotones = new HBox();
+        divBotones.setAlignment(Pos.CENTER);
+        divBotones.setSpacing(30.0);
+
+        JFXButton botonAceptar = new JFXButton();
+        JFXButton botonRechazar = new JFXButton();
+
+        botonAceptar.setMinWidth(60.0);
+        botonRechazar.setMinWidth(60.0);
+        botonAceptar.setMinHeight(35.0);
+        botonRechazar.setMinHeight(35.0);
+
+        botonAceptar.getStyleClass().add("botonAceptar_solicitud_amistad");
+        botonAceptar.setOnAction(event -> respondeSolicitud(event, true));
+        botonRechazar.getStyleClass().add("botonRechazar_solicitud_amistad");
+        botonRechazar.setOnAction(event -> respondeSolicitud(event, false));
+
+        Platform.runLater(() -> {
+            divBotones.getChildren().addAll(botonAceptar, botonRechazar);
+            divSolicitud.getChildren().addAll(titulo, nombre, divBotones);
+            amigosVBox.getChildren().add(0, divSolicitud);
+        });
+    }
+
+    public void actualizarSolicitudesAmistad() {
+        actualizarListaAmigos();
+
+        try {
+            if (chatRoomServer.tieneSolicitudes(chatRoomClient)) {
+                for (String solicita : chatRoomServer.getSolicitudes(chatRoomClient)) {
+                    Platform.runLater(() -> {
+                        printSolicitudAmistad(solicita);
+                    });
+                }
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void respondeSolicitud(ActionEvent e, boolean respuesta) {
+        String nombre = ((Label) ((VBox) ((JFXButton) e.getSource()).getParent().getParent()).getChildren().get(1)).getText();
+        try {
+            chatRoomServer.responderSolicitudDeAmistad(chatRoomClient, nombre, respuesta);
+        } catch (RemoteException ex) {
+            ex.printStackTrace();
+        }
+
+        Platform.runLater(this::actualizarSolicitudesAmistad);
     }
 }

@@ -19,12 +19,12 @@ public class ChatRoomClientImpl extends UnicastRemoteObject implements ChatRoomC
 
     @Override
     public String getNombre() throws RemoteException {
-        return null;
+        return nombre;
     }
 
     @Override
     public String getContrasena() throws RemoteException {
-        return null;
+        return contrasena;
     }
 
 
@@ -38,23 +38,24 @@ public class ChatRoomClientImpl extends UnicastRemoteObject implements ChatRoomC
     }
 
     @Override
-    public void nuevaSolicitudAmistad(String usuario) throws RemoteException {
-
+    public void nuevaSolicitudAmistad() throws RemoteException {
+        chatController.actualizarSolicitudesAmistad();
     }
 
     @Override
-    public void nuevoAmigo(String usuario) throws RemoteException {
-
+    public void nuevoAmigo() throws RemoteException {
+        System.out.println("me han notificao que tengo un nuevo amigo");
+        chatController.actualizarSolicitudesAmistad();
     }
 
     @Override
-    public void nuevoAmigoConectado(String usuario) throws RemoteException {
-
+    public void nuevoAmigoConectado() throws RemoteException {
+        chatController.actualizarListaAmigos();
     }
 
     @Override
-    public void amigoDesconectado(String usuario) throws RemoteException {
-
+    public void amigoDesconectado() throws RemoteException {
+        chatController.actualizarListaAmigos();
     }
 
     @Override

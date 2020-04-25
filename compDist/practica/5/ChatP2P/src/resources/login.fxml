@@ -16,11 +16,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="primaryStageLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="397.0" prefWidth="413.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+<BorderPane fx:id="primaryStageLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="413.0" style="-fx-background-color: white;" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <top>
       <StackPane prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox fx:id="topBar" alignment="CENTER_RIGHT" onMouseDragged="#moveWindow" onMousePressed="#takeWindowOffset" prefHeight="0.0" prefWidth="600.0">
+            <HBox fx:id="topBar" alignment="CENTER_RIGHT" onMouseDragged="#moveWindow" onMousePressed="#takeWindowOffset" prefHeight="0.0" prefWidth="413.0">
                <children>
                   <JFXButton fx:id="minimizarButton" onAction="#minimizar" text="_">
                      <font>
@@ -34,55 +34,58 @@
                   </JFXButton>
                </children>
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                </padding>
             </HBox>
          </children>
       </StackPane>
    </top>
    <center>
-      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <StackPane prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" StackPane.alignment="CENTER">
+            <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="413.0" StackPane.alignment="CENTER">
                <children>
-                  <Label text="Host address">
+                  <Label text="Nombre de usuario">
                      <VBox.margin>
-                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Lato Light" size="18.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="ipTextField" alignment="CENTER" text="224.0.0.100">
+                  <JFXTextField fx:id="ipTextField" alignment="CENTER" text="fernando">
                      <VBox.margin>
-                        <Insets bottom="30.0" left="50.0" right="50.0" />
+                        <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Lato Light" size="26.0" />
                      </font>
                   </JFXTextField>
-                  <Label layoutX="292.0" layoutY="151.0" text="Port number">
+                  <Label layoutX="292.0" layoutY="151.0" text="Contraseña">
                      <VBox.margin>
-                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Lato Light" size="18.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="portTextField" alignment="CENTER" layoutX="10.0" layoutY="161.0" text="6703">
+                  <JFXPasswordField fx:id="portTextField" alignment="CENTER" prefHeight="25.0" prefWidth="359.0" text="1234">
                      <VBox.margin>
-                        <Insets bottom="30.0" left="50.0" right="50.0" />
+                        <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Lato Light" size="26.0" />
                      </font>
-                  </JFXTextField>
-                  <Label fx:id="exceptionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="180.0" layoutY="163.0" prefHeight="15.0" prefWidth="322.0" text="Aviso Aviso Aviso Aviso Aviso Aviso Aviso " textAlignment="CENTER" textFill="RED" textOverrun="CLIP" visible="false" wrapText="true">
+                  </JFXPasswordField>
+                  <Label fx:id="exceptionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="180.0" layoutY="163.0" prefHeight="20.0" prefWidth="547.0" text="Aviso Aviso Aviso Aviso Aviso Aviso Aviso " textAlignment="CENTER" textFill="RED" textOverrun="CLIP" visible="false" wrapText="true">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Lato Light" size="16.0" />
                      </font>
                   </Label>
                </children>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
             </VBox>
          </children>
       </StackPane>
@@ -90,14 +93,30 @@
    <bottom>
       <StackPane prefHeight="100.0" prefWidth="453.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton onAction="#accessAction" style="-fx-background-color: rgb(124,255,119);" text="Access">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
+            <VBox alignment="CENTER" prefHeight="29.0" prefWidth="413.0" spacing="15.0">
+               <children>
+                  <JFXButton minWidth="185.0" onAction="#accessAction" style="-fx-background-color: rgb(196, 196, 196);" text="Iniciar sesión">
+                     <font>
+                        <Font name="Lato Regular" size="23.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="12.0" left="25.0" right="25.0" top="12.0" />
+                     </padding>
+                  </JFXButton>
+                  <Separator prefWidth="200.0" />
+                  <JFXButton minWidth="185.0" style="-fx-background-color: rgb(196, 196, 196);" text="Regístrate" onAction="#registrarsePressed">
+                     <font>
+                        <Font name="Lato Regular" size="23.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="12.0" left="25.0" right="25.0" top="12.0" />
+                     </padding>
+                  </JFXButton>
+               </children>
                <padding>
-                  <Insets bottom="12.0" left="25.0" right="25.0" top="12.0" />
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </padding>
-            </JFXButton>
+            </VBox>
          </children>
       </StackPane>
    </bottom>

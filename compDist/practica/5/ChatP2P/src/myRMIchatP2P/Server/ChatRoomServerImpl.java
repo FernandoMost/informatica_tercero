@@ -1,18 +1,22 @@
 package myRMIchatP2P.Server;
 
+import myRMIchatP2P.Client.ChatRoomClientInterfaceForClients;
 import myRMIchatP2P.Client.ChatRoomClientInterfaceForServer;
 
 import java.rmi.*;
 import java.rmi.server.*;
+import java.util.HashSet;
 import java.util.Vector;
 
 public class ChatRoomServerImpl extends UnicastRemoteObject implements ChatRoomServerInterface {
     private Vector<ChatRoomClientInterfaceForServer> listaClientes;
+    private Vector<ChatRoomClientInterfaceForClients> listaClientesParaClientes;
     private final DAOChatRoom dataAccessObject;
 
     public ChatRoomServerImpl() throws RemoteException {
         super();
         listaClientes = new Vector<>();
+        listaClientesParaClientes = new Vector<>();
         dataAccessObject = new DAOChatRoom();
     }
 
@@ -24,26 +28,36 @@ public class ChatRoomServerImpl extends UnicastRemoteObject implements ChatRoomS
     }
 
     @Override
-    public void logInChatRoom(ChatRoomClientInterfaceForServer cliente) throws RemoteException {
+    public void logInChatRoom(ChatRoomClientInterfaceForServer cliente, ChatRoomClientInterfaceForClients clienteParaCliente) throws RemoteException {
         // store the callback object into the vector
-        if (!(listaClientes.contains(cliente))) {
+        if (!listaClientes.contains(cliente)) {
             listaClientes.addElement(cliente);
-            System.out.println("Nuevo cliente registrado.");
+            listaClientesParaClientes.addElement(clienteParaCliente);
+            System.out.println("\tNuevo cliente registrado.");
+        }
+
+        // iterando por los clientes conectados, si son amigos actualizan sus listas
+        HashSet<String> amigos = getAmigos(cliente);
+        for (ChatRoomClientInterfaceForServer clienteConectado : listaClientes) {
+            if (amigos.contains(clienteConectado.getNombre()))
+                clienteConectado.nuevoAmigoConectado();
         }
     }
 
-    public synchronized void registerInChatRoom(ChatRoomClientInterfaceForServer cliente) throws RemoteException {
-        dataAccessObject.guardarNuevoUsuario(cliente.getNombre(), cliente.getContrasena());
+    @Override
+    public synchronized void guardarNuevoUsuario(String usuario, String contrasena) throws RemoteException {
+        dataAccessObject.guardarNuevoUsuario(usuario, contrasena);
     }
 
     @Override
-    public void solicitudDeAmistad(ChatRoomClientInterfaceForServer cliente) throws RemoteException {
+    public void guardarsolicitudDeAmistad(ChatRoomClientInterfaceForServer origen, String destino) throws RemoteException {
+        dataAccessObject.guardarNuevaSolicitudAmistad(origen.getNombre(), destino);
 
-    }
-
-    @Override
-    public boolean existeUsuario(ChatRoomClientInterfaceForServer cliente) throws RemoteException {
-        return this.existeUsuario(cliente.getNombre());
+        for (ChatRoomClientInterfaceForServer conectado : listaClientes)
+            if (conectado.getNombre().equals(destino)) {
+                conectado.nuevaSolicitudAmistad();
+                break;
+            }
     }
 
     @Override
@@ -52,28 +66,60 @@ public class ChatRoomServerImpl extends UnicastRemoteObject implements ChatRoomS
     }
 
     @Override
+    public boolean existeAmistad(ChatRoomClientInterfaceForServer amigo1, String amigo2) throws RemoteException {
+        return dataAccessObject.existeAmistad(amigo1.getNombre(), amigo2);
+    }
+
+    @Override
+    public boolean existeYaUnaSolicitud(ChatRoomClientInterfaceForServer amigo1, String amigo2) throws RemoteException {
+        return dataAccessObject.existeYaUnaSolicitud(amigo1.getNombre(), amigo2);
+    }
+
+    @Override
     public boolean logInCorrecto(String nombre, String contrasena) throws RemoteException {
         return dataAccessObject.loginCorrecto(nombre, contrasena);
     }
 
     @Override
-    public void responderSolicitudDeAmistad(ChatRoomClientInterfaceForServer cliente) throws RemoteException {
+    public void responderSolicitudDeAmistad(ChatRoomClientInterfaceForServer yo, String elOtro, boolean acepta) throws RemoteException {
+        if (acepta) {
+            dataAccessObject.aceptarSolicitudAmistad(yo.getNombre(), elOtro);
 
+            for (ChatRoomClientInterfaceForServer conectado : listaClientes)
+                if (conectado.getNombre().equals(elOtro)) {
+                    conectado.nuevoAmigo();
+                    System.out.println("avisando a " + elOtro + " que su solicitud a " + yo.getNombre() + " fue aceptada");
+                    break;
+                }
+        } else
+            dataAccessObject.rechazarSolicitudAmistad(yo.getNombre(), elOtro);
     }
 
     @Override
-    public void getAmigos(ChatRoomClientInterfaceForServer cliente) throws RemoteException {
-
+    public boolean tieneSolicitudes(ChatRoomClientInterfaceForServer usuario) throws RemoteException {
+        return dataAccessObject.tengoSolicitudesAmistad(usuario.getNombre());
     }
 
     @Override
-    public void getAmigosConectados(ChatRoomClientInterfaceForServer cliente) throws RemoteException {
-
+    public HashSet<String> getSolicitudes(ChatRoomClientInterfaceForServer usuario) throws RemoteException {
+        return dataAccessObject.getSolicitudesAmistad(usuario.getNombre());
     }
 
     @Override
-    public void getAmigosDiferenciados(ChatRoomClientInterfaceForServer cliente) throws RemoteException {
+    public HashSet<String> getAmigos(ChatRoomClientInterfaceForServer cliente) throws RemoteException {
+        return dataAccessObject.getAmigos(cliente.getNombre());
+    }
 
+    @Override
+    public Vector<ChatRoomClientInterfaceForClients> getAmigosConectados(ChatRoomClientInterfaceForServer cliente) throws RemoteException {
+        HashSet<String> nombresAmigos = dataAccessObject.getAmigos(cliente.getNombre());
+        Vector<ChatRoomClientInterfaceForClients> objetosAmigos = new Vector<>();
+
+        for (ChatRoomClientInterfaceForClients c : listaClientesParaClientes)
+            if (nombresAmigos.contains(c.getNombre()))
+                objetosAmigos.add(c);
+
+        return objetosAmigos;
     }
 
     @Override
@@ -83,9 +129,19 @@ public class ChatRoomServerImpl extends UnicastRemoteObject implements ChatRoomS
 
     @Override
     public void logOutChatRoom(ChatRoomClientInterfaceForServer cliente) throws RemoteException {
-        if (listaClientes.removeElement(cliente))
-            System.out.println("Cliente ha roto la suscripción");
-        else
-            System.out.println("unregister: client wasn't registered.");
+        if (listaClientes.contains(cliente)) {
+            listaClientes.removeElement(cliente);
+            listaClientesParaClientes.removeElement(cliente);
+
+            System.out.println("\tCliente ha roto la suscripción");
+        } else
+            System.out.println("\tCliente no estaba registrado");
+
+        // iterando por los clientes conectados, si son amigos actualizan sus listas
+        HashSet<String> amigos = getAmigos(cliente);
+        for (ChatRoomClientInterfaceForServer clienteConectado : listaClientes) {
+            if (amigos.contains(clienteConectado.getNombre()))
+                clienteConectado.amigoDesconectado();
+        }
     }
 }

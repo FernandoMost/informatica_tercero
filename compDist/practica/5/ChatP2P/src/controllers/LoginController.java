@@ -12,21 +12,29 @@ import javafx.stage.StageStyle;
 
 import myRMIchatP2P.Server.ChatRoomServerInterface;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 public class LoginController extends CommonController {
     @FXML private TextField ipTextField, portTextField;
     @FXML private Label exceptionLabel;
 
-    public void accessAction(ActionEvent e) {
-        String registryURL = "rmi://localhost:1099/ChatRoom";
-
+    private ChatRoomServerInterface lookup() {
         try {
-            ChatRoomServerInterface serverInterface = (ChatRoomServerInterface) Naming.lookup(registryURL);
+            return (ChatRoomServerInterface) Naming.lookup("rmi://localhost:1099/ChatRoom");
+        } catch (NotBoundException | MalformedURLException | RemoteException e) {
+            e.printStackTrace();
+        }
 
-            System.out.println("Objeto remoto encontrado!\nEl servidor te saluda: " + serverInterface.sayHello());
+        return null;
+    }
+
+    public void accessAction(ActionEvent e) {
+        try {
+            ChatRoomServerInterface serverInterface = lookup();
 
             Stage chatStage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resources/chat.fxml"));
@@ -40,7 +48,7 @@ public class LoginController extends CommonController {
                     portTextField.getText(),
                     serverInterface);
 
-            ((Stage) ((Button) e.getSource()).getScene().getWindow()).close();
+            ((Stage) ipTextField.getScene().getWindow()).close();
             chatStage.show();
         } catch (NotBoundException ex) {
             exceptionLabel.setText("Lookup in the registry a name that has no associated binding.");
@@ -49,8 +57,29 @@ public class LoginController extends CommonController {
         } catch (Exception ex) {
             exceptionLabel.setText(ex.getMessage());
         } finally {
-            System.out.println(exceptionLabel.getText());
             exceptionLabel.setVisible(true);
         }
+    }
+
+    public void registrarsePressed() {
+        try {
+            Stage nuevoAmigoStage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resources/registro.fxml"));
+            nuevoAmigoStage.initStyle(StageStyle.UNDECORATED);
+            nuevoAmigoStage.setScene(new Scene(fxmlLoader.load()));
+            nuevoAmigoStage.show();
+
+            RegistroController registroController = fxmlLoader.getController();
+            registroController.setServerInterface(lookup());
+            registroController.setLoginController(this);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    void fakeLogInFromSignUp(String usuario, String contrasena) {
+        ipTextField.setText(usuario);
+        portTextField.setText(contrasena);
+        this.accessAction(null);
     }
 }

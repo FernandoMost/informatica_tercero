@@ -17,6 +17,7 @@ public class ChatRoomClient extends Application {
     }
 
     public static void main(String args[]) {
+        com.sun.javafx.util.Logging.getCSSLogger().setLevel(sun.util.logging.PlatformLogger.Level.OFF);
         launch(args);
         /*
             HeartRateServerInterface h = (HeartRateServerInterface)Naming.lookup(registryURL);
