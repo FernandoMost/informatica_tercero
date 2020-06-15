@@ -49,4 +49,11 @@
     -fx-background-position: center;
 }
 
+.botonCerrarChat {
+    -fx-background-image: url(images/close.png);
+    -fx-background-size: 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
 

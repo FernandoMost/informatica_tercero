@@ -21,6 +21,7 @@ public class RegistroController extends CommonController {
 
     public void setServerInterface(ChatRoomServerInterface chatRoomServerInterface) {
         this.serverInterface = chatRoomServerInterface;
+        nombreTextField.requestFocus();
     }
 
     public void setLoginController(LoginController loginController) {

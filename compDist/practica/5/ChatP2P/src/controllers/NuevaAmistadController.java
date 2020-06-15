@@ -27,6 +27,7 @@ public class NuevaAmistadController extends CommonController {
 
     public void setServerInterface(ChatRoomServerInterface chatRoomServer) {
         this.serverInterface = chatRoomServer;
+        nuevoAmigoTextField.requestFocus();
     }
 
     public void setClient(ChatRoomClientImpl chatRoomClient) {

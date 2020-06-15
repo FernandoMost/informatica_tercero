@@ -2,12 +2,15 @@ package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
+import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -15,17 +18,22 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import myRMIchatP2P.Client.ChatRoomClientImpl;
 import myRMIchatP2P.Client.ChatRoomClientInterfaceForClients;
 import myRMIchatP2P.Server.ChatRoomServerInterface;
 
 import java.io.IOException;
-import java.net.DatagramPacket;
 import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Vector;
 
@@ -33,7 +41,11 @@ public class ChatController extends CommonController {
     private ChatRoomClientImpl chatRoomClient;
     private ChatRoomServerInterface chatRoomServer;
     private Vector<ChatRoomClientInterfaceForClients> amigosConectados;
+    private ChatRoomClientInterfaceForClients currentClientOnChat;
+    private VBox currentVBoxOnChat;
 
+    private HashMap<String, VBox> vBoxsChats;
+    private HashMap<String, FadeTransition> ongoingBlinkings;
     private DateFormat dateFormat = new SimpleDateFormat("HH:mm");
 
     @FXML private JFXTextArea messageTextArea;
@@ -42,13 +54,21 @@ public class ChatController extends CommonController {
     @FXML private ScrollPane chatScrollPane;
     @FXML private Label amigosEmpty;
     @FXML private Label chatsOwnerLabel;
+    @FXML private Label chatsNameLabel;
+    @FXML private JFXButton closeChatButton;
 
     public void createChatRoom(String nombre, String contrasena, ChatRoomServerInterface chatRoomServer) throws Exception {
         this.chatRoomServer = chatRoomServer;
         amigosConectados = new Vector<>();
+        vBoxsChats = new HashMap<>();
+        ongoingBlinkings = new HashMap<>();
+        currentVBoxOnChat = chatVBox;
 
         if (!this.chatRoomServer.existeUsuario(nombre))
             throw new Exception("El nombre de usuario no existe. Regístrate!");
+
+        if (this.chatRoomServer.estaConectado(nombre))
+            throw new Exception("El usuario ya está conectado en otro cliente.");
 
         if (!this.chatRoomServer.logInCorrecto(nombre, contrasena))
             throw new Exception("Contraseña incorrecta.");
@@ -89,11 +109,23 @@ public class ChatController extends CommonController {
                 HashSet<String> nombresConectados = new HashSet<>();
 
                 for (ChatRoomClientInterfaceForClients amigo : amigosConectados) {
-                    nombresConectados.add(amigo.getNombre());
+                    String nombre = amigo.getNombre();
+
+                    nombresConectados.add(nombre);
                     JFXButton botonAmigo = new JFXButton();
                     botonAmigo.getStyleClass().add("bloque_amigo_conectado");
                     botonAmigo.setMaxWidth(Double.MAX_VALUE);
-                    botonAmigo.setText(amigo.getNombre());
+                    botonAmigo.setText(nombre);
+                    botonAmigo.setOnAction(event -> clickaAmigoConectado(event));
+
+                    if (!vBoxsChats.containsKey(nombre)) {
+                        VBox vBoxChat = new VBox();
+                        vBoxChat.getStyleClass().add("section");
+                        vBoxChat.setSpacing(10.0);
+                        vBoxChat.setPadding(new Insets(20,20,20,20));
+
+                        vBoxsChats.put(nombre, vBoxChat);
+                    }
 
                     Platform.runLater(() -> {
                         amigosVBox.getChildren().add(botonAmigo);
@@ -107,6 +139,8 @@ public class ChatController extends CommonController {
                         botonAmigo.setMaxWidth(Double.MAX_VALUE);
                         botonAmigo.setText(nombre);
                         botonAmigo.setDisable(true);
+
+                        vBoxsChats.remove(nombre);
 
                         Platform.runLater(() -> {
                             amigosVBox.getChildren().add(botonAmigo);
@@ -128,14 +162,10 @@ public class ChatController extends CommonController {
     }
 
     public void sendAction() {
-        /*String message = messageTextArea.getText();
+        String message = messageTextArea.getText();
 
         if (!message.isEmpty()) {
-            byte[] m = message.getBytes();
-            DatagramPacket messageOut = new DatagramPacket(m, m.length, multicastSession.getInetAddress(), multicastSession.getPort());
-
             try {
-                multicastSession.getMulticastSocket().send(messageOut);
                 messageTextArea.setText("");
 
                 Text text = new Text(message);
@@ -151,14 +181,18 @@ public class ChatController extends CommonController {
                 time.setStyle("-fx-font-size: 12px");
                 text.setStyle("-fx-font-size: 20px");
 
-                textFlow.getChildren().add(text);
-                hBox.getChildren().add(time);
-                hBox.getChildren().add(textFlow);
-                chatVBox.getChildren().add(hBox);
-            } catch (IOException ex) {
-                ex.printStackTrace();
+                Platform.runLater(() -> {
+                    textFlow.getChildren().add(text);
+                    hBox.getChildren().add(time);
+                    hBox.getChildren().add(textFlow);
+                    currentVBoxOnChat.getChildren().add(hBox);
+                });
+
+                currentClientOnChat.nuevoMensaje(chatRoomClient, message);
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
-        }*/
+        }
     }
 
     public void onEnterPressed(KeyEvent e) {
@@ -171,34 +205,57 @@ public class ChatController extends CommonController {
         }
     }
 
-    public void uncomingMessage(DatagramPacket packet) {
-        /*String host, port, message;
-
-        host = packet.getAddress().getHostName();
-        port = String.valueOf(packet.getPort());
-        message = new String(packet.getData(), 0, packet.getLength());
-
-        Text source = new Text(host + ":" + port);
-        Text text = new Text(message);
+    public void uncomingMessage(ChatRoomClientInterfaceForClients origen, String mensaje) {
+        Text text = new Text(mensaje);
         Date date = new Date();
         Text time = new Text(dateFormat.format(date));
+        TextFlow textFlow = new TextFlow();
         HBox hBox = new HBox();
-        VBox vBox = new VBox();
+        String nombreOrigen = null;
+        try {
+            nombreOrigen = origen.getNombre();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
 
         hBox.setAlignment(Pos.BOTTOM_LEFT); hBox.setSpacing(8);
-        vBox.setAlignment(Pos.TOP_LEFT); vBox.setSpacing(10);
-        vBox.setPadding(new Insets(7,7,7,7));
-        vBox.setStyle("-fx-background-color: rgba(0,255,0,0.31)");
+        textFlow.setTextAlignment(TextAlignment.LEFT);
+        textFlow.setStyle("-fx-background-color: rgba(0,255,0,0.31)");
+        textFlow.setPadding(new Insets(7,7,7,7));
         time.setStyle("-fx-font-size: 12px");
-        source.setStyle("-fx-font-weight: bold");
-        source.setStyle("-fx-font-size: 10");
         text.setStyle("-fx-font-size: 20px");
 
-        vBox.getChildren().add(source);
-        vBox.getChildren().add(text);
-        hBox.getChildren().add(vBox);
-        hBox.getChildren().add(time);
-        chatVBox.getChildren().add(hBox);*/
+        VBox vBoxDestino = vBoxsChats.get(nombreOrigen);
+
+        Platform.runLater(() -> {
+            textFlow.getChildren().add(text);
+            hBox.getChildren().add(time);
+            hBox.getChildren().add(textFlow);
+            if (vBoxDestino != null) {
+                vBoxDestino.getChildren().add(hBox);
+            }
+        });
+
+        if (vBoxDestino != currentVBoxOnChat) {
+            FadeTransition ft = new FadeTransition(Duration.seconds(0.5), getBotonAmigo(nombreOrigen));
+            ft.setFromValue(1.0);
+            ft.setToValue(0.3);
+            ft.setCycleCount(Animation.INDEFINITE);
+            ft.setAutoReverse(true);
+
+            ft.play();
+            ongoingBlinkings.put(nombreOrigen, ft);
+        }
+    }
+
+    private JFXButton getBotonAmigo(String nombre) {
+        for (Node child : amigosVBox.getChildren()) {
+            if (child instanceof JFXButton)
+                if (((JFXButton) child).getText().equals(nombre))
+                    return (JFXButton) child;
+        }
+
+        return null;
     }
 
     public void nuevoAmigoPressed(ActionEvent e) {
@@ -279,5 +336,43 @@ public class ChatController extends CommonController {
         }
 
         Platform.runLater(this::actualizarSolicitudesAmistad);
+    }
+
+    public void clickaAmigoConectado(ActionEvent e) {
+        JFXButton boton = (JFXButton) e.getSource();
+        String nombre = boton.getText();
+
+        chatsNameLabel.setText(nombre + "'s Chat");
+
+        chatScrollPane.setContent(vBoxsChats.get(nombre));
+
+        closeChatButton.setVisible(true);
+
+        for (ChatRoomClientInterfaceForClients conectado: amigosConectados) {
+            try {
+                if (conectado.getNombre().equals(nombre)) {
+                    currentClientOnChat = conectado;
+                    currentVBoxOnChat = vBoxsChats.get(nombre);
+                    if (ongoingBlinkings.containsKey(nombre)) {
+                        ongoingBlinkings.get(nombre).stop();
+                        ongoingBlinkings.remove(nombre);
+                        Platform.runLater(() -> {
+                            boton.setOpacity(1.0);
+                        });
+                    }
+                    break;
+                }
+            } catch (RemoteException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public void cerrarChat(ActionEvent e) {
+        chatsNameLabel.setText("Chat");
+        closeChatButton.setVisible(false);
+        currentVBoxOnChat = chatVBox;
+        chatScrollPane.setContent(currentVBoxOnChat);
+        currentClientOnChat = null;
     }
 }

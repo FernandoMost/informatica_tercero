@@ -10,6 +10,7 @@ import java.util.Vector;
 public interface ChatRoomServerInterface extends Remote {
     public String sayHello() throws RemoteException;
     public void logInChatRoom(ChatRoomClientInterfaceForServer cliente, ChatRoomClientInterfaceForClients clienteParaCliente) throws RemoteException;
+    public boolean estaConectado(String usuario) throws RemoteException;
     public void guardarNuevoUsuario(String usuario, String contrasena) throws RemoteException;
     public void guardarsolicitudDeAmistad(ChatRoomClientInterfaceForServer origen, String destino) throws RemoteException;
     public boolean existeUsuario(String nombre) throws RemoteException;
@@ -21,6 +22,5 @@ public interface ChatRoomServerInterface extends Remote {
     public void responderSolicitudDeAmistad(ChatRoomClientInterfaceForServer origen, String destino, boolean acepta) throws RemoteException;
     public HashSet<String> getAmigos(ChatRoomClientInterfaceForServer cliente) throws RemoteException;
     public Vector<ChatRoomClientInterfaceForClients> getAmigosConectados(ChatRoomClientInterfaceForServer cliente) throws RemoteException;
-    public void eliminarAmistad(ChatRoomClientInterfaceForServer cliente) throws RemoteException;
     public void logOutChatRoom(ChatRoomClientInterfaceForServer cliente) throws RemoteException;
 }

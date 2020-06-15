@@ -33,8 +33,8 @@ public class ChatRoomClientImpl extends UnicastRemoteObject implements ChatRoomC
 
 
     @Override
-    public void nuevoMensaje(String mensaje) throws RemoteException {
-
+    public void nuevoMensaje(ChatRoomClientInterfaceForClients origen, String mensaje) throws RemoteException {
+        chatController.uncomingMessage(origen, mensaje);
     }
 
     @Override

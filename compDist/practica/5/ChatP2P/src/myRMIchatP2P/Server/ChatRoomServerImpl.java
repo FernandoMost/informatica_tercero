@@ -44,6 +44,15 @@ public class ChatRoomServerImpl extends UnicastRemoteObject implements ChatRoomS
         }
     }
 
+    public boolean estaConectado(String usuario) throws RemoteException {
+        for (ChatRoomClientInterfaceForServer c : listaClientes) {
+            if (c.getNombre().equals(usuario))
+                return true;
+        }
+
+        return false;
+    }
+
     @Override
     public synchronized void guardarNuevoUsuario(String usuario, String contrasena) throws RemoteException {
         dataAccessObject.guardarNuevoUsuario(usuario, contrasena);
@@ -120,11 +129,6 @@ public class ChatRoomServerImpl extends UnicastRemoteObject implements ChatRoomS
                 objetosAmigos.add(c);
 
         return objetosAmigos;
-    }
-
-    @Override
-    public void eliminarAmistad(ChatRoomClientInterfaceForServer cliente) throws RemoteException {
-
     }
 
     @Override

@@ -13,5 +13,5 @@ public interface ChatRoomClientInterfaceForClients extends Remote {
     /**
      * Otro usuario envió un mensaje
      */
-	public void nuevoMensaje(String mensaje) throws RemoteException;
+	public void nuevoMensaje(ChatRoomClientInterfaceForClients origen, String mensaje) throws RemoteException;
 }
